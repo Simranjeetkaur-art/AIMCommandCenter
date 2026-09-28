@@ -1,0 +1,18 @@
+AIM Command Center v3.2 — Administration
+
+PASS — Admin center
+PASS — Student registration
+PASS — Duplicate email guard
+PASS — Progress tracking
+PASS — Credential registry
+PASS — Credential status controls
+PASS — Student record
+PASS — Admin dashboard metrics
+PASS — Current candidate sync
+PASS — Certificate retained
+PASS — Final exam retained
+PASS — Practical retake retained
+PASS — Check Ride retained
+PASS — 100 missions retained
+PASS — 10 modules retained
+PASS — JS syntax

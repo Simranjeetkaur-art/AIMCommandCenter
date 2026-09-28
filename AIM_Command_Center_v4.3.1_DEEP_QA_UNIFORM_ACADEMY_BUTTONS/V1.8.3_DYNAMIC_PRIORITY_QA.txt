@@ -1,0 +1,14 @@
+AIM Command Center v1.8.3 — Dynamic Rx Priorities
+
+PASS — JS syntax
+PASS — Critical priorities up to 7
+PASS — Elevated priorities up to 5
+PASS — Moderate priorities up to 3
+PASS — Lower priorities up to 2
+PASS — Dynamic action generator
+PASS — Current score displayed
+PASS — Target state displayed
+PASS — Contextual AP remedy
+PASS — Existing dynamic management interpretation
+
+Priority depth now varies by profile: Critical up to 7, Elevated up to 5, Moderate up to 3, Lower up to 2. Ordering is score-driven. Each item now shows current score, contextual action, and target authority state after actual architectural change.

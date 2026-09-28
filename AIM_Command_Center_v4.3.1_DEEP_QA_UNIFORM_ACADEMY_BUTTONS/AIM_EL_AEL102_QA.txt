@@ -1,0 +1,19 @@
+PASS — AEL101 retained
+PASS — AEL102 exists
+PASS — 10 questions
+PASS — 80 percent
+PASS — Badge
+PASS — No failed answers
+PASS — Governance roles
+PASS — Board oversight
+PASS — Governance formula
+PASS — Reauthorization
+PASS — Runtime governance
+PASS — Enterprise case
+PASS — Leadership decision
+PASS — Next AEL103
+PASS — AIM-CA prerequisite
+PASS — CA credential retained
+PASS — CA defense retained
+PASS — CP retained
+PASS — JS syntax

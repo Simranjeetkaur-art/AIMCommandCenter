@@ -1,0 +1,8 @@
+AIM Command Center v2.4.5 — Assessment Action Colors
+
+PASS — Retake teal
+PASS — Back blue-gray
+PASS — Next active blue
+PASS — Next failed gray
+PASS — Assessment workflow retained
+PASS — JS syntax

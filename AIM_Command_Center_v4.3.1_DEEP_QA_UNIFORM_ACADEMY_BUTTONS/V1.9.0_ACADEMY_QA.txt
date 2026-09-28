@@ -1,0 +1,19 @@
+AIM Command Center v1.9.0 — AIM Academy Foundation
+
+PASS — JS syntax
+PASS — Academy hero
+PASS — Three certification levels
+PASS — 10 modules
+PASS — 100 mission UI
+PASS — Five mission bands
+PASS — Simulator interactive
+PASS — 80 percent certification standard
+PASS — Practical assessment gate
+PASS — Commander Check Ride
+PASS — Local progress persistence
+PASS — No registry reintroduced
+PASS — Dx section preserved
+PASS — Rx section preserved
+PASS — Dynamic Rx preserved
+
+Scope: Academy foundation only. AIM-CP is the active launch path. AIM-CA and AIM-EL are visible future levels. Dashboard/Dx/Rx architecture preserved. This static prototype stores Academy progress locally; production identity, proctoring, payment, certificate issuance, QR verification, and backend persistence are not yet connected.

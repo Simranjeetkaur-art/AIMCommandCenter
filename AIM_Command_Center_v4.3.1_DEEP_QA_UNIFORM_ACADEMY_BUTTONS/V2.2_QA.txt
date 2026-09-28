@@ -1,0 +1,15 @@
+AIM Command Center v2.2 — Module 7 Evidence Monitoring Drift
+
+PASS — Module 7 lesson
+PASS — Module 7 questions
+PASS — Module 7 route
+PASS — Drift formula
+PASS — Evidence chain
+PASS — Tripwires
+PASS — Last Command evidence
+PASS — Modules 1-6 retained
+PASS — Right navigation retained
+PASS — Simulator retained
+PASS — Help retained
+PASS — Dynamic Rx retained
+PASS — Badge scoring retained

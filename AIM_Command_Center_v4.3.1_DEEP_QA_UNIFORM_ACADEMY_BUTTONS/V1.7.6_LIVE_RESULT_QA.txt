@@ -1,0 +1,23 @@
+AIM Command Center v1.7.6 — Live Result Execution Repair
+
+ROOT CAUSE:
+The Dx calculation itself was correct. The failure occurred in the screen execution sequence:
+calculate() called save(), and save() called updateAll(). updateAll() still updates optional
+Dashboard/Academy elements. If one of those elements was unavailable, JavaScript threw before
+calculate() reached renderResult(). The newly calculated state had already been written to
+localStorage, which is why refreshing the browser displayed the correct result.
+
+FIX:
+1. save() now always persists state first.
+2. Optional updateAll() screen refresh is isolated so it cannot interrupt Dx.
+3. calculate() immediately calls renderResult() after save().
+4. calculate() also refreshes Rx data immediately.
+5. renderResult() explicitly resolves #dxResult rather than relying on an implicit browser global.
+
+QA:
+PASS — save persists before optional UI refresh
+PASS — optional updateAll cannot stop calculate
+PASS — calculate renders result after save
+PASS — renderResult uses explicit result mount
+PASS — single Calculate button remains
+PASS — Rx heat map preserved

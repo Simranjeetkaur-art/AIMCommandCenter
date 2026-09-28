@@ -1,0 +1,20 @@
+PASS — AEL101-107
+PASS — 10 questions
+PASS — 80 pass
+PASS — badge
+PASS — legal caveat
+PASS — obligation control
+PASS — board oversight
+PASS — management
+PASS — evidence
+PASS — human oversight
+PASS — independent
+PASS — reauthorization
+PASS — case
+PASS — leadership
+PASS — next
+PASS — no answers
+PASS — AEL106 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

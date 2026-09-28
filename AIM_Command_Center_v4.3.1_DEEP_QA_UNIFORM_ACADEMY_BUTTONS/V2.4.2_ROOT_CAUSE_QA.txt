@@ -1,0 +1,23 @@
+AIM Command Center v2.4.2 — Assessment Submit Root Cause Fix
+
+ROOT CAUSE:
+Assessment radio buttons used inline onchange attributes to write into a top-level
+`let activeAnswers` lexical binding. Inline HTML event attributes do not reliably
+resolve top-level lexical `let` variables, so visible radio selections could fail
+to populate the grading state.
+
+FIX:
+gradeModule() now reads checked radio inputs directly from the DOM at submit time.
+The assessment no longer depends on onchange state.
+
+PASS — DOM radio grading
+PASS — no inline activeAnswers onchange
+PASS — score
+PASS — retake
+PASS — lesson
+PASS — next
+PASS — fail lock
+PASS — Module 9 preserved
+PASS — single gradeModule
+PASS — single retake
+PASS — syntax

@@ -1,0 +1,60 @@
+AIM COMMAND CENTER v4.3.1 — DEEP PORTAL QA / SCRUB
+
+CRITICAL ROOT CAUSE FOUND AND FIXED
+PASS — Command Dashboard navigation from AIM-CA / AIM-EL.
+Root cause: Academy uses class "screen", while go() previously removed "active" only from ".page" elements. The Academy could remain active and cover the destination page.
+Fix: go() now clears active from BOTH ".page" and ".screen" before activating the destination.
+PASS — Navigation scrolls to top after page changes.
+PASS — AIM Command Center brand/logo is clickable and returns to Command Dashboard.
+PASS — AIM-EL VIEW PATH opens the real AIM-EL path; obsolete future-path alert is absent.
+
+CONTENT / CURRICULUM
+PASS — AIM-CP: 10 modules × 10 questions.
+PASS — AIM-CA: 10 modules × 10 questions.
+PASS — AIM-EL: 10 modules × 10 questions.
+PASS — All checked module questions have four choices and valid keyed answers.
+PASS — AIM-CP module questions include explanations.
+PASS — AIM-CP final bank: 150 questions, exactly 15 per module.
+PASS — AIM-EL Executive Exam: 50 questions.
+PASS — AAI remains a comparison index, not a safety verdict/deployment permission.
+PASS — A/G/H/X and Last Command/external revocation terminology retained.
+PASS — ACA-108 catalog corrected to Last Command & Sovereign Control Architecture.
+PASS — ACA-109 catalog corrected to High-Consequence & Physical Autonomy Architecture.
+PASS — AEL-103 typo corrected: Then enterprise authority -> When enterprise authority.
+PASS — Grammar scrub corrected repeated A hr / A enterprise it / A energy agent wording.
+PASS — CP printable certificate wording corrected to Certificate of Achievement.
+
+PORTAL / UI STRUCTURE
+PASS — No duplicate HTML IDs.
+PASS — Static onclick targets resolve to defined portal functions.
+PASS — Dashboard, Dx, Rx, Academy, Certification and Administration navigation retained.
+PASS — Approved dashboard hero/visual identity retained.
+PASS — Global Help and dedicated certificate structures retained.
+PASS — Brand Home control includes accessibility label and keyboard focus treatment.
+
+CERTIFICATION INTEGRITY
+PASS — AIM-CA Development Access does not substitute for ACTIVE credential requirements.
+PASS — AIM-EL retains ACTIVE AIM-CA prerequisite and human-approved Governance Capstone gate.
+PASS — Reviewer identity/notes workflow retained.
+PASS — Development Access cannot automatically create AIM-EL capstone approval.
+
+AUTOMATED QA
+PASS — JavaScript syntax validation.
+PASS — 1,148 automated curriculum/answer/integrity checks.
+PASS — 0 automated failures.
+PASS — 0 duplicate HTML IDs.
+PASS — 0 missing static onclick handlers.
+
+RUNTIME LIMITATION
+A headless Chromium rendered-browser test was attempted, but Chromium did not complete reliably in this container. This report therefore does not claim pixel-perfect browser QA. Final acceptance should include a real Chrome/Edge click-through at 1920x1080, 1440x900, 1366x768 and a narrow/mobile viewport.
+
+HUMAN ACCEPTANCE WALK-THROUGH
+1. Click every left navigation item and AIM Command Center logo.
+2. Enter AIM-CA, open ACA-101 and ACA-110, then click Command Dashboard.
+3. Enter AIM-EL, open AEL-101 and AEL-110, then click Command Dashboard.
+4. Switch CP -> CA -> EL -> CP.
+5. Run representative pass/fail assessments and confirm failed attempts do not reveal correct answers.
+6. Confirm Development Access cannot mint ACTIVE CA/EL credentials.
+7. Test Dx low/mid/high values and confirm Rx changes dynamically.
+8. Open global Help from every major portal area.
+9. Check common desktop and mobile viewport sizes for clipping.

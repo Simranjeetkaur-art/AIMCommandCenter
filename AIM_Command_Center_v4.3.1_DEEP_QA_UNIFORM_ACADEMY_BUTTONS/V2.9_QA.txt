@@ -1,0 +1,14 @@
+AIM Command Center v2.9
+
+150-question bank; 50-question balanced randomized final exam.
+
+PASS — 150 bank
+PASS — 15/module
+PASS — 50 balanced
+PASS — 80 pass
+PASS — scramble
+PASS — no answer key
+PASS — retake
+PASS — 10 lessons
+PASS — 100 missions
+PASS — syntax

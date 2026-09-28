@@ -1,0 +1,21 @@
+AIM Command Center v4.3.1 — AIM-CA Style Standardization + ACA-102
+
+PASS — Unified CA typography
+PASS — ACA101 retained
+PASS — ACA101 assessment retained
+PASS — ACA102 lesson
+PASS — ACA102 question bank
+PASS — ACA102 80 percent
+PASS — ACA102 badge
+PASS — ACA102 path button
+PASS — ACA102 worked AP case
+PASS — ACA102 design practice
+PASS — No fail answer reveal
+PASS — CA 10 module list
+PASS — CP 10 lessons
+PASS — CP path restore
+PASS — Final exam
+PASS — Simulator
+PASS — Practical
+PASS — Certificate
+PASS — JS syntax

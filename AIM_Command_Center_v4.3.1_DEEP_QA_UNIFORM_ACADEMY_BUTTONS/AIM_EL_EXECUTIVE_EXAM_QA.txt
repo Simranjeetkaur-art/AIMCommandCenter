@@ -1,0 +1,14 @@
+PASS — 50 questions
+PASS — 5 per module
+PASS — 4 choices
+PASS — randomized
+PASS — all answered
+PASS — 80 threshold
+PASS — pass state
+PASS — module gate
+PASS — no fail key
+PASS — next crisis
+PASS — AEL110 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

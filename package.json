@@ -1,0 +1,27 @@
+{
+  "name": "aim-command-center",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "build": "npm run build -w @aim/contracts && npm run build -w @aim/api && npm run build -w @aim/web",
+    "dev": "concurrently -n contracts,api,web -c gray,cyan,magenta \"npm run dev -w @aim/contracts\" \"npm run dev -w @aim/api\" \"npm run dev -w @aim/web\"",
+    "test": "npm run test -w @aim/contracts && npm run test -w @aim/api",
+    "db:up": "docker compose up -d db",
+    "db:down": "docker compose down",
+    "db:migrate": "npm run db:migrate -w @aim/api",
+    "db:harden": "npm run db:harden -w @aim/api",
+    "db:seed": "npm run db:seed -w @aim/api",
+    "setup": "npm install && npm run build -w @aim/contracts && npm run db:up && npm run db:migrate && npm run db:harden && npm run db:seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2"
+  }
+}

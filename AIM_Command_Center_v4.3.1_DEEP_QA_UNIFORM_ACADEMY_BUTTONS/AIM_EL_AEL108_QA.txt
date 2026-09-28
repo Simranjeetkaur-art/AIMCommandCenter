@@ -1,0 +1,21 @@
+PASS — AEL101-108
+PASS — 10 questions
+PASS — 80 pass
+PASS — badge
+PASS — loss command
+PASS — incident authority
+PASS — containment
+PASS — cessation
+PASS — common picture
+PASS — safe reversion
+PASS — reauthorization
+PASS — 14 minute case
+PASS — $3.6m
+PASS — $600k
+PASS — 30 minute plan
+PASS — next
+PASS — no answers
+PASS — AEL107 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

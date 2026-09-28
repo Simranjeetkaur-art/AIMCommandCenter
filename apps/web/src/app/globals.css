@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: oklch(0.16 0.015 260);
+  --color-ink-900: oklch(0.21 0.017 260);
+  --color-ink-800: oklch(0.27 0.018 260);
+  --color-ink-700: oklch(0.36 0.018 260);
+  --color-ink-600: oklch(0.45 0.017 260);
+  --color-ink-500: oklch(0.55 0.016 260);
+  --color-ink-400: oklch(0.65 0.015 260);
+  --color-ink-300: oklch(0.76 0.012 260);
+  --color-ink-200: oklch(0.86 0.008 260);
+  --color-ink-100: oklch(0.92 0.006 260);
+  --color-ink-50: oklch(0.97 0.004 260);
+
+  --color-brass-400: oklch(0.78 0.12 78);
+  --color-brass-500: oklch(0.72 0.13 78);
+  --color-brass-600: oklch(0.63 0.13 78);
+
+  --color-signal-green: oklch(0.72 0.15 155);
+  --color-signal-amber: oklch(0.78 0.15 75);
+  --color-signal-red: oklch(0.63 0.2 25);
+  --color-signal-blue: oklch(0.68 0.13 245);
+
+  /*
+   * Chart series, in fixed order. Never cycled, never generated.
+   *
+   * Stepped for this app's dark surface (ink-950) rather than borrowed from the
+   * signal colours above: those sit at L 0.72–0.78, outside the 0.48–0.67 band
+   * a mark needs against this ground, and they are reserved for state —
+   * good / warning / critical — so reusing one as "series 4" would say
+   * something untrue about the data.
+   *
+   * Validated all-pairs for protan, deuteran and tritan vision against
+   * #090d14: worst pair ΔE 9.7 simulated, 16.6 normal, every slot ≥ 3:1
+   * contrast. Four slots is the cap; a fifth series folds into "Other" or
+   * becomes small multiples.
+   */
+  --color-series-1: oklch(0.62 0.15 250);
+  --color-series-2: oklch(0.66 0.14 80);
+  --color-series-3: oklch(0.52 0.16 300);
+  --color-series-4: oklch(0.66 0.13 165);
+
+  /* Magnitude: one hue, light to dark. Never a rainbow. */
+  --color-scale-1: oklch(0.8 0.09 78);
+  --color-scale-2: oklch(0.72 0.13 78);
+  --color-scale-3: oklch(0.63 0.13 78);
+  --color-scale-4: oklch(0.53 0.12 78);
+  --color-scale-5: oklch(0.43 0.1 78);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+
+:root {
+  color-scheme: dark;
+  --page-glow: oklch(0.26 0.03 265 / 0.55);
+}
+
+/*
+ * The light theme.
+ *
+ * Every screen is written against the ink scale, not against "dark", so the
+ * theme is the scale turned over: ink-950 is still the ground and ink-50 still
+ * the strongest text, whichever way round the ground is. No component knows a
+ * light theme exists.
+ *
+ * Brass, the signals and the chart marks are stepped down in lightness rather
+ * than inverted: on white they need L ≈ 0.5–0.6 to read. Text tokens clear
+ * 4.5:1 against both the page and a panel (ink-600, the faintest, is ~4:1, the
+ * same role it plays on dark); chart marks clear 3:1. Hues are unchanged, so a
+ * series is the same colour in both themes.
+ *
+ * Two copies of one block: once for "follow the system" (no data-theme on
+ * <html>), once for an explicit choice. Keep them identical.
+ */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --page-glow: oklch(0.9 0.035 78 / 0.45);
+
+    --color-ink-950: oklch(0.97 0.004 260);
+    --color-ink-900: oklch(0.995 0.002 260);
+    --color-ink-800: oklch(0.9 0.008 260);
+    --color-ink-700: oklch(0.83 0.01 260);
+    --color-ink-600: oklch(0.56 0.013 260);
+    --color-ink-500: oklch(0.52 0.015 260);
+    --color-ink-400: oklch(0.48 0.016 260);
+    --color-ink-300: oklch(0.41 0.017 260);
+    --color-ink-200: oklch(0.33 0.018 260);
+    --color-ink-100: oklch(0.27 0.018 260);
+    --color-ink-50: oklch(0.22 0.018 260);
+
+    --color-brass-400: oklch(0.62 0.12 72);
+    --color-brass-500: oklch(0.55 0.12 70);
+    --color-brass-600: oklch(0.48 0.11 70);
+
+    --color-signal-green: oklch(0.5 0.13 155);
+    --color-signal-amber: oklch(0.55 0.14 58);
+    --color-signal-red: oklch(0.53 0.2 25);
+    --color-signal-blue: oklch(0.52 0.14 250);
+
+    --color-series-1: oklch(0.55 0.15 250);
+    --color-series-2: oklch(0.6 0.13 80);
+    --color-series-3: oklch(0.5 0.16 300);
+    --color-series-4: oklch(0.6 0.12 165);
+
+    --color-scale-1: oklch(0.76 0.1 78);
+    --color-scale-2: oklch(0.66 0.12 78);
+    --color-scale-3: oklch(0.57 0.12 78);
+    --color-scale-4: oklch(0.48 0.11 78);
+    --color-scale-5: oklch(0.39 0.09 78);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page-glow: oklch(0.9 0.035 78 / 0.45);
+
+  --color-ink-950: oklch(0.97 0.004 260);
+  --color-ink-900: oklch(0.995 0.002 260);
+  --color-ink-800: oklch(0.9 0.008 260);
+  --color-ink-700: oklch(0.83 0.01 260);
+  --color-ink-600: oklch(0.56 0.013 260);
+  --color-ink-500: oklch(0.52 0.015 260);
+  --color-ink-400: oklch(0.48 0.016 260);
+  --color-ink-300: oklch(0.41 0.017 260);
+  --color-ink-200: oklch(0.33 0.018 260);
+  --color-ink-100: oklch(0.27 0.018 260);
+  --color-ink-50: oklch(0.22 0.018 260);
+
+  --color-brass-400: oklch(0.62 0.12 72);
+  --color-brass-500: oklch(0.55 0.12 70);
+  --color-brass-600: oklch(0.48 0.11 70);
+
+  --color-signal-green: oklch(0.5 0.13 155);
+  --color-signal-amber: oklch(0.55 0.14 58);
+  --color-signal-red: oklch(0.53 0.2 25);
+  --color-signal-blue: oklch(0.52 0.14 250);
+
+  --color-series-1: oklch(0.55 0.15 250);
+  --color-series-2: oklch(0.6 0.13 80);
+  --color-series-3: oklch(0.5 0.16 300);
+  --color-series-4: oklch(0.6 0.12 165);
+
+  --color-scale-1: oklch(0.76 0.1 78);
+  --color-scale-2: oklch(0.66 0.12 78);
+  --color-scale-3: oklch(0.57 0.12 78);
+  --color-scale-4: oklch(0.48 0.11 78);
+  --color-scale-5: oklch(0.39 0.09 78);
+}
+
+body {
+  background:
+    radial-gradient(900px 500px at 15% -10%, var(--page-glow), transparent),
+    var(--color-ink-950);
+  color: var(--color-ink-50);
+  min-height: 100dvh;
+}
+
+.panel {
+  border: 1px solid var(--color-ink-800);
+  background: color-mix(in oklch, var(--color-ink-900) 82%, transparent);
+  border-radius: 0.75rem;
+}
+
+.rule-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-400);
+}
+
+/*
+ * Imported course markup.
+ *
+ * The lessons came from the prototype with their own class names and no
+ * stylesheet of ours. Rather than port 9,000 lines of CSS, these rules give
+ * the imported structure a house style inside the portal shell.
+ */
+.aimLesson {
+  color: var(--color-ink-200);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.aimLesson h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-ink-50);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+.aimLesson h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink-50);
+  margin: 1.75rem 0 0.5rem;
+}
+.aimLesson h4,
+.aimLesson h5 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink-50);
+  margin: 1.25rem 0 0.375rem;
+}
+.aimLesson p {
+  margin: 0 0 0.875rem;
+}
+.aimLesson b,
+.aimLesson strong {
+  color: var(--color-ink-50);
+  font-weight: 600;
+}
+.aimLesson ul,
+.aimLesson ol {
+  margin: 0 0 1rem 1.25rem;
+}
+.aimLesson li {
+  margin-bottom: 0.375rem;
+}
+.aimLesson .academyEyebrow,
+.aimLesson .lessonNum {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brass-500);
+}
+.aimLesson .lessonHeader {
+  border-bottom: 1px solid var(--color-ink-800);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.aimLesson .lessonLead {
+  color: var(--color-ink-400);
+}
+.aimLesson .lessonStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.aimLesson .lessonStats span {
+  border: 1px solid var(--color-ink-800);
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  color: var(--color-ink-400);
+}
+.aimLesson .lessonSection {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.aimLesson .lessonNum {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-ink-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aimLesson .keyInsight,
+.aimLesson .formulaCard,
+.aimLesson .workedMath,
+.aimLesson .caseBox,
+.aimLesson .execCase,
+.aimLesson .insightBox {
+  border: 1px solid var(--color-ink-800);
+  border-left: 2px solid var(--color-brass-500);
+  border-radius: 0.5rem;
+  padding: 0.875rem 1rem;
+  margin: 1rem 0;
+  background: color-mix(in oklch, var(--color-ink-900) 60%, transparent);
+}
+.aimLesson .formulaCard b {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.aimLesson .workedMath {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.aimLesson .dimensionGrid,
+.aimLesson .schemaGrid,
+.aimLesson .envelopeGrid,
+.aimLesson .classGrid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1rem 0;
+}
+.aimLesson .dimensionGrid > *,
+.aimLesson .schemaGrid > *,
+.aimLesson .envelopeGrid > *,
+.aimLesson .classGrid > * {
+  border: 1px solid var(--color-ink-800);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.75rem;
+}
+.aimLesson span {
+  display: inline;
+}
+.aimLesson table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin: 1rem 0;
+}
+.aimLesson th,
+.aimLesson td {
+  border-bottom: 1px solid var(--color-ink-800);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  text-align: left;
+}
+.aimLesson th {
+  color: var(--color-ink-400);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------ */
+/* Printing a certificate                                              */
+/*                                                                     */
+/* The sheet is the only thing on the paper. Everything is hidden and  */
+/* the certificate shown again, rather than every screen that displays */
+/* one carrying its own print-hiding markup -- the rule lives here, in */
+/* one place, and a new page that renders <Certificate> inherits it    */
+/* without knowing this exists.                                        */
+/*                                                                     */
+/* `visibility` rather than `display`, because a hidden ancestor must  */
+/* still lay out: the sheet is nested several levels inside the portal */
+/* shell, and collapsing those would take the certificate with them.   */
+/* ------------------------------------------------------------------ */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .certificate-sheet,
+  .certificate-sheet * {
+    visibility: visible;
+  }
+
+  .certificate-sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    /* Dark on paper wastes ink and reads badly. The accent colour is the
+       one part an author chose, so it is kept -- see below. */
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  /* Panels, badges and chips all carry a dark ground for the screen. On
+     paper the ground is the paper. */
+  .certificate-sheet * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* The ink scale is built for a dark background: on white it prints
+     somewhere between faint and invisible. Remapped, not removed, so the
+     hierarchy the design intends survives the change of ground. */
+  .certificate-sheet .text-ink-100,
+  .certificate-sheet .text-ink-200,
+  .certificate-sheet .text-ink-300 {
+    color: #14181d !important;
+  }
+  .certificate-sheet .text-ink-400,
+  .certificate-sheet .text-ink-500,
+  .certificate-sheet .text-ink-600,
+  .certificate-sheet .rule-label {
+    color: #555f6a !important;
+  }
+  .certificate-sheet .border-ink-800,
+  .certificate-sheet .border-ink-700 {
+    border-color: #c9d0d8 !important;
+  }
+
+  /* The accent -- the rule under the title, the signature line, the seal
+     ring, the serial -- is set inline from the template, so it survives
+     the rules above on specificity alone. This makes the browser actually
+     put it on the page instead of dropping it as "background graphics". */
+  .certificate-sheet {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* A waiver is part of what the credential means. It keeps its tint so it
+     cannot be mistaken for ordinary body text once the colour is gone. */
+  .certificate-sheet .bg-signal-amber\/5 {
+    background-color: #fdf6e7 !important;
+    border-color: #d9b45e !important;
+  }
+}

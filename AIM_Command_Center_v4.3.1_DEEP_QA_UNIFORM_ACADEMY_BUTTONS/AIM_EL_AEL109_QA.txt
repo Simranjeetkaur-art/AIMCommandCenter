@@ -1,0 +1,20 @@
+PASS — AEL101-109
+PASS — 10 questions
+PASS — 80 pass
+PASS — badge
+PASS — formal model
+PASS — external
+PASS — enterprise revocation
+PASS — cessation
+PASS — safe reversion
+PASS — succession
+PASS — testing
+PASS — human reauth
+PASS — 63 percent
+PASS — charter
+PASS — next
+PASS — no answers
+PASS — AEL108 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

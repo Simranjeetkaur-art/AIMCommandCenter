@@ -1,0 +1,20 @@
+AIM Command Center v1.8.4 — Fully Dynamic A/G/H/X Boundaries
+
+PASS — Dynamic AGHX generator
+PASS — Uses agent purpose
+PASS — Uses AAI
+PASS — Uses full score profile
+PASS — Financial boundaries
+PASS — Healthcare boundaries
+PASS — Cyber boundaries
+PASS — Physical boundaries
+PASS — HR boundaries
+PASS — Legal boundaries
+PASS — Commerce boundaries
+PASS — Critical financial tightening
+PASS — Critical tool tightening
+PASS — Critical human-control tightening
+PASS — All A/G/H/X codes
+PASS — JS syntax
+
+A/G/H/X now derives from agent purpose/domain, AAI context, all 11 Dx scores, and critical/high authority conditions. Financial, healthcare, cybersecurity, physical operations, HR/workforce, legal, commerce, and general enterprise contexts receive different boundaries.

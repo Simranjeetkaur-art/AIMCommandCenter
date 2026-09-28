@@ -1,0 +1,1396 @@
+*{box-sizing:border-box}:root{--nav:#102d3e;--green:#0c7165;--blue:#173f5f;--ink:#142b3b;--muted:#667682;--line:#dbe4e9;--bg:#f3f6f8;--white:#fff;--danger:#a33b3b}
+body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}aside{background:var(--nav);color:#fff;padding:27px 19px;position:sticky;top:0;height:100vh}.brand{display:flex;gap:11px;align-items:center;margin-bottom:35px}.logo{width:48px;height:48px;border:1px solid #75aaa1;border-radius:11px;display:grid;place-items:center;font-weight:900}.brand b{font-size:17px}.brand small{display:block;color:#a9c0cb;margin-top:4px}nav button{width:100%;border:0;background:transparent;color:#c4d4dc;text-align:left;padding:12px;border-radius:8px;margin:4px 0;cursor:pointer}nav button.active,nav button:hover{background:#1b4558;color:#fff}.foot{position:absolute;bottom:28px;color:#a7bbc5;font-size:13px;line-height:1.5}main{padding:0 38px 55px;max-width:1500px;width:100%;margin:auto}header{height:105px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}header h1{margin:3px 0;font-size:25px}.eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:900;color:var(--green)}.identity{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:20px;font-size:13px}.page{display:none}.page.active{display:block}.hero{border-radius:17px;padding:38px 42px;background:linear-gradient(120deg,#14384d,#0d7165);color:white;display:flex;justify-content:space-between;align-items:center}.hero h2{font-size:37px;line-height:1.08;margin:13px 0}.hero p{color:#d5e8e5}.tag{font-size:10px;letter-spacing:1.4px;font-weight:900;border:1px solid currentColor;border-radius:20px;padding:6px 9px;display:inline-block}.tag.dark{color:var(--green)}.heroMetric{width:155px;height:155px;border:9px solid rgba(255,255,255,.22);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}.heroMetric b{font-size:38px}.heroMetric span{font-size:11px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metrics div{background:#fff;border:1px solid var(--line);border-radius:11px;padding:17px}.metrics b{font-size:24px;display:block}.metrics span{font-size:11px;color:var(--muted)}.grid3,.grid2{display:grid;gap:15px;margin:15px 0}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}.card,.certificate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}.card h3{margin:6px 0 8px}.card p,.sectionHead p{color:var(--muted);line-height:1.5}.card button,.primary{background:var(--blue);color:white;border-color:var(--blue)}button{border:1px solid #bdcbd2;background:white;padding:10px 13px;border-radius:8px;font-weight:650;color:var(--ink);cursor:pointer}.principle{display:flex;justify-content:space-around;font-size:18px;margin-top:15px}.sectionHead{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:17px}.sectionHead h2{font-size:29px;margin:5px 0}.meta{display:grid;grid-template-columns:1fr 1fr 2fr;gap:12px}label{font-size:12px;font-weight:700;color:#455764}input,select,textarea{width:100%;padding:9px;border:1px solid #cbd7dd;border-radius:7px;margin-top:5px;font:inherit;color:var(--ink);background:white}.question{display:grid;grid-template-columns:38px 1.35fr 2fr 80px;gap:13px;align-items:center;background:white;border:1px solid var(--line);border-radius:11px;padding:14px 17px;margin:8px 0}.qnum{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#e9f1f3;font-weight:900}.question h4{margin:0 0 4px}.question p{font-size:12px;color:var(--muted);margin:0}.buttons{display:flex;gap:8px;margin:17px 0}.result{background:#102d3e;color:#fff;border-radius:14px;padding:24px}.resultTop{display:flex;justify-content:space-between}.score{font-size:52px;font-weight:900}.bar{display:grid;grid-template-columns:190px 1fr 40px;gap:9px;align-items:center;margin:7px 0}.track{height:8px;background:#39596a;border-radius:9px}.fill{height:8px;background:#7db7ac;border-radius:9px}.formula{font-size:19px;font-weight:900;margin:10px 0 18px}.env{margin:9px 0}.aghxrow{display:grid;grid-template-columns:32px 90px 1fr;gap:8px;align-items:start;margin:9px 0}.aghxrow b{width:30px;height:30px;background:#e7eef2;border-radius:6px;display:grid;place-items:center}.aghxrow textarea{margin:0;min-height:61px}.lc label{display:block;margin:11px 0;font-size:13px}.lc input{width:auto;margin-right:7px}.badge{font-size:10px;font-weight:900;padding:7px 9px;border-radius:15px;background:#f4e6e6;color:var(--danger)}.badge.ok{background:#e4f4ef;color:#087058}.good{color:#087058;font-weight:800}.bad{color:var(--danger);font-weight:800}.progress{background:white;border:1px solid var(--line);padding:12px 18px;border-radius:10px;text-align:center}.progress b{display:block;font-size:25px}.progress span{font-size:10px;color:var(--muted)}.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:15px}.module{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px;display:flex;justify-content:space-between;align-items:center}.module.done{background:#f1faf7;border-color:#7eb3a8}.mission button{display:block;width:100%;text-align:left;margin:7px 0}.mission button.right{background:#e8f7f2;color:#0a6757;border-color:#6eac9e}.mission button.wrong{background:#f9eded;color:#8f3232;border-color:#c88484}.gate{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}.certificate{text-align:center;background:#fcfcf7;border:2px solid #a0aa89}.seal{width:105px;height:105px;border:5px double #71805f;border-radius:50%;display:flex;flex-direction:column;justify-content:center;margin:22px auto;font-size:27px;font-weight:900}.seal small{font-size:12px}.hidden{display:none}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:10px;letter-spacing:1px;color:var(--muted)}.status{padding:5px 8px;border-radius:12px;background:#e8f4f0;font-size:10px;font-weight:800}.status.attn{background:#faece8;color:#8f3b2d}
+@media(max-width:900px){.app{grid-template-columns:1fr}aside{height:auto;position:relative}.foot{display:none}nav{display:flex;overflow:auto}.grid2,.grid3,.metrics,.modules,.meta{grid-template-columns:1fr}.question{grid-template-columns:38px 1fr}.question select{grid-column:2}.hero{display:block}.heroMetric{margin-top:20px}.principle{display:block}.principle b{display:block;margin:8px}main{padding:0 17px 40px}}
+
+.academyStats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.academyStats div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px}
+.academyStats b{display:block;font-size:22px}.academyStats span{font-size:10px;color:var(--muted)}
+.academyIntro{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.academyIntro p{max-width:850px}.missionDeck{border-top:4px solid var(--green)}
+.missionTop{display:flex;justify-content:space-between;align-items:flex-start}.missionDomain{font-size:11px;font-weight:900;background:#eaf3f1;color:var(--green);padding:7px 10px;border-radius:15px}
+#missionChoices button{display:block;width:100%;text-align:left;margin:8px 0;padding:12px}
+#missionChoices button.right{background:#e8f7f2;color:#0a6757;border-color:#6eac9e}
+#missionChoices button.wrong{background:#f9eded;color:#8f3232;border-color:#c88484}
+.explain{background:#f3f7f8;border-left:4px solid var(--green);padding:12px 14px;margin-top:12px;border-radius:5px;line-height:1.5}
+.examQ{padding:15px 0;border-bottom:1px solid var(--line)}.examQ button{display:block;width:100%;text-align:left;margin:6px 0}
+.examScore{font-size:34px;font-weight:900}.practicalFlow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:15px}.practicalFlow span{background:#eef3f5;border:1px solid var(--line);padding:9px 11px;border-radius:8px;font-size:12px;font-weight:700}
+@media(max-width:900px){.academyStats{grid-template-columns:1fr 1fr}.academyIntro{display:block}.academyIntro button{margin-top:10px}}
+
+.riskLegend{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 16px}
+.riskLegend div{padding:11px 13px;border-radius:9px;color:#fff;display:flex;flex-direction:column}
+.riskLegend b{font-size:16px}.riskLegend span{font-size:10px;margin-top:3px}
+.risk-safe{background:#397b63}.risk-watch{background:#9a812f}.risk-high{background:#b6652f}.risk-critical{background:#9d3b3b}
+.riskBadge{display:inline-block;padding:7px 11px;border-radius:16px;font-size:11px;font-weight:900;color:white;margin-top:7px}
+.riskBadge.safe{background:#397b63}.riskBadge.watch{background:#9a812f}.riskBadge.high{background:#b6652f}.riskBadge.critical{background:#9d3b3b}
+.result.safe{background:#214c41}.result.watch{background:#5e552d}.result.high{background:#684329}.result.critical{background:#5d292d}
+.heatScale{height:16px;border-radius:9px;background:linear-gradient(90deg,#397b63 0 24%,#9a812f 24% 49%,#b6652f 49% 74%,#9d3b3b 74% 100%);position:relative;margin:17px 0 6px}
+.heatMarker{position:absolute;top:-7px;width:4px;height:30px;background:#fff;border:1px solid #102d3e;border-radius:2px}
+.heatLabels{display:flex;justify-content:space-between;font-size:10px;color:#d8e3e7}
+.dimRisk{font-size:10px;padding:4px 6px;border-radius:10px;color:white;text-align:center}
+.dimRisk.d1,.dimRisk.d2{background:#397b63}.dimRisk.d3{background:#9a812f}.dimRisk.d4{background:#b6652f}.dimRisk.d5{background:#9d3b3b}
+@media(max-width:900px){.riskLegend{grid-template-columns:1fr 1fr}}
+
+/* v0.5 executive visual refresh */
+body{background:#eef4f6}
+.trafficLegend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}
+.trafficItem{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;align-items:center;gap:11px;box-shadow:0 3px 10px rgba(16,45,62,.04)}
+.trafficLight{width:34px;height:34px;border-radius:50%;display:block;flex:0 0 34px;box-shadow:inset 0 -4px 7px rgba(0,0,0,.14),0 0 0 4px #edf2f4}
+.trafficLight.green{background:#25a866}.trafficLight.yellow{background:#f2c94c}.trafficLight.orange{background:#f28c28}.trafficLight.red{background:#d64545}
+.trafficItem b{display:block;font-size:16px}.trafficItem span:not(.trafficLight){display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.executiveVisuals{display:grid;grid-template-columns:.85fr 1.45fr;gap:15px;margin:15px 0}
+.dialCard,.heatCard{min-height:360px}.speedometer{width:330px;height:185px;margin:16px auto 0;position:relative;overflow:hidden}
+.dialArc{position:absolute;width:300px;height:300px;left:15px;top:20px;border-radius:50%;background:conic-gradient(from 270deg,#25a866 0deg 45deg,#f2c94c 45deg 90deg,#f28c28 90deg 135deg,#d64545 135deg 180deg,transparent 180deg 360deg)}
+.dialArc:after{content:"";position:absolute;width:220px;height:220px;background:#fff;border-radius:50%;left:40px;top:40px}
+.needle{position:absolute;width:118px;height:4px;background:#173f5f;left:47px;top:166px;transform-origin:118px 2px;transform:rotate(0deg);border-radius:4px;transition:transform .8s ease}
+.dialHub{position:absolute;width:18px;height:18px;border-radius:50%;background:#173f5f;left:156px;top:159px;z-index:3}
+.dialScore{position:absolute;left:135px;top:111px;text-align:center;z-index:4}.dialScore b{display:block;font-size:28px}.dialScore span{font-size:9px;color:var(--muted);font-weight:800}
+.dialLabel{position:absolute;font-size:10px;font-weight:800;color:#63747f;z-index:4}.dl0{left:9px;top:161px}.dl25{left:45px;top:76px}.dl50{left:155px;top:28px}.dl75{right:43px;top:76px}.dl100{right:4px;top:161px}
+.dialBand{text-align:center;font-weight:900;font-size:12px;letter-spacing:.5px;margin-top:2px}
+.heatMap{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.heatCell{border-radius:10px;padding:10px 12px;color:#fff;display:flex;justify-content:space-between;align-items:center;min-height:48px}
+.heatCell b{font-size:11px}.heatCell span{font-size:18px;font-weight:900}.heat1,.heat2{background:#25a866}.heat3{background:#d8aa2c}.heat4{background:#ed7d31}.heat5{background:#d64545}.heatNone{background:#dce6ea;color:#536670}
+.riskBadge.watch{background:#d8aa2c;color:#172b36}.riskBadge.high{background:#ed7d31}.riskBadge.safe{background:#25a866}.riskBadge.critical{background:#d64545}
+.result.safe,.result.watch,.result.high,.result.critical{background:#102d3e}
+.heatScale{background:linear-gradient(90deg,#25a866 0 24%,#f2c94c 24% 49%,#f28c28 49% 74%,#d64545 74% 100%)}
+.dimRisk.d1,.dimRisk.d2{background:#25a866}.dimRisk.d3{background:#d8aa2c;color:#172b36}.dimRisk.d4{background:#ed7d31}.dimRisk.d5{background:#d64545}
+@media(max-width:1050px){.executiveVisuals{grid-template-columns:1fr}.trafficLegend{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.trafficLegend,.heatMap{grid-template-columns:1fr}.speedometer{transform:scale(.88);transform-origin:top center;margin-bottom:-20px}}
+
+/* v0.6 one-screen executive dashboard */
+main{padding-bottom:25px}
+header{height:76px;margin-bottom:14px}
+.commandStrip{background:linear-gradient(110deg,#14384d,#0d7165);color:#fff;border-radius:12px;padding:12px 17px;display:flex;justify-content:space-between;align-items:center}
+.commandStrip .tag{margin-right:12px}.commandStrip b{font-size:13px}
+.compactAAI{display:flex;align-items:center;gap:9px;border-left:1px solid rgba(255,255,255,.28);padding-left:15px}
+.compactAAI span{font-size:9px;text-transform:uppercase;letter-spacing:1px}.compactAAI strong{font-size:25px}
+.metrics{margin:10px 0;gap:8px}.metrics div{padding:10px 13px}.metrics b{font-size:20px}
+.executiveVisuals{margin:10px 0;grid-template-columns:.78fr 1.55fr;gap:10px}
+.dialCard,.heatCard{min-height:0;height:390px;padding:16px}
+.dialCard .sectionHead,.heatCard .sectionHead{margin-bottom:4px}.dialCard .sectionHead p,.heatCard .sectionHead p{margin:4px 0}
+.speedometer{margin-top:2px}
+.heatMap{gap:6px}.heatCell{min-height:43px;padding:7px 10px}
+.needle{transition:transform .8s ease,background .4s ease}
+.dialBand{display:inline-block;position:relative;left:50%;transform:translateX(-50%);padding:7px 11px;border-radius:15px;color:#fff}
+.dialBand.safe{background:#25a866}.dialBand.watch{background:#d8aa2c;color:#172b36}.dialBand.high{background:#ed7d31}.dialBand.critical{background:#d64545}.dialBand.none{background:#8aa0aa}
+@media(max-width:1050px){.dialCard,.heatCard{height:auto}.executiveVisuals{grid-template-columns:1fr}}
+
+/* v0.9 STABLE: v0.6 behavior preserved; AIM Dx layout only */
+@media(min-width:1200px){
+  #dx.dxStable{
+    height:calc(100vh - 118px);
+    overflow:hidden;
+    display:none;
+    grid-template-columns:minmax(650px,1.35fr) minmax(520px,1fr);
+    grid-template-rows:auto auto 1fr auto;
+    gap:8px 12px;
+    align-content:start;
+  }
+  #dx.dxStable.active{display:grid}
+  #dx .sectionHead{grid-column:1 / -1;margin:0}
+  #dx .sectionHead h2{font-size:23px;margin:2px 0}
+  #dx .sectionHead p{font-size:10px;margin:2px 0}
+  #dx .riskLegend{grid-column:1 / -1;margin:0;gap:7px}
+  #dx .riskLegend div{padding:7px 10px}
+  #dx .trafficLegend{grid-column:1 / -1;margin:0;gap:7px}
+  #dx .trafficItem{padding:7px 10px}
+  #dx .trafficLight{width:25px;height:25px;flex-basis:25px}
+  #dx .meta{grid-column:1;padding:8px 10px;margin:0}
+  #dx .meta input{padding:6px;font-size:11px}
+  #dx #questions{
+    grid-column:1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px 7px;
+    align-content:start;
+  }
+  #dx .question{
+    grid-template-columns:27px minmax(135px,.9fr) minmax(180px,1.2fr) 38px;
+    gap:6px;
+    margin:0;
+    padding:6px 8px;
+    min-height:45px;
+  }
+  #dx .qnum{width:25px;height:25px;font-size:10px}
+  #dx .question h4{font-size:10px;margin:0}
+  #dx .question p{display:none}
+  #dx .question select{padding:5px;font-size:10px;margin:0}
+  #dx .question>b{font-size:10px}
+  #dx .buttons{grid-column:1;margin:0;align-self:start}
+  #dx .buttons button{padding:7px 10px;font-size:10px}
+  #dx #dxResult{
+    grid-column:2;
+    grid-row:3 / 5;
+    position:static;
+    width:auto;
+    max-height:none;
+    align-self:start;
+  }
+  #dx .result{
+    padding:14px 16px;
+    border-radius:12px;
+    max-height:calc(100vh - 285px);
+    overflow:hidden;
+  }
+  #dx .resultTop{gap:10px}
+  #dx .score{font-size:34px}
+  #dx .result p{font-size:9px;margin:5px 0}
+  #dx .riskBadge{font-size:8px;padding:5px 7px}
+  #dx .heatScale{height:10px;margin:9px 0 3px}
+  #dx .heatLabels{font-size:7px}
+  #dx .bar{
+    grid-template-columns:135px 1fr 34px;
+    gap:6px;
+    margin:3px 0;
+    font-size:8px;
+  }
+  #dx .track,#dx .fill{height:6px}
+  #dx .dimRisk{font-size:7px;padding:2px 4px}
+}
+
+/* =========================================================
+   v1.0 APPROVED AIM™ Dx DESIGN
+   Visual-only treatment over the v0.9 stable functional base
+   ========================================================= */
+:root{
+ --aim-navy:#063957;
+ --aim-navy2:#0a4e73;
+ --aim-blue:#0876c9;
+ --aim-bg:#eef8fc;
+ --aim-panel:#ffffff;
+ --aim-line:#cfe0e9;
+ --aim-text:#082d49;
+ --aim-muted:#4d6d80;
+ --aim-green:#21bf67;
+ --aim-yellow:#ffc928;
+ --aim-orange:#ff8124;
+ --aim-red:#ff334f;
+}
+body{background:linear-gradient(115deg,#f7fcff 0%,#eaf6fb 100%);color:var(--aim-text)}
+@media(min-width:1200px){
+ .app{display:block}
+ aside{
+   position:fixed;z-index:30;top:0;left:0;right:0;width:100%;height:70px;
+   padding:0 28px;background:linear-gradient(90deg,#063957,#064b70);
+   display:flex;align-items:center;gap:26px;box-shadow:0 2px 12px rgba(4,45,70,.12)
+ }
+ .brand{width:190px;margin:0;flex:0 0 190px}.logo{width:48px;height:42px;border:0;font-size:23px}
+ .brand b{font-size:13px}.brand small{font-size:8px;margin-top:1px}
+ aside nav{display:flex;align-items:center;gap:5px;overflow:visible;flex:1;height:100%}
+ aside nav button{width:auto;margin:0;padding:14px 15px;color:#fff;border-radius:8px;font-size:12px;white-space:nowrap}
+ aside nav button.active{background:#0876c9;box-shadow:0 5px 15px rgba(0,0,0,.14)}
+ aside .foot{display:none}
+ main{padding:70px 28px 18px;max-width:none;margin:0;width:100%}
+ header{height:0;margin:0;border:0;overflow:visible}
+ header>div:first-child{display:none}
+ header .identity{
+   position:fixed;z-index:40;right:27px;top:15px;background:#fff;color:#082d49;
+   border:0;padding:10px 15px;border-radius:22px;box-shadow:0 2px 8px rgba(0,0,0,.08)
+ }
+ aside nav{padding-right:185px}
+
+ #dx.approvedDx{
+   height:calc(100vh - 88px);overflow:hidden;
+   display:none;grid-template-columns:minmax(650px,1.15fr) minmax(550px,.82fr);
+   grid-template-rows:90px 1fr;gap:10px 14px;align-content:stretch
+ }
+ #dx.approvedDx.active{display:grid}
+ #dx .sectionHead{
+   grid-column:1/-1;grid-row:1;margin:0;align-items:flex-start;padding-top:10px
+ }
+ #dx .sectionHead h2{font-size:30px;line-height:1;margin:4px 0 8px;color:#082d49}
+ #dx .sectionHead p{font-size:12px;margin:0;color:#245b7d}
+ #dx .sectionHead:after{
+   content:"How to Use";margin-left:auto;margin-top:8px;border:1px solid #bdd6e5;
+   background:#fff;border-radius:22px;padding:10px 16px;font-size:11px;font-weight:800
+ }
+
+ /* hide old top legend; risk scale is now integrated in result panel */
+ #dx>.trafficLegend,#dx>.riskLegend{display:none!important}
+
+ #dx .meta{
+   grid-column:1;grid-row:2;align-self:start;
+   display:grid;grid-template-columns:1.05fr .8fr 1.35fr;gap:10px;
+   padding:11px 12px;margin:0;background:rgba(255,255,255,.92);
+   border:1px solid var(--aim-line);border-radius:10px;
+   box-shadow:0 4px 16px rgba(11,67,98,.06)
+ }
+ #dx .meta label{font-size:10px;color:#173e58}
+ #dx .meta input{height:34px;padding:7px 9px;margin-top:4px;font-size:11px;border-color:#bcd3e0}
+
+ #dx #questions{
+   grid-column:1;grid-row:2;align-self:start;margin-top:72px;
+   display:grid;grid-template-columns:1fr 1fr;gap:7px 8px;width:100%
+ }
+ #dx .question{
+   min-height:66px;margin:0;padding:9px 10px;
+   grid-template-columns:38px minmax(130px,.85fr) minmax(180px,1.35fr) 44px;
+   gap:8px;align-items:center;background:rgba(255,255,255,.96);
+   border:1px solid var(--aim-line);border-radius:10px;
+   box-shadow:0 3px 12px rgba(11,67,98,.045)
+ }
+ #dx .qnum{width:32px;height:32px;background:#e3f1f8;color:#0a4669;font-size:13px}
+ #dx .question h4{font-size:11px;margin:0 0 4px;color:#082d49}
+ #dx .question p{display:none}
+ #dx .question select{height:34px;padding:6px 8px;margin:0;font-size:10px;border-color:#b9d2df;background:#fff}
+ #dx .question>b{font-size:11px;padding:8px 5px;border-radius:7px;text-align:center;background:#e5f7eb;color:#0a5630}
+
+ #dx .buttons{
+   grid-column:1;grid-row:2;align-self:end;margin:0;display:flex;gap:10px;padding-bottom:4px
+ }
+ #dx .buttons button{height:42px;padding:0 18px;font-size:11px}
+ #dx .buttons .primary,#dx .buttons button:first-child{background:#0870b9;border-color:#0870b9}
+
+ #dx #dxResult{
+   grid-column:2;grid-row:2;position:static;width:auto;height:100%;max-height:none;align-self:stretch
+ }
+ #dx .result{
+   height:100%;max-height:none;overflow:hidden;padding:18px 18px 14px;
+   border-radius:11px;background:linear-gradient(145deg,#073b59,#062f49)!important;
+   box-shadow:0 8px 22px rgba(5,48,73,.17);color:#fff
+ }
+ #dx .resultTop{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:132px}
+ #dx .resultTop>div:first-child:before{content:"AIM™ AUTONOMY INDEX";display:block;font-size:11px;font-weight:900;letter-spacing:.8px;color:#dcecf4}
+ #dx .resultTop .eyebrow{display:none}
+ #dx .score{font-size:38px;line-height:1;margin:9px 0 5px}
+ #dx .riskBadge{font-size:9px;padding:7px 12px;border-radius:18px}
+ #dx .result p{font-size:9px;line-height:1.45;margin:8px 0}
+ #dx .resultTop>div:last-child{border-left:1px solid rgba(255,255,255,.13);padding-left:16px}
+ #dx .resultTop>div:last-child b{font-size:15px}
+ #dx .resultTop>div:last-child p{font-size:9px}
+
+ #dx .heatScale{height:13px;margin:10px 0 3px;border-radius:8px}
+ #dx .heatMarker{height:25px;top:-6px;background:#fff}
+ #dx .heatLabels{font-size:7px;color:#d8e7ee;margin-bottom:7px}
+ #dx .bar{grid-template-columns:145px 1fr 38px;gap:7px;margin:5px 0;font-size:8.5px}
+ #dx .track,#dx .fill{height:7px}
+ #dx .track{background:#244f67}
+ #dx .dimRisk{font-size:8px;padding:3px 5px}
+
+ /* traffic-light colors, no mustard/brown */
+ .riskBadge.safe,.dimRisk.d1,.dimRisk.d2{background:var(--aim-green)}
+ .riskBadge.watch,.dimRisk.d3{background:var(--aim-yellow);color:#173247}
+ .riskBadge.high,.dimRisk.d4{background:var(--aim-orange)}
+ .riskBadge.critical,.dimRisk.d5{background:var(--aim-red)}
+ .heatScale{background:linear-gradient(90deg,var(--aim-green) 0 24%,var(--aim-yellow) 24% 49%,var(--aim-orange) 49% 74%,var(--aim-red) 74% 100%)}
+
+ /* score pills on left follow same 1–5 visual language */
+ #dx .question:has(select option:checked[value="1"])>b,
+ #dx .question:has(select option:checked[value="2"])>b{background:#bff1cf;color:#0a5630}
+ #dx .question:has(select option:checked[value="3"])>b{background:#ffe59a;color:#4d3a00}
+ #dx .question:has(select option:checked[value="4"])>b{background:#ffc08c;color:#653000}
+ #dx .question:has(select option:checked[value="5"])>b{background:#ff9cab;color:#6b0c1c}
+}
+@media(min-width:1200px) and (max-height:820px){
+ #dx.approvedDx{grid-template-rows:72px 1fr}
+ #dx .sectionHead{padding-top:5px}
+ #dx .sectionHead h2{font-size:26px;margin-bottom:5px}
+ #dx .meta{padding:8px 10px}
+ #dx #questions{margin-top:63px;gap:5px 7px}
+ #dx .question{min-height:55px;padding:6px 8px}
+ #dx .buttons button{height:36px}
+ #dx .result{padding:14px}
+ #dx .resultTop{min-height:112px}
+ #dx .bar{margin:3px 0}
+}
+
+/* v1.1 evidence-based calibration */
+@media(min-width:1200px){
+ #dx.approvedDx{grid-template-rows:78px 1fr}
+ #dx .evidencePanel{
+   grid-column:1;grid-row:2;align-self:start;margin-top:70px;background:#f7fbfd;
+   border:1px solid #c8dce7;border-radius:10px;padding:8px 10px;z-index:3
+ }
+ #dx .evidenceHead{display:grid;grid-template-columns:1fr 210px;gap:10px;align-items:end;margin-bottom:6px}
+ #dx .evidenceHead b{display:block;font-size:12px}.evidenceHead small{display:block;font-size:8px;color:#547185;margin-top:2px}
+ #dx .evidenceHead label,#dx .evidenceGrid label{font-size:8px;font-weight:800;color:#24485e}
+ #dx .evidenceHead select,#dx .evidenceGrid select{width:100%;height:27px;margin-top:2px;padding:3px 5px;font-size:8px;background:#fff;border:1px solid #bfd4df;border-radius:6px}
+ #dx .evidenceGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px 6px}
+ #dx .evidenceSummary{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px}
+ #dx .evidenceSummary span{background:#fff;border:1px solid #d3e2e9;border-radius:6px;padding:5px 7px;font-size:8px;color:#496577}
+ #dx .evidenceSummary b{display:block;font-size:13px;color:#082d49;margin-top:1px}
+ #dx .variance{font-weight:900!important;display:flex;align-items:center;justify-content:center}
+ #dx .variance.good{background:#e6f8ed;color:#08763e}.variance.warn{background:#fff0d8;color:#8a4b00}.variance.critical{background:#ffe2e6;color:#9e1c30}.variance.neutral{background:#eef4f6;color:#506875}
+ #dx .meta{margin-top:0}
+ #dx #questions{margin-top:287px}
+ #dx .question{min-height:52px;padding:6px 8px}
+ #dx .qnum{width:27px;height:27px;font-size:10px}
+ #dx .question h4{font-size:9px}
+ #dx .question select{height:29px;font-size:8px}
+ #dx .question>b{font-size:9px;padding:6px 4px}
+ #dx .overrideBox{
+   grid-column:1;grid-row:2;align-self:end;margin-bottom:46px;display:none;
+   grid-template-columns:165px 1fr 1.4fr;gap:8px;align-items:center;
+   padding:6px 9px;border:1px solid #f0a8b1;background:#fff3f5;border-radius:8px;font-size:8px
+ }
+ #dx .overrideBox.show{display:grid}
+ #dx .overrideBox b{color:#a01c31;font-size:9px}.overrideBox span{color:#6d5260}
+ #dx .overrideBox input{height:29px;font-size:8px;padding:5px 7px}
+ #dx .resultTop{min-height:125px}
+ #dx .bar{margin:4px 0}
+}
+@media(min-width:1200px) and (max-height:900px){
+ #dx .evidencePanel{margin-top:62px;padding:6px 8px}
+ #dx .evidenceGrid{gap:3px 5px}
+ #dx .evidenceHead select,#dx .evidenceGrid select{height:24px}
+ #dx #questions{margin-top:250px}
+ #dx .question{min-height:45px}
+ #dx .buttons{padding-bottom:0}
+ #dx .overrideBox{margin-bottom:39px}
+}
+
+#dx .evidenceApply{margin-top:6px;background:#0870b9;color:#fff;border:0;border-radius:7px;padding:6px 10px;font-size:8px;font-weight:900}
+
+/* =========================================================
+   v1.2 READABILITY + TWO-STEP WORKFLOW
+   ========================================================= */
+@media(min-width:1200px){
+  #dx.approvedDx{
+    grid-template-columns:minmax(720px,1.18fr) minmax(570px,.82fr);
+  }
+
+  /* Larger general AIM Dx text */
+  #dx .sectionHead h2{font-size:34px}
+  #dx .sectionHead p{font-size:15px;line-height:1.45}
+  #dx .meta label{font-size:12px}
+  #dx .meta input{height:39px;font-size:13px}
+  #dx .question h4{font-size:12px}
+  #dx .question select{font-size:11px;height:34px}
+  #dx .question>b{font-size:11px}
+  #dx .qnum{font-size:12px}
+  #dx .buttons button{font-size:12px}
+
+  /* Step 1: strong visual separation */
+  #dx .evidencePanel{
+    background:linear-gradient(135deg,#eef8ff 0%,#e8f7f3 100%);
+    border:3px solid #0876c9;
+    box-shadow:0 7px 22px rgba(8,118,201,.14);
+    padding:13px 14px 12px;
+    border-radius:13px;
+  }
+  #dx .workflowStep{
+    display:flex;align-items:center;gap:9px;margin:-2px 0 9px;
+  }
+  #dx .workflowStep span,#dx .elevenStep span{
+    background:#0876c9;color:#fff;border-radius:15px;
+    padding:5px 10px;font-size:10px;font-weight:900;letter-spacing:.8px;
+  }
+  #dx .workflowStep b{font-size:13px;color:#07527f}
+  #dx .evidenceHead{grid-template-columns:1fr 230px;margin-bottom:9px}
+  #dx .evidenceHead .eyebrow{
+    display:block;font-size:11px;letter-spacing:1.2px;color:#0876c9;margin-bottom:4px
+  }
+  #dx .evidenceTitle{
+    display:block!important;font-size:17px!important;line-height:1.25;color:#082d49!important;
+    margin-bottom:4px
+  }
+  #dx .evidenceHead small{font-size:11px;line-height:1.35}
+  #dx .evidenceHead label,#dx .evidenceGrid label{font-size:11px}
+  #dx .evidenceHead select,#dx .evidenceGrid select{
+    height:34px;font-size:10px;padding:5px 7px;border:1px solid #9fc8dc
+  }
+  #dx .evidenceGrid{gap:7px 8px}
+  #dx .evidenceApply{
+    font-size:11px!important;padding:8px 12px!important;margin-top:9px!important
+  }
+  #dx .evidenceSummary{gap:7px;margin-top:8px}
+  #dx .evidenceSummary span{font-size:10px;padding:7px 8px}
+  #dx .evidenceSummary b{font-size:16px}
+
+  /* Step 2 banner */
+  #dx .elevenStep{
+    grid-column:1;grid-row:2;align-self:start;
+    margin-top:294px;height:42px;
+    display:flex;align-items:center;gap:9px;
+    background:#fff;border:2px solid #b9ced9;border-radius:9px;
+    padding:6px 10px;z-index:4;box-shadow:0 3px 10px rgba(11,67,98,.05)
+  }
+  #dx .elevenStep span{background:#0a4e73}
+  #dx .elevenStep b{font-size:12px;color:#082d49}
+  #dx .elevenStep small{font-size:10px;color:#557384;margin-left:auto}
+  #dx #questions{margin-top:343px}
+
+  /* Larger right analytics panel text */
+  #dx .score{font-size:44px}
+  #dx .riskBadge{font-size:11px;padding:8px 13px}
+  #dx .result p{font-size:11px}
+  #dx .resultTop>div:last-child b{font-size:17px}
+  #dx .resultTop>div:last-child p{font-size:11px}
+  #dx .bar{font-size:10px;grid-template-columns:160px 1fr 42px;margin:6px 0}
+  #dx .dimRisk{font-size:10px}
+  #dx .heatLabels{font-size:9px}
+
+  /* Keep page within desktop viewport by making boxes tighter, not text smaller */
+  #dx .question{min-height:51px;padding:6px 8px}
+  #dx .overrideBox{font-size:10px}
+}
+
+@media(min-width:1200px) and (max-height:900px){
+  #dx .sectionHead h2{font-size:30px}
+  #dx .sectionHead p{font-size:13px}
+  #dx .evidencePanel{margin-top:58px;padding:9px 11px}
+  #dx .workflowStep{margin-bottom:5px}
+  #dx .evidenceTitle{font-size:15px!important}
+  #dx .evidenceHead small{font-size:9px}
+  #dx .evidenceHead label,#dx .evidenceGrid label{font-size:9px}
+  #dx .evidenceHead select,#dx .evidenceGrid select{height:29px;font-size:9px}
+  #dx .evidenceSummary span{padding:5px 7px}
+  #dx .elevenStep{margin-top:250px;height:36px}
+  #dx #questions{margin-top:292px}
+  #dx .question{min-height:43px}
+  #dx .question h4{font-size:10px}
+  #dx .question select{height:29px;font-size:9px}
+  #dx .bar{margin:4px 0}
+}
+
+/* =========================================================
+   v1.3 — FIXED NON-OVERLAPPING STEP 1 / STEP 2 WORKFLOW
+   Uses normal document flow inside the left column.
+   ========================================================= */
+@media(min-width:1200px){
+  #dx.approvedDx{
+    height:calc(100vh - 88px);
+    overflow:auto;
+    display:none;
+    grid-template-columns:minmax(760px,1.18fr) minmax(570px,.82fr);
+    grid-template-rows:auto auto;
+    gap:12px 14px;
+    align-content:start;
+  }
+  #dx.approvedDx.active{display:grid}
+
+  #dx .sectionHead{grid-column:1/-1;grid-row:1;height:auto}
+  #dx .meta,
+  #dx .evidencePanel,
+  #dx .elevenStep,
+  #dx #questions,
+  #dx .overrideBox,
+  #dx .buttons{
+    grid-column:1;
+    grid-row:auto;
+    position:static;
+    align-self:auto;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  /* Left side becomes a clean vertical flow */
+  #dx .meta{grid-row:2;margin:0}
+  #dx .evidencePanel{
+    grid-row:3;
+    margin:0;
+    background:linear-gradient(135deg,#eef8ff,#e8f6ff);
+    border:2px solid #0876c9;
+    border-radius:12px;
+    padding:14px;
+  }
+  #dx .elevenStep{
+    grid-row:4;
+    margin:0;
+    min-height:52px;height:auto;
+    display:grid;
+    grid-template-columns:auto auto 1fr auto;
+    align-items:center;
+    gap:10px;
+    padding:9px 12px;
+    background:linear-gradient(135deg,#effcf5,#e9f9f1);
+    border:2px solid #18a765;
+    border-radius:12px;
+  }
+  #dx .elevenStep span{background:#118b58;font-size:11px}
+  #dx .elevenStep b{font-size:14px;color:#075b3c}
+  #dx .elevenStep small{font-size:11px;color:#426c5b}
+  #dx .step2Apply{
+    background:#17ae67;color:white;border:0;border-radius:8px;
+    padding:10px 14px;font-size:11px;font-weight:900;white-space:nowrap
+  }
+
+  #dx #questions{
+    grid-row:5;
+    margin:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px 8px;
+  }
+  #dx .question{
+    min-height:54px;
+    grid-template-columns:38px minmax(145px,.9fr) minmax(205px,1.35fr) 46px;
+    padding:7px 9px;
+  }
+  #dx .question h4{font-size:11px}
+  #dx .question select{height:33px;font-size:10px}
+  #dx .question>b{font-size:10px}
+
+  #dx .overrideBox{
+    grid-row:6;
+    margin:0;
+    min-height:48px;
+  }
+  #dx .buttons{grid-row:7;margin:0;padding:0 0 8px}
+
+  /* Right analytics panel spans the whole left workflow and stays visible */
+  #dx #dxResult{
+    grid-column:2;
+    grid-row:2/8;
+    position:sticky;
+    top:82px;
+    height:calc(100vh - 112px);
+    align-self:start;
+  }
+  #dx .result{height:100%;overflow:auto}
+
+  /* Step 1: larger readable controls */
+  #dx .workflowStep{margin:0 0 10px}
+  #dx .workflowStep span{font-size:11px;padding:6px 11px}
+  #dx .workflowStep b{font-size:14px}
+  #dx .evidenceTitle{font-size:18px!important}
+  #dx .evidenceHead small{font-size:11px}
+  #dx .evidenceHead label,#dx .evidenceGrid label{font-size:11px}
+  #dx .evidenceHead select,#dx .evidenceGrid select{height:35px;font-size:10px}
+  #dx .evidenceGrid{grid-template-columns:repeat(4,1fr);gap:9px 10px}
+  #dx .evidenceSummary{grid-template-columns:repeat(4,1fr)}
+  #dx .evidenceSummary span{font-size:10px}
+  #dx .evidenceSummary b{font-size:16px}
+}
+
+/* Smaller desktop: preserve separation; allow scrolling rather than overlap. */
+@media(min-width:1200px) and (max-height:900px){
+  #dx .evidencePanel,#dx .elevenStep,#dx #questions,#dx .overrideBox{margin:0}
+  #dx .evidenceGrid{grid-template-columns:repeat(4,1fr)}
+  #dx #questions{margin-top:0}
+  #dx .elevenStep{margin-top:0;height:auto}
+  #dx .question{min-height:48px}
+}
+
+/* v1.4 approved production polish */
+@media(min-width:1200px){
+ #dx .step1Actions{display:flex;gap:10px;margin-top:10px}
+ #dx .step1Actions button{height:38px;border-radius:8px;font-size:11px;font-weight:900;padding:0 16px}
+ #dx .calcEvidence{background:#0876c9;color:#fff;border:1px solid #0876c9}
+ #dx .resetEvidence{background:#fff;color:#173e58;border:1px solid #b8d0dd}
+ #dx .evidenceSummary{display:none}
+ #dx .rightAnalytics{
+   grid-column:2;grid-row:2/8;position:sticky;top:82px;height:calc(100vh - 112px);
+   display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;align-self:start
+ }
+ #dx .rightAnalytics #dxResult{grid-column:auto;grid-row:auto;position:static;height:100%;min-height:0}
+ #dx .rightAnalytics .result{height:100%;overflow:auto}
+ #dx .scoreComparison{background:#eef8ff;border:1px solid #c7dce8;border-radius:9px;padding:8px 10px}
+ #dx .scoreComparison h3{margin:0 0 6px;font-size:13px;color:#07539a}
+ #dx .compareGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+ #dx .compareGrid>div{background:#fff;border:1px solid #cddfe8;border-radius:7px;padding:7px 8px}
+ #dx .compareGrid span{display:block;font-size:8px;color:#47687c}
+ #dx .compareGrid b{display:block;font-size:17px;color:#082d49;margin-top:2px}
+ #dx .compareGrid .cmpVariance{background:#fff0f2;border-color:#f1b3bb}
+ #dx .compareGrid .cmpVariance span,#dx .compareGrid .cmpVariance b{color:#c51f35}
+ #dx #dxResult{height:100%}
+}
+
+/* =========================================================
+   v1.5 — BULLETPROOF Dx WORKFLOW
+   ========================================================= */
+@media(min-width:1200px){
+  /* Real How-to button replaces decorative pseudo element */
+  #dx .sectionHead:after{display:none!important;content:none!important}
+  #dx .howToUseBtn{
+    margin-left:auto;margin-top:7px;background:#fff;color:#082d49;
+    border:1px solid #b8d3e2;border-radius:20px;padding:9px 15px;
+    font-size:11px;font-weight:900;cursor:pointer
+  }
+
+  /* Step 2 has always-visible final calculation */
+  #dx .elevenStep{grid-template-columns:auto auto 1fr auto}
+  #dx .step2Actions{display:flex;gap:7px;align-items:center}
+  #dx .step2Apply,#dx .finalCalcTop{
+    border:0;border-radius:8px;padding:10px 12px;font-size:10px;font-weight:900;white-space:nowrap
+  }
+  #dx .step2Apply{background:#18a765;color:#fff}
+  #dx .finalCalcTop{background:#07539a;color:#fff;box-shadow:0 3px 8px rgba(7,83,154,.18)}
+  #dx .elevenStep.ready{box-shadow:0 0 0 4px rgba(24,167,101,.18)}
+
+  /* Methodology bridge between Step 1 and Step 2 */
+  #dx .methodRule{
+    grid-column:1;grid-row:5;margin:0;
+    background:#f5fbf8;border:1px dashed #57b98b;border-radius:8px;
+    padding:7px 10px;font-size:10px;line-height:1.35;color:#315f4d
+  }
+  #dx .methodRule b{color:#087147}
+  #dx #questions{grid-row:6}
+  #dx .overrideBox{grid-row:7}
+  #dx .buttons{grid-row:8}
+  #dx .rightAnalytics{grid-row:2/9}
+
+  /* Bottom Calculate is no longer needed on desktop */
+  #dx .buttons button:first-child{display:none}
+
+  /* Evidence floor badge on every Step 2 dimension */
+  #dx .question{position:relative;padding-bottom:18px}
+  #dx .floorTag{
+    position:absolute;left:46px;bottom:3px;
+    font-size:7px;font-weight:800;color:#087147;
+    background:#e8f8f0;border-radius:8px;padding:2px 6px
+  }
+}
+
+/* Functional How-to modal */
+.aimModal{
+ position:fixed;inset:0;z-index:1000;background:rgba(2,30,47,.66);
+ display:none;align-items:center;justify-content:center;padding:24px
+}
+.aimModal.open{display:flex}
+.aimModalCard{
+ position:relative;width:min(720px,94vw);background:#fff;border-radius:16px;
+ padding:26px 28px;box-shadow:0 25px 80px rgba(0,0,0,.3);color:#082d49
+}
+.modalClose{
+ position:absolute;right:16px;top:13px;width:34px;height:34px;border-radius:50%;
+ border:1px solid #c8dce7;background:#fff;font-size:23px;cursor:pointer
+}
+.modalEyebrow{font-size:10px;font-weight:900;letter-spacing:1.2px;color:#0876c9}
+.aimModalCard h2{font-size:25px;margin:5px 0 16px}
+.howSteps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.howSteps>div{
+ display:grid;grid-template-columns:34px 1fr;gap:9px;padding:10px;
+ background:#f5fafc;border:1px solid #d3e4ec;border-radius:9px
+}
+.howSteps>div>b{
+ width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+ background:#0876c9;color:#fff;font-size:12px
+}
+.howSteps strong{display:block;font-size:12px}.howSteps small{display:block;font-size:10px;line-height:1.35;color:#587386;margin-top:2px}
+.modalPrinciple{margin-top:13px;padding:11px 13px;background:#eaf8f1;border-left:4px solid #18a765;border-radius:7px;font-size:11px}
+
+/* Mobile/fallback */
+@media(max-width:1199px){
+ #dx .howToUseBtn{margin-top:8px}
+ #dx .methodRule{margin:8px 0;padding:9px;background:#f5fbf8;border:1px dashed #57b98b;border-radius:8px;font-size:11px}
+ #dx .step2Actions{display:flex;gap:6px;flex-wrap:wrap}
+ #dx .finalCalcTop,#dx .step2Apply{padding:9px 10px}
+ .howSteps{grid-template-columns:1fr}
+}
+
+/* v2.9 main portal only */
+nav button.active,nav button:hover{background:#1b4558;color:#fff}
+.page{display:none}
+.page.active{display:block}
+
+.commandStrip{background:linear-gradient(110deg,#14384d,#0d7165);color:#fff;border-radius:12px;padding:12px 17px;display:flex;justify-content:space-between;align-items:center}
+
+.commandStrip .tag{margin-right:12px}
+.commandStrip b{font-size:13px}
+
+  #dx.dxStable.active{display:grid}
+
+ aside nav button.active{background:#0876c9;box-shadow:0 5px 15px rgba(0,0,0,.14)}
+
+ #dx.approvedDx.active{display:grid}
+
+  #dx.approvedDx.active{display:grid}
+
+.statusPill.active{background:#def5e7;color:#087147}
+.wf.active>b{background:#18a765;color:#fff}
+
+
+#dashboard .workflowStrip{border-color:#b8dfca;background:linear-gradient(135deg,#f3fbf7,#eef9ff)}
+
+#dashboard .commandHero{background:linear-gradient(135deg,#e9f8f0,#edf8ff);border:1px solid #b9dfcd;border-radius:13px;padding:14px 16px}
+
+#dashboard .heroActions button:first-child{background:#18a765}
+
+
+/* v1.8 Dashboard Rebuild — approved visual direction */
+.v18dash{max-width:1450px;margin:0 auto;padding:0 4px 24px}
+
+.v18cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+.v18card{text-align:left;border:1px solid #d7e4e9;background:#fff;border-radius:15px;padding:18px;display:grid;grid-template-columns:48px 1fr;gap:13px;min-height:190px;cursor:pointer;box-shadow:0 5px 16px rgba(20,64,83,.05)}
+.v18card:hover{transform:translateY(-2px)}
+.v18card small{font-size:8px;letter-spacing:1.5px;color:#07866c;font-weight:900}
+.v18card h3{font-size:20px;margin:5px 0;color:#082f49}
+.v18card p{font-size:10px;line-height:1.55;color:#617d8b;min-height:48px}
+.v18card b{font-size:9px;color:#086091}
+.circleIcon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;background:#e7f4fb;color:#0c80c7}
+.rxCard .circleIcon{background:#e6f8f0;color:#0a9c69}
+.academyCard .circleIcon{background:#f1eafe;color:#7953d6}
+.certCard .circleIcon{background:#fff3d8;color:#e8a21b}
+
+.commandStrip{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:linear-gradient(90deg,#f3fffb,#eef8fc);border:1px solid #cde2e9;border-left:4px solid #18ae79;border-radius:13px;padding:14px 20px;color:#0c3e59}
+.commandStrip b{font-size:10px}
+.commandStrip span{font-size:12px}
+.commandStrip em{font-size:7px;font-style:normal;letter-spacing:2px;font-weight:900}
+.v18cards{grid-template-columns:1fr 1fr}
+
+
+/* Approved dashboard top — exact locked artwork, no HTML text overlaid */
+.approvedTopHero{width:100%;border-radius:18px;overflow:hidden;background:#052d43;box-shadow:0 10px 25px rgba(12,52,72,.12)}
+
+.approvedTopHero img{display:block;width:100%;height:auto;object-fit:cover}
+
+
+/* v2.5 portal hero — image only */
+.approvedTopHero{padding:0!important;overflow:hidden!important;background:#062f48!important}
+
+.approvedTopHero img{display:block!important;width:100%!important;height:auto!important;object-fit:cover!important}
+/* QA v1.5: one-calculate usability hardening only */
+#dx .qaRequired{outline:2px solid #d83b4d!important;background:#fff3f4!important}
+#dx #calculateAIMDx{min-width:190px;font-weight:900}
+
+/* CONTROLLED BASELINE v1.6 — simplified AIM Dx */
+#dx .qaRequired{outline:2px solid #d83b4d!important;background:#fff3f4!important}
+#dx #calculateAIMDx{min-width:205px;font-weight:900}
+#dx .elevenStep{border:2px solid #159b58!important;background:#eefaf3!important}
+
+/* v1.7.2 repaired Rx */
+.rxV172{max-width:1180px;margin:auto}.rxHead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:13px}.rxHead h1{font-size:25px;color:#073f5d;margin:2px 0 5px}.rxHead p{font-size:11px;color:#637b86;max-width:760px;margin:0}.rxEyebrow{font-size:10px;font-weight:900;color:#159b58}.rxHelpBtn{border:0;border-radius:8px;background:#073f5d;color:#fff;padding:10px 14px;font-weight:900}.rxNoDx{display:none;align-items:center;justify-content:space-between;background:#fff5e8;border:1px solid #efb85e;border-radius:11px;padding:15px}.rxNoDx.show{display:flex}.rxNoDx b,.rxNoDx span{display:block}.rxNoDx span{font-size:9px;margin-top:3px}.rxNoDx button{border:0;border-radius:7px;background:#087bc4;color:#fff;padding:9px 12px}.rxContent.hidden{display:none}.rxSummary{display:grid;grid-template-columns:280px 1fr;gap:18px;background:linear-gradient(135deg,#073f5d,#0a5973);color:#fff;border-radius:13px;padding:16px 18px;margin-bottom:11px}.rxSummary>div{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}.rxSummary small{width:100%;font-size:8px}.rxSummary b{font-size:36px}.rxSummary em{font-size:8px;font-style:normal;background:#fff;color:#073f5d;padding:5px 8px;border-radius:12px}.rxSummary p{font-size:10px;color:#e2f0f5}.rxCard{background:#fff;border:1px solid #d9e5e9;border-radius:12px;padding:14px;margin:11px 0}.rxCardHead{display:flex;justify-content:space-between;gap:15px}.rxCardHead small{font-size:7px;font-weight:900;color:#159b58}.rxCardHead h2{font-size:16px;color:#073f5d;margin:2px 0}.rxCardHead p{font-size:9px;color:#6a7f88;margin:0}.rxLegend{display:flex;gap:8px;font-size:7px}.rxLegend span{display:flex;align-items:center;gap:3px}.rxLegend i{width:9px;height:9px;border-radius:2px}.rxLegend .green{background:#25bd70}.rxLegend .yellow{background:#e5bb22}.rxLegend .orange{background:#f47f25}.rxLegend .red{background:#dc4653}.rxHeatMap{display:grid;grid-template-columns:repeat(11,1fr);gap:5px;margin-top:12px}.rxHeatCell{min-height:92px;border-radius:8px;padding:8px 5px;color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:space-between}.rxHeatCell span{font-size:7px;font-weight:800}.rxHeatCell b{font-size:22px}.rxHeatCell em{font-size:7px;font-style:normal}.rxPriorities{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.rxPriority{border:1px solid #dbe6ea;border-left:5px solid;border-radius:8px;padding:9px}.rxPriority b{display:block;color:#073f5d;font-size:10px}.rxPriority span{font-size:8px;color:#6b7d85}.rxControl{display:grid;grid-template-columns:185px 1fr 135px;gap:10px;align-items:center;padding:8px;border-top:1px solid #e5ecef}.rxControl b{font-size:9px;color:#073f5d}.rxControl p{font-size:8px;margin:0}.rxControl select{font-size:8px;padding:7px}.rxTwo{display:grid;grid-template-columns:1fr 1fr;gap:11px}.aghx{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.aghx>div{border:1px solid #dce7ea;border-radius:8px;padding:8px;display:grid;grid-template-columns:25px 1fr;gap:2px 7px}.aghx b{grid-row:1/3;background:#073f5d;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.aghx strong{font-size:9px}.aghx span{font-size:7px}.lastCommand{display:grid;gap:8px;margin-top:10px}.lastCommand label{font-size:8px;padding:6px;background:#f7fafb;border-radius:6px}.rxStatusGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.rxStatusGrid div{background:#f3f8fa;border-radius:8px;padding:10px}.rxStatusGrid small{font-size:7px}.rxStatusGrid b{display:block;font-size:19px;color:#073f5d}.rxStatusGrid span,.rxMethod{font-size:7px}.rxHelp{display:none;position:fixed;inset:0;background:rgba(3,28,42,.66);z-index:9999;padding:4vh 8vw;overflow:auto}.rxHelp.open{display:block}.rxHelpBox{position:relative;max-width:780px;margin:auto;background:#fff;border-radius:14px;padding:24px}.rxClose{position:absolute;right:14px;top:10px;border:0;background:none;font-size:25px}.rxHelp li{font-size:10px;line-height:1.5;margin:6px}.rxExample{background:#eef8f3;border-left:4px solid #159b58;border-radius:7px;padding:12px}.rxExample p{font-size:9px;line-height:1.5}@media(max-width:950px){.rxHeatMap{grid-template-columns:repeat(4,1fr)}.rxPriorities,.rxTwo,.rxSummary{grid-template-columns:1fr}.rxControl{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   v1.7.4 — DX LAYOUT FIX AFTER STEP 1 REMOVAL
+   Final override: contiguous single-stage Dx workflow.
+   ========================================================= */
+@media(min-width:1200px){
+  #dx.approvedDx{
+    height:calc(100vh - 88px)!important;
+    overflow:auto!important;
+    grid-template-columns:minmax(760px,1.18fr) minmax(570px,.82fr)!important;
+    grid-template-rows:auto auto auto auto auto!important;
+    gap:10px 14px!important;
+    align-content:start!important;
+  }
+  #dx .sectionHead{grid-column:1/-1!important;grid-row:1!important;margin:0!important;height:auto!important}
+  #dx .meta{grid-column:1!important;grid-row:2!important;margin:0!important;position:static!important;align-self:auto!important}
+  #dx .elevenStep{
+    grid-column:1!important;grid-row:3!important;margin:0!important;position:static!important;align-self:auto!important;
+    min-height:52px!important;height:auto!important;
+    display:grid!important;grid-template-columns:auto auto 1fr auto!important;
+  }
+  #dx #questions{
+    grid-column:1!important;grid-row:4!important;margin:0!important;position:static!important;align-self:auto!important;
+    display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px 8px!important;width:100%!important;
+  }
+  #dx .buttons{grid-column:1!important;grid-row:5!important;margin:0!important;padding:0 0 8px!important;position:static!important;align-self:auto!important}
+  #dx .rightAnalytics{
+    grid-column:2!important;grid-row:2/6!important;position:sticky!important;top:82px!important;
+    height:calc(100vh - 112px)!important;align-self:start!important;margin:0!important;
+  }
+  #dx .rightAnalytics #dxResult{height:100%!important;min-height:0!important}
+  #dx .question{min-height:54px!important;padding:7px 9px!important}
+}
+@media(min-width:1200px) and (max-height:900px){
+  #dx .elevenStep,#dx #questions{margin:0!important}
+  #dx .question{min-height:48px!important}
+}
+
+
+/* =========================================================
+   v1.7.7 — AIM Rx READABILITY ONLY
+   Increase typography without changing Dx or Rx logic.
+   ========================================================= */
+#rx .rxHead h1{font-size:30px!important;line-height:1.15!important}
+#rx .rxHead p{font-size:14px!important;line-height:1.5!important}
+#rx .rxEyebrow{font-size:12px!important}
+#rx .rxHelpBtn{font-size:13px!important}
+
+#rx .rxSummary small{font-size:10px!important}
+#rx .rxSummary b{font-size:40px!important}
+#rx .rxSummary span{font-size:14px!important}
+#rx .rxSummary em{font-size:11px!important}
+#rx .rxSummary p{font-size:13px!important;line-height:1.55!important}
+
+#rx .rxCardHead small{font-size:10px!important}
+#rx .rxCardHead h2{font-size:20px!important;line-height:1.2!important}
+#rx .rxCardHead p{font-size:12px!important;line-height:1.45!important}
+
+#rx .rxLegend{font-size:10px!important;gap:12px!important}
+#rx .rxLegend i{width:12px!important;height:12px!important}
+
+#rx .rxHeatCell{min-height:112px!important;padding:10px 7px!important}
+#rx .rxHeatCell span{font-size:10px!important;line-height:1.25!important}
+#rx .rxHeatCell b{font-size:28px!important}
+#rx .rxHeatCell em{font-size:10px!important}
+
+#rx .rxPriority{padding:12px!important}
+#rx .rxPriority b{font-size:13px!important;line-height:1.35!important}
+#rx .rxPriority span{font-size:11px!important;line-height:1.45!important;display:block!important;margin-top:4px!important}
+
+#rx .rxControl{grid-template-columns:210px 1fr 155px!important;padding:11px 8px!important}
+#rx .rxControl b{font-size:12px!important;line-height:1.35!important}
+#rx .rxControl p{font-size:11px!important;line-height:1.45!important}
+#rx .rxControl select{font-size:11px!important;padding:8px!important}
+
+#rx .aghx strong{font-size:12px!important}
+#rx .aghx span{font-size:10px!important;line-height:1.4!important}
+#rx .aghx b{font-size:13px!important;width:28px!important;height:28px!important}
+#rx .lastCommand label{font-size:11px!important;line-height:1.4!important;padding:8px!important}
+
+#rx .rxStatusGrid small{font-size:9px!important}
+#rx .rxStatusGrid b{font-size:23px!important}
+#rx .rxStatusGrid span{font-size:10px!important}
+#rx .rxMethod{font-size:10px!important;line-height:1.45!important}
+
+#rx .rxNoDx b{font-size:13px!important}
+#rx .rxNoDx span{font-size:11px!important;line-height:1.4!important}
+#rx .rxNoDx button{font-size:11px!important}
+
+#rx .rxHelpBox h2{font-size:24px!important}
+#rx .rxHelpBox>p{font-size:13px!important;line-height:1.5!important}
+#rx .rxHelp li{font-size:13px!important;line-height:1.55!important;margin:9px 0!important}
+#rx .rxExample b{font-size:13px!important}
+#rx .rxExample p{font-size:12px!important;line-height:1.55!important}
+
+@media(max-width:950px){
+  #rx .rxHeatCell span{font-size:11px!important}
+  #rx .rxControl{grid-template-columns:1fr!important}
+}
+
+/* v1.8 — AIM Rx Evaluation & Remedy */
+.rxV18{max-width:1180px;margin:auto}.rx18Head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:16px}.rx18Eyebrow{font-size:12px;font-weight:900;color:#078c57}.rx18Head h1{font-size:31px;color:#073f5d;margin:3px 0 6px}.rx18Head p{font-size:14px;line-height:1.5;color:#536f7c;max-width:800px;margin:0}.rx18HelpBtn{background:#073f5d;color:#fff;border:0;border-radius:8px;padding:11px 15px;font-size:13px;font-weight:900}
+.rx18NoDx{display:none;background:#fff4e4;border:1px solid #eab258;border-radius:11px;padding:16px;align-items:center;justify-content:space-between}.rx18NoDx.show{display:flex}.rx18NoDx b,.rx18NoDx span{display:block}.rx18NoDx b{font-size:15px;color:#875000}.rx18NoDx span{font-size:12px;margin-top:4px}.rx18NoDx button,.rx18Reassess button{border:0;border-radius:8px;background:#087bc4;color:white;padding:11px 14px;font-weight:900}.rx18Content.hidden{display:none}
+.rx18Summary{display:grid;grid-template-columns:260px 1fr;gap:20px;background:linear-gradient(135deg,#073f5d,#0a6178);color:#fff;border-radius:14px;padding:19px 22px;margin-bottom:13px}.rx18Score{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.rx18Score small{width:100%;font-size:10px;font-weight:900}.rx18Score b{font-size:43px}.rx18Score span{font-size:15px}.rx18Score em{font-size:11px;font-style:normal;background:#fff;color:#073f5d;border-radius:14px;padding:5px 8px}.rx18Summary h3{font-size:18px;margin:2px 0 5px}.rx18Summary p{font-size:13px;line-height:1.55;color:#e5f2f5;margin:0}
+.rx18Card{background:#fff;border:1px solid #d6e4e9;border-radius:13px;padding:18px 20px;margin:13px 0;box-shadow:0 3px 12px rgba(5,56,80,.05)}.rx18CardHead small{font-size:10px;font-weight:900;color:#078c57}.rx18CardHead h2{font-size:21px;color:#073f5d;margin:3px 0}.rx18CardHead p{font-size:12px;color:#647c87;margin:0}.rx18Narrative{background:#f5fafb;border-left:5px solid #087bc4;border-radius:8px;padding:14px 16px;margin-top:13px}.rx18Narrative.remedy{border-left-color:#0c9c5d;background:#f1faf5}.rx18Narrative p{font-size:13px;line-height:1.65;color:#304f5c;margin:4px 0 10px}
+.rx18Drivers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}.rx18Driver{display:grid;grid-template-columns:34px 1fr;gap:9px;border:1px solid #dbe7eb;border-radius:9px;padding:12px}.rx18Driver .rank{width:30px;height:30px;border-radius:50%;background:#073f5d;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.rx18Driver b{font-size:13px;color:#073f5d}.rx18Driver p{font-size:11px;line-height:1.45;color:#506b76}.rx18Driver em{font-size:10px;color:#078c57;font-style:normal;font-weight:700}
+.rx18ActionPlan{margin-top:13px}.rx18Action{display:grid;grid-template-columns:48px 1fr;gap:11px;padding:12px 4px;border-top:1px solid #e0e9ec}.rx18Action:first-child{border-top:0}.rx18Priority{background:#073f5d;color:#fff;border-radius:7px;padding:8px 5px;text-align:center;font-size:12px;font-weight:900;height:max-content}.rx18Action b{font-size:13px;color:#073f5d}.rx18Action p{font-size:12px;line-height:1.5;color:#405f6b;margin:3px 0}.rx18Action em{font-size:10px;color:#078c57;font-style:normal;font-weight:700}
+.rx18Modification{margin-top:13px;display:grid;grid-template-columns:1fr 38px 1fr;gap:10px;align-items:stretch}.rx18Spec{background:#fff6e9;border:1px solid #edc27f;border-radius:9px;padding:13px}.rx18Spec.target{background:#eef9f3;border-color:#8bcba9}.rx18Spec small{font-size:9px;font-weight:900;color:#6a7d85}.rx18Spec p{font-size:12px;line-height:1.5;color:#344f5a}.rx18Arrow{font-size:28px;color:#078c57;display:flex;align-items:center;justify-content:center}.rx18Build{grid-column:1/-1;background:#f5f8fa;border-radius:9px;padding:14px}.rx18Build h3{font-size:14px;color:#073f5d;margin:0 0 7px}.rx18Build li{font-size:11px;line-height:1.5;color:#405e69;margin:6px 0}
+.rx18AGHX{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:13px}.rx18Boundary{display:grid;grid-template-columns:42px 1fr;gap:10px;border:1px solid #dbe6ea;border-radius:9px;padding:11px}.rx18Boundary>b{width:38px;height:38px;border-radius:50%;background:#073f5d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}.rx18Boundary strong{font-size:13px;color:#073f5d}.rx18Boundary p{font-size:11px;line-height:1.45;color:#506b76;margin:3px 0}.rx18Boundary.A{border-left:5px solid #25bd70}.rx18Boundary.G{border-left:5px solid #e5bb22}.rx18Boundary.H{border-left:5px solid #f47f25}.rx18Boundary.X{border-left:5px solid #dc4653}
+.rx18Reassess{display:flex;align-items:center;justify-content:space-between;gap:25px;background:#eef8f3;border-color:#91cdb0}.rx18Reassess small{font-size:10px;font-weight:900;color:#078c57}.rx18Reassess h2{font-size:20px;color:#073f5d;margin:3px 0}.rx18Reassess p{font-size:12px;line-height:1.55;color:#405e69;max-width:850px}
+.rxHelp{display:none;position:fixed;inset:0;background:rgba(3,28,42,.68);z-index:9999;padding:4vh 8vw;overflow:auto}.rxHelp.open{display:block}.rxHelpBox{position:relative;max-width:800px;margin:auto;background:#fff;border-radius:14px;padding:25px}.rxClose{position:absolute;right:14px;top:9px;border:0;background:none;font-size:27px}.rxHelpBox h2{font-size:24px;color:#073f5d}.rxHelpBox>p,.rxHelp li{font-size:13px;line-height:1.55}.rxHelp li{margin:8px 0}
+@media(max-width:950px){.rx18Head,.rx18Reassess{display:block}.rx18HelpBtn,.rx18Reassess button{margin-top:10px}.rx18Summary,.rx18Drivers,.rx18AGHX{grid-template-columns:1fr}.rx18Modification{grid-template-columns:1fr}.rx18Arrow{transform:rotate(90deg)}}
+
+/* v1.8.1 — AAI layman's explanation in Rx Help only */
+.rxAAIHelp{margin:16px 0;padding:16px;background:#f2f8fa;border:1px solid #cfe1e7;border-left:5px solid #087bc4;border-radius:9px}
+.rxAAIHelp h3{font-size:18px;color:#073f5d;margin:0 0 8px}
+.rxAAIHelp p{font-size:13px;line-height:1.6;color:#3f5e69;margin:8px 0}
+.rxAAIExample{font-size:13px;line-height:1.6;background:#fff;border-radius:7px;padding:11px 13px;margin:10px 0;color:#304f5c}
+
+/* v1.8.4 — fully dynamic A/G/H/X details */
+.rx18Boundary ul{margin:7px 0 0;padding-left:18px}
+.rx18Boundary li{font-size:11px;line-height:1.48;color:#405e69;margin:5px 0}
+
+/* v1.9.0 AIM Academy */
+.academyHero{background:linear-gradient(120deg,#063f55,#087d73);color:white;border-radius:16px;padding:28px 30px;display:flex;justify-content:space-between;gap:30px;align-items:center;margin-bottom:20px}
+.academyHero h1{font-size:30px;margin:4px 0 8px}.academyHero p{max-width:720px;line-height:1.55;margin:0}
+.academyEyebrow{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;opacity:.82}
+.academyPrinciple{min-width:260px;background:rgba(255,255,255,.12);padding:15px 18px;border-radius:12px;line-height:1.55}
+.academyLevelGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.academyLevel{background:#fff;border:1px solid #dce7eb;border-radius:14px;padding:18px;box-shadow:0 3px 12px rgba(21,54,70,.06)}
+.academyLevel.activeLevel{border-top:5px solid #087d73}.academyLevel.lockedLevel{border-top:5px solid #9fb0b8}
+.academyLevel h2{font-size:25px;margin:6px 0 0;color:#073f5d}.academyLevel h3{font-size:14px;margin:2px 0 10px;color:#345966}
+.academyLevel p{font-size:12px;line-height:1.55;min-height:76px}.levelNo{font-size:10px;font-weight:800;letter-spacing:1px;color:#6a838d}
+.levelMeta{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}.levelMeta span{font-size:10px;background:#edf5f6;padding:5px 8px;border-radius:20px;color:#496873}
+.academyPath{background:#f7fafb;border:1px solid #dbe6ea;border-radius:14px;padding:18px}.pathHeader{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.pathHeader h2{margin:3px 0}.pathHeader p{margin:0;color:#607985}
+.academyProgress{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.academyProgress>div{background:#fff;border:1px solid #dbe6ea;border-radius:10px;padding:12px;text-align:center}.academyProgress b{display:block;font-size:19px;color:#073f5d}.academyProgress span{font-size:10px;color:#6b838c;text-transform:uppercase}
+.academyColumns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.academyPanel{background:#fff;border:1px solid #dbe6ea;border-radius:12px;padding:16px}.academyPanel h3{margin:0 0 4px}
+.academyModule{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #edf2f4}.academyModule:last-child{border-bottom:0}.academyModule input{margin-top:3px}.academyModule b{font-size:12px}.academyModule span{display:block;font-size:10px;color:#6b838c;margin-top:2px}
+.missionBands>div{display:grid;grid-template-columns:58px 1fr;gap:8px;padding:9px;border-bottom:1px solid #edf2f4}.missionBands b{color:#087d73}.missionBands span{font-size:11px;color:#496873}
+.missionStage{margin-top:12px}.missionCard{border:1px solid #cfe0e5;border-radius:10px;padding:14px;background:#f8fbfc}.missionCard h4{margin:0 0 6px}.missionChoices{display:grid;gap:6px;margin-top:10px}.missionChoices button{text-align:left}
+.missionFeedback{margin-top:9px;padding:9px;border-radius:8px;background:#edf7f3;font-size:11px;line-height:1.5}
+.certGate{display:grid;grid-template-columns:1.4fr 1fr auto;gap:18px;align-items:center;background:#073f5d;color:#fff;border-radius:12px;padding:18px;margin-top:14px}.certGate h3{margin:3px 0 5px}.certGate p{font-size:11px;line-height:1.5;margin:0}.gateReqs{display:grid;gap:5px;font-size:11px}
+@media(max-width:900px){.academyLevelGrid,.academyColumns{grid-template-columns:1fr}.academyHero,.pathHeader{display:block}.academyPrinciple{margin-top:14px;min-width:0}.academyProgress{grid-template-columns:1fr 1fr}.certGate{grid-template-columns:1fr}}
+
+/* v1.9.1 — Academy containment and layout correction */
+#academy:not(.active){display:none !important}
+#academy.active{display:block}
+#rx:not(.active){display:none}
+#academy .academyModule{display:grid;grid-template-columns:24px 1fr;align-items:start;text-align:left}
+#academy .academyModule input{justify-self:center;margin-top:3px}
+#academy .academyModule div{min-width:0}
+#academy .academyModule b,#academy .academyModule span{text-align:left}
+#academy .academyColumns{align-items:start}
+#academy .academyPanel{min-width:0}
+#academy .missionChoices button{width:100%;display:block}
+.academyModuleCard{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;border-bottom:1px solid #e5edef;padding:13px 5px}.academyModuleCard.passed{background:#f2faf6;border-radius:9px}.moduleBadge{width:34px;height:34px;border:2px solid #aebdc3;border-radius:50%;display:grid;place-items:center;font-size:20px;color:#8799a0}.moduleBadge.earned{border-color:#16866f;color:#16866f;background:#eef9f5}.moduleInfo p{font-size:11px;line-height:1.45;margin:4px 0}.moduleStandard{font-size:10px;font-weight:700;color:#087d73}.moduleExam{margin-top:15px;border:1px solid #cddfe4;border-radius:12px;padding:16px;background:#f8fbfc}.modulePassRule{background:#edf7f4;padding:9px;border-radius:8px;margin:10px 0}.moduleQuestion{background:#fff;border:1px solid #e0e9ec;border-radius:8px;padding:11px;margin:8px 0;font-size:11px}.moduleQuestion>b,.moduleQuestion label{display:block;margin:4px 0}.moduleResult{margin-top:12px;padding:12px;border-radius:8px}.moduleResult.pass{background:#eaf7f1}.moduleResult.fail{background:#fff2e8}
+/* v1.9.3 Module 1 scholarly lesson + assessment formatting */
+.lessonShell{margin-top:16px;border:1px solid #cadde3;border-radius:14px;background:#fff;overflow:hidden}
+.lessonHeader{padding:22px 24px;background:linear-gradient(120deg,#073f5d,#087d73);color:#fff}.lessonHeader h2{margin:4px 0 7px;font-size:25px}.lessonLead{font-size:13px;line-height:1.6;max-width:900px}.lessonStats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.lessonStats span{background:rgba(255,255,255,.13);border-radius:20px;padding:6px 10px;font-size:10px}
+.learningObjectives{margin:18px 22px;padding:15px 18px;background:#edf7f4;border-radius:10px}.learningObjectives h3{margin:0 0 5px}.learningObjectives p{margin:0 0 5px}.learningObjectives li{margin:5px 0;font-size:11px;line-height:1.45}
+.lessonSection{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:18px 24px;border-top:1px solid #e7eef0}.lessonNum{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#087d73;color:#fff;font-weight:800}.lessonSection h3{margin:2px 0 7px;color:#073f5d}.lessonSection p{font-size:12px;line-height:1.65;color:#345763}
+.keyInsight,.commandRule{display:flex;gap:12px;align-items:center;margin-top:12px;padding:12px 14px;border-left:4px solid #087d73;background:#f0f8f6;border-radius:6px}.keyInsight b,.commandRule b{font-size:10px;letter-spacing:.8px;white-space:nowrap}.keyInsight span,.commandRule span{font-size:12px;font-weight:700}
+.governanceSpine{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:10px 0}.governanceSpine span{padding:6px 9px;border:1px solid #aac4cc;border-radius:6px;font-size:10px;font-weight:800;color:#073f5d}.governanceSpine i{font-style:normal;color:#087d73}
+.caseBox{margin-top:12px;padding:14px;border:1px solid #cbdde2;border-radius:9px;background:#f8fbfc}.caseBox>b{color:#073f5d}.caseBox p{margin:7px 0}
+.commandPractice{margin:18px 22px;padding:16px 18px;border:2px solid #087d73;border-radius:10px;background:#fbfefe}.commandPractice h3{margin:4px 0}.commandPractice p{font-size:12px;line-height:1.55}.commandPractice summary{cursor:pointer;font-weight:800;color:#087d73}
+.bookConnection{margin:18px 22px;padding:13px 16px;background:#f2f4f8;border-radius:9px;display:grid;grid-template-columns:150px 1fr;gap:12px}.bookConnection b{color:#073f5d}.bookConnection span{font-size:11px;line-height:1.5}
+.lessonAssessBtn{margin:0 22px 22px}
+.answerRows{display:grid;gap:7px;margin-top:10px}.answerRow{display:grid!important;grid-template-columns:20px 1fr;gap:8px;align-items:start!important;padding:9px 10px!important;border:1px solid #dbe6ea;border-radius:7px;background:#fff;cursor:pointer;margin:0!important}.answerRow:hover{background:#f3f9f8}.answerRow input{margin:2px 0 0!important;justify-self:start!important}.answerRow span{font-size:11px;line-height:1.4;text-align:left}
+.moduleQuestion{padding:13px!important}.moduleQuestion>b{font-size:11px;line-height:1.45}
+.answerReviewGrid{display:grid;gap:6px;margin-top:10px}.answerReview{display:grid;grid-template-columns:65px 1fr;gap:8px;padding:8px 10px;border-radius:7px;font-size:10px}.answerReview.ok{background:#edf8f3}.answerReview.miss{background:#fff3e9}.answerReview span{line-height:1.45}
+@media(max-width:700px){.bookConnection{grid-template-columns:1fr}.lessonSection{grid-template-columns:30px 1fr}}
+
+/* v1.9.4 full-width simulator */
+.academyLearningLayout{display:block;margin-top:16px}.academyModulesPanel{width:100%}
+.simulatorFull{margin-top:22px;border:1px solid #c9dce2;border-radius:14px;background:#fff;padding:20px}
+.simulatorIntro{display:grid;grid-template-columns:1fr auto;gap:22px}.simulatorIntro h2{margin:4px 0 6px;color:#073f5d}.simulatorIntro p{font-size:12px;line-height:1.55;color:#496773}
+.simulatorRule{display:grid;gap:5px;min-width:180px;padding:12px 14px;background:#edf7f4;border-radius:9px}.simulatorRule span{font-size:10px}
+.simulatorControls{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:14px 0}.simulatorControls span{font-size:10px;color:#617b85}
+.missionExpanded{max-width:1050px;margin:12px auto 0;padding:20px;border:1px solid #c8dce2;border-radius:12px;background:#f8fbfc}.missionTop{display:flex;justify-content:space-between}.missionNumber{font-size:10px;font-weight:800;color:#087d73}.missionScenario{font-size:13px!important;line-height:1.65}.missionPrompt{margin:12px 0 9px;padding:10px;background:#edf7f4;border-radius:7px}
+.missionChoices{display:grid;gap:8px}.missionChoice{display:grid!important;grid-template-columns:24px 1fr;gap:7px;text-align:left!important;align-items:start!important;width:100%;padding:10px 12px!important}.missionChoice span{white-space:normal;line-height:1.4}
+.missionFeedback{margin-top:13px;padding:13px;border-radius:8px}.missionFeedback p{font-size:11px;line-height:1.55}.missionPass{background:#eaf7f1}.missionReview{background:#fff2e8}.missionComplete{padding:20px;background:#eaf7f1;border-radius:10px}
+@media(max-width:800px){.simulatorIntro{grid-template-columns:1fr}.simulatorRule{min-width:0}}
+
+/* v1.9.5 — Academy workflow/cosmetic refinements */
+.moduleExam{max-width:1000px!important;margin:18px auto!important;padding:18px 20px!important}
+.moduleExam>h3,.moduleExam>p,.moduleExam>.modulePassRule,.moduleExam>.academyEyebrow{max-width:920px}
+.moduleExam .moduleQuestion{padding:10px 12px!important;margin:7px 0!important}
+.moduleExam .answerRows{gap:5px!important;margin-top:7px!important}
+.moduleExam .answerRow{padding:7px 9px!important;min-height:0!important}
+.moduleExam .answerRow span{font-size:10.5px!important}
+.simulatorFull{margin:18px 0 22px!important;box-shadow:0 8px 24px rgba(7,63,93,.06)}
+.missionChoice.correctChoice{background:#e6f6ee!important;border-color:#16866f!important;color:#0d6b59!important}
+.missionChoice.wrongChoice{background:#fff0ed!important;border-color:#c74b3f!important;color:#9e332b!important}
+.missionChoice.revealCorrect{background:#e6f6ee!important;border-color:#16866f!important;color:#0d6b59!important}
+.missionChoice:disabled{opacity:1!important;cursor:default!important}
+.choiceResult{font-weight:800;margin-left:auto;font-size:10px}
+@media(max-width:900px){.moduleExam{max-width:94%!important}}
+
+.formulaCard{display:grid;gap:7px;padding:14px 16px;background:#073f5d;color:#fff;border-radius:9px;margin:10px 0}.formulaCard b{font-size:18px}.workedMath{display:flex;gap:8px;flex-wrap:wrap}.workedMath span{padding:7px 9px;border:1px solid #cbdde2;border-radius:7px}.dimensionGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.dimensionGrid>div{padding:10px;border:1px solid #d9e5e8;border-radius:8px}.dimensionGrid b,.dimensionGrid span{display:block}.dimensionGrid span{font-size:10.5px;margin-top:3px}.bandGuide{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.bandGuide span{padding:10px;border:1px solid #d8e5e8;border-radius:8px;text-align:center;font-size:10px}.bandGuide b{display:block}
+.globalHelpBtn{position:fixed;right:18px;bottom:18px;z-index:9997;border:0;border-radius:24px;background:#073f5d;color:#fff;padding:10px 14px;font-weight:800;box-shadow:0 6px 20px #0003}.globalHelpModal{display:none;position:fixed;inset:0;z-index:9998;background:#031c2a99;padding:24px;overflow:auto}.globalHelpModal.open{display:block}.globalHelpCard{max-width:900px;margin:25px auto;background:#fff;border-radius:14px;overflow:hidden}.globalHelpHead{display:flex;justify-content:space-between;padding:20px 22px;background:#073f5d;color:#fff}.globalHelpHead button{background:none;border:0;color:#fff;font-size:28px}.helpTabs{display:flex;gap:5px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid #dce7ea}.helpTabs button{border:0;background:#edf3f5;padding:8px 10px;border-radius:6px;font-weight:800}.helpBody{padding:18px 22px;max-height:65vh;overflow:auto}.helpBody p{font-size:11.5px;line-height:1.55}.helpFormula{padding:13px;border:1px solid #cfe0e4;border-radius:9px;background:#f8fbfc}
+@media(max-width:760px){.dimensionGrid,.bandGuide{grid-template-columns:1fr}.globalHelpModal{padding:8px}}
+
+#dashboard .academyHero,#dashboard .academyLevelGrid,#dashboard .simulatorFull,#dashboard .academyPath,#dashboard .certGate{display:none!important}
+
+/* v1.9.7 Module 3 + readability + expanded help */
+.bandGuide span{font-size:13px!important;line-height:1.35!important;font-weight:700!important;padding:14px 10px!important}
+.bandGuide span b{font-size:17px!important;margin-bottom:4px!important}
+.bandGuide span:nth-child(1){background:#e8f7ef!important;border-color:#55a77e!important;color:#155f43!important}
+.bandGuide span:nth-child(2){background:#fff9db!important;border-color:#d6b84a!important;color:#755e05!important}
+.bandGuide span:nth-child(3){background:#fff0df!important;border-color:#dc8b3e!important;color:#914e0d!important}
+.bandGuide span:nth-child(4){background:#fde9e7!important;border-color:#c95d54!important;color:#8d302a!important}
+.dimensionGrid>div,.caseBox,.keyInsight,.commandRule,.learningObjectives{font-size:13px!important}
+.dimensionGrid b{font-size:13px!important}.dimensionGrid span{font-size:12px!important;line-height:1.5!important}
+.lessonSection p,.commandPractice p,.learningObjectives li{font-size:13px!important}
+.helpBody{font-size:13px!important;line-height:1.55!important;overflow-x:hidden!important}.helpBody p{font-size:13px!important;line-height:1.6!important}
+.helpBody h2{font-size:22px!important;color:#073f5d}.helpBody h3{font-size:16px!important;color:#073f5d}
+.helpFormula{display:block!important;width:auto!important;max-width:100%!important;overflow:visible!important;padding:16px!important;margin:12px 0 18px!important}
+.formulaLine{display:block!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;background:#073f5d;color:#fff;padding:12px 14px;border-radius:8px;font-size:16px;font-weight:800;line-height:1.45;margin:8px 0 12px}
+.formulaTerms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:10px 0}.formulaTerms span{padding:8px;border:1px solid #d4e3e7;border-radius:7px;background:#fff;font-size:12px}
+.helpExample{padding:10px 12px;background:#edf7f4;border-radius:8px;font-size:13px}
+.helpBig{padding:14px 16px;margin:10px 0;border:1px solid #d5e4e7;border-radius:9px;background:#f8fbfc}.helpBig>b{font-size:14px;color:#073f5d}
+.aghxHelp>div{font-size:13px!important}.aghxHelp p{font-size:12.5px!important}
+.helpGlossary p{padding:9px 0;border-bottom:1px solid #e5edef}
+.globalHelpCard{max-width:980px!important}.globalHelpHead p{font-size:13px!important}.helpTabs button{font-size:11px!important}
+@media(max-width:700px){.formulaTerms{grid-template-columns:repeat(2,1fr)}}
+
+/* v1.9.8 Academy navigation */
+.moduleCatalogHead{display:flex;justify-content:space-between;gap:22px;align-items:flex-start;padding:4px 4px 16px;border-bottom:2px solid #dbe7ea}.moduleCatalogHead h3{font-size:24px;margin:3px 0}.moduleCatalogHead p{font-size:13px;line-height:1.5}.catalogHint{max-width:310px;background:#edf7f4;border-left:4px solid #087d73;padding:12px 14px;border-radius:7px;font-size:12px;line-height:1.5}
+.academyModuleCard{grid-template-columns:54px 1fr auto!important;padding:17px 10px!important;border:1px solid #dfe9ec!important;border-radius:10px!important;margin:9px 0!important;background:#fff}.academyModuleCard:hover{border-color:#79aaa8!important;box-shadow:0 4px 14px #0000000d}.moduleNumber{width:44px;height:44px;border-radius:9px;background:#073f5d;color:#fff;display:grid;place-items:center;font-size:17px;font-weight:900}.academyModuleCard.passed .moduleNumber{background:#16866f}.moduleTitleRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.moduleTitleRow>b{font-size:14px;color:#073f5d}.moduleInfo p{font-size:12.5px!important;line-height:1.5!important}.moduleStandard{font-size:10.5px!important}.earnedPill{background:#e6f6ef;color:#14705c;padding:4px 7px;border-radius:20px;font-size:9px;font-weight:900}
+.moduleWorkspace{border:2px solid #b9d4d8;border-radius:14px;background:#fff;overflow:hidden}.moduleWorkspaceNav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;background:#073f5d;padding:12px 14px;color:#fff}.moduleWorkspaceNav .secondary{background:#fff!important;color:#073f5d!important}.moduleCrumb{text-align:center}.moduleCrumb span,.moduleCrumb b{display:block}.moduleCrumb span{font-size:9px;letter-spacing:1.3px;opacity:.75}.moduleCrumb b{font-size:14px;margin-top:2px}
+.moduleStepNav{background:#eef6f6;border-bottom:1px solid #cfe0e3;padding:10px 14px}.moduleContext{display:flex;justify-content:space-between;align-items:center;gap:15px}.moduleContext>div:first-child span,.moduleContext>div:first-child b{display:block}.moduleContext>div:first-child span{font-size:9px;color:#68838b;letter-spacing:1px}.moduleContext>div:first-child b{font-size:13px;color:#073f5d}.moduleSteps{display:flex;align-items:center;gap:6px}.moduleSteps button,.stepBadge{border:1px solid #bdd2d6;background:#fff;border-radius:7px;padding:7px 9px;font-size:9px;font-weight:800;color:#526e77}.moduleSteps button{cursor:pointer}.moduleSteps button.current{background:#087d73;color:#fff;border-color:#087d73}.moduleSteps b,.stepBadge b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#dce9eb;margin-right:4px}.moduleSteps button.current b{background:#fff;color:#087d73}
+#moduleStage{padding:18px 20px 24px}.lessonShell{margin:0!important}.examTop{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.moduleExam{margin-top:0!important}.comingLesson{padding:20px;background:#f6fafb;border:1px solid #d9e7ea;border-radius:10px;font-size:13px}
+@media(max-width:760px){.moduleCatalogHead,.moduleContext,.examTop{display:block}.catalogHint{max-width:none;margin-top:10px}.academyModuleCard{grid-template-columns:46px 1fr!important}.academyModuleCard>button{grid-column:1/-1}.moduleWorkspaceNav{grid-template-columns:1fr auto}.moduleCrumb{grid-column:1/-1;grid-row:2}.moduleSteps{margin-top:9px;flex-wrap:wrap}#moduleStage{padding:12px}}
+
+/* v1.9.9 — Simulator Practice Lab + Module 4 */
+.simulatorPracticeLab{position:relative!important;margin:26px 0 34px!important;padding:22px!important;border:3px solid #0b6872!important;border-radius:16px!important;background:linear-gradient(180deg,#e8f5f5 0%,#f8fcfc 100%)!important;box-shadow:0 8px 24px #073f5d1c!important}
+.simulatorPracticeLab:before{content:"SIMULATOR · PRACTICE ENVIRONMENT";display:inline-block;background:#073f5d;color:#fff;padding:7px 12px;border-radius:7px;font-size:10px;font-weight:900;letter-spacing:1px;margin-bottom:10px}
+.simulatorPracticeLab .simulatorEyebrow{color:#087d73!important;font-weight:900!important}
+.simulatorPracticeLab h2,.simulatorPracticeLab h3{color:#073f5d!important}
+.simulatorPracticeLab:after{content:"PRACTICE LAB — separate from the 10 formal Command Modules";position:absolute;right:18px;top:18px;background:#fff;border:1px solid #8fbec1;border-radius:20px;padding:6px 10px;font-size:9px;font-weight:800;color:#35666c}
+.aghxCourseGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}.aghxCourseGrid>div{padding:15px;border-radius:10px;border:2px solid;font-size:13px}.aghxCourseGrid b{font-size:15px}.aghxCourseGrid p{margin:7px 0 0!important}.aghxA{background:#e8f7ef;border-color:#55a77e!important;color:#155f43}.aghxG{background:#fff9db;border-color:#d6b84a!important;color:#755e05}.aghxH{background:#fff0df;border-color:#dc8b3e!important;color:#914e0d}.aghxX{background:#fde9e7;border-color:#c95d54!important;color:#8d302a}
+.aghxFlow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:13px 0}.aghxFlow span{padding:8px 10px;background:#edf5f6;border:1px solid #c9dde0;border-radius:7px;font-size:11px;font-weight:800;color:#073f5d}
+@media(max-width:760px){.aghxCourseGrid{grid-template-columns:1fr}.simulatorPracticeLab:after{position:static;display:inline-block;margin:6px 0 12px}.simulatorPracticeLab{padding:14px!important}}
+
+/* v2.0 — Module 5 + right-side module navigation */
+.moduleWorkspaceNav{grid-template-columns:1fr auto!important}.moduleCrumb{text-align:left!important}.moduleNavActions{display:flex;gap:8px;align-items:center;justify-content:flex-end}.moduleBackBtn{order:2}
+.dxSpine,.dxRxBridge{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:14px 0}.dxSpine span,.dxRxBridge div{padding:9px 11px;border:1px solid #bfd6da;background:#edf6f6;border-radius:8px;font-size:11px;font-weight:800;color:#073f5d}.dxRxBridge div{display:grid;gap:2px}.dxRxBridge div b{font-size:14px}.dxRxBridge div span{font-size:10px;font-weight:600}
+.dxThree{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.dxThree>div{padding:14px;border:1px solid #cfe0e3;border-radius:9px;background:#f7fbfb}.dxThree b{font-size:12px;color:#073f5d}.dxThree p{font-size:12px!important;margin:6px 0 0!important}
+.authorityConcentration{display:grid;gap:7px;margin:12px 0}.authorityConcentration>div{display:flex;justify-content:space-between;padding:10px 12px;border:1px solid #e0b070;background:#fff4e6;border-radius:8px;color:#844a0e;font-size:12px}.authorityConcentration strong{padding:10px 12px;background:#8b4d16;color:#fff;border-radius:8px;font-size:11px}
+@media(max-width:760px){.moduleWorkspaceNav{grid-template-columns:1fr!important}.moduleNavActions{justify-content:flex-end}.dxThree{grid-template-columns:1fr}}
+
+/* v2.1 — Module 6 Rx training */
+.rxPipeline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:14px 0}.rxPipeline div{display:grid;gap:2px;padding:10px 12px;border:1px solid #bfd6da;background:#edf6f6;border-radius:8px;color:#073f5d}.rxPipeline div b{font-size:13px}.rxPipeline div span{font-size:10px}
+.priorityExplain{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.priorityExplain>div{display:grid;gap:5px;padding:13px;border:1px solid #c9dde0;background:#f6fafb;border-radius:9px}.priorityExplain b{font-size:18px;color:#087d73}.priorityExplain span{font-size:12px}
+.rxRemedyGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.rxRemedyGrid>div{padding:12px;border:1px solid #d4e2e5;border-radius:9px;background:#f8fbfc}.rxRemedyGrid b,.rxRemedyGrid span{display:block}.rxRemedyGrid b{font-size:12px;color:#073f5d}.rxRemedyGrid span{font-size:11px;line-height:1.5;margin-top:4px}
+.modSpec{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:12px 0}.modSpec>div{padding:13px;border:1px solid #cbdde1;border-radius:9px;background:#f7fbfb}.modSpec b{font-size:11px;color:#087d73;letter-spacing:.4px}.modSpec p{margin:5px 0 0!important;font-size:12px!important}
+.rxTruth{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin:14px 0}.rxTruth b{padding:9px 11px;border-radius:8px;background:#073f5d;color:#fff;font-size:10px}.rxTruth span{font-weight:900;color:#087d73}
+@media(max-width:760px){.priorityExplain,.rxRemedyGrid,.modSpec{grid-template-columns:1fr}}
+
+/* v2.2 — Module 7 Evidence, Monitoring & Drift */
+.runtimeSpine,.monitorChain{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:14px 0}.runtimeSpine span,.monitorChain span{padding:9px 10px;border:1px solid #bfd6da;background:#edf6f6;border-radius:8px;font-size:10px;font-weight:800;color:#073f5d}
+.evidenceGrid,.driftGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.evidenceGrid>div,.driftGrid>div{padding:12px;border:1px solid #d2e1e4;border-radius:9px;background:#f8fbfc}.evidenceGrid b,.evidenceGrid span{display:block}.evidenceGrid b,.driftGrid b{font-size:11px;color:#087d73}.evidenceGrid span,.driftGrid p{font-size:11px!important;line-height:1.5;margin:4px 0 0!important}
+.triggerList{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:12px 0}.triggerList span{padding:10px 11px;border-left:4px solid #d58b39;background:#fff6e9;border-radius:6px;font-size:11px;color:#75460f;font-weight:700}
+.lastCommandProof{display:flex;align-items:stretch;gap:8px;margin:13px 0}.lastCommandProof>div{flex:1;padding:13px;border:1px solid #bfd6da;background:#f5fafb;border-radius:9px}.lastCommandProof>div b,.lastCommandProof>div span{display:block}.lastCommandProof>div b{font-size:11px;color:#073f5d}.lastCommandProof>div span{font-size:10.5px;line-height:1.45;margin-top:5px}.lastCommandProof>b{align-self:center;color:#087d73;font-size:18px}
+@media(max-width:760px){.evidenceGrid,.driftGrid,.triggerList{grid-template-columns:1fr}.lastCommandProof{display:block}.lastCommandProof>b{display:block;text-align:center;padding:5px}}
+
+/* v2.3 — Module 8 Last Command + assessment retake/progression */
+.lastCommandHeader{background:linear-gradient(135deg,#f7fbfb,#edf6f6)!important}.lastCommandStatement{display:grid;grid-template-columns:auto auto auto auto;align-items:center;gap:8px;padding:18px;margin:13px 0;background:#073f5d;color:#fff;border-radius:11px;text-align:center}.lastCommandStatement span{font-size:9px;letter-spacing:.8px}.lastCommandStatement b{font-size:15px;color:#9edbd3}.lastCommandStatement strong{font-size:17px;color:#fff}
+.sovereignThree{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.sovereignThree>div{padding:14px;border:1px solid #bcd6da;background:#f7fbfb;border-radius:9px}.sovereignThree b{font-size:11px;color:#087d73}.sovereignThree p{font-size:11px!important;margin:6px 0 0!important}
+.controlPlaneDiagram{max-width:650px;margin:14px auto;text-align:center}.controlPlaneDiagram>div{padding:12px;border-radius:9px}.humanControl{background:#073f5d;color:#fff}.independentControl{background:#dff2ef;border:2px solid #087d73;color:#075d58}.agentExec{background:#eef3f5;border:1px solid #bfd0d4;color:#073f5d}.controlPlaneDiagram b,.controlPlaneDiagram span{display:block}.controlPlaneDiagram span{font-size:10px;margin-top:3px}.controlSplit{display:flex;justify-content:space-around!important;background:none!important;padding:5px!important;color:#087d73;font-weight:800}
+.revocationTimeline,.safeReversion{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:14px 0}.revocationTimeline span,.safeReversion div{padding:9px 10px;background:#edf6f6;border:1px solid #c5dadd;border-radius:8px;font-size:10px}.revocationTimeline .warn{background:#fff2df;border-color:#e2a45d}.revocationTimeline .stop{background:#fde9e7;border-color:#c95d54}
+.revocationGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.revocationGrid>div{padding:12px;border:1px solid #d0e0e3;border-radius:9px;background:#f8fbfc}.revocationGrid b,.revocationGrid span{display:block}.revocationGrid b{font-size:10.5px;color:#073f5d}.revocationGrid span{font-size:10px;line-height:1.45;margin-top:4px}
+.lastCommandTest{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:12px 0}.lastCommandTest span{padding:10px;border-left:4px solid #087d73;background:#edf7f5;border-radius:6px;font-size:11px;font-weight:700;color:#075d58}
+.assessmentActions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin:16px 0}.retakeBtn{border-color:#087d73!important;color:#087d73!important}.autoAdvanceNote{padding:11px 13px;background:#e7f6ef;border:1px solid #83bea7;border-radius:8px;color:#17624c;font-size:11px;text-align:center}
+@media(max-width:760px){.lastCommandStatement{grid-template-columns:1fr}.sovereignThree,.revocationGrid,.lastCommandTest{grid-template-columns:1fr}.assessmentActions{justify-content:stretch}.assessmentActions button{width:100%}}
+
+/* v2.4 — Module 9 + reliable assessment result choices */
+.lossCommandHeader{background:linear-gradient(135deg,#fff8f1,#f8fbfb)!important}
+.lossSpine{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:14px 0}.lossSpine span{padding:9px 10px;border:1px solid #cbdde0;background:#f3f8f9;border-radius:8px;font-size:10px;font-weight:800;color:#073f5d}.lossSpine .lossDanger{background:#fde9e7;border-color:#c95d54;color:#8d302a}
+.promptVsGate{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:14px 0}.promptVsGate>div{padding:15px;border:2px solid #cbdde0;border-radius:10px;background:#f8fbfc}.promptVsGate b,.promptVsGate span,.promptVsGate strong{display:block}.promptVsGate b{font-size:12px;color:#073f5d}.promptVsGate span{font-size:11px;margin:6px 0}.promptVsGate strong{font-size:10px;color:#087d73}.promptVsGate>b{font-size:22px;color:#a24a42}
+.bigPrinciple{display:grid;gap:4px;padding:16px;margin:13px 0;background:#073f5d;color:#fff;border-radius:10px;text-align:center}.bigPrinciple b{font-size:12px;color:#9edbd3}.bigPrinciple strong{font-size:17px}
+.lossGrid,.regainCommand{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.lossGrid>div,.regainCommand>div{padding:12px;border:1px solid #d3e1e4;border-radius:9px;background:#f8fbfc}.lossGrid b,.lossGrid span,.regainCommand b,.regainCommand span{display:block}.lossGrid b,.regainCommand b{font-size:11px;color:#073f5d}.lossGrid span,.regainCommand span{font-size:10.5px;line-height:1.45;margin-top:4px}.regainCommand>div{border-left:4px solid #087d73}
+.boundaryEvasion{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0}.boundaryEvasion span{padding:9px 12px;background:#fff3df;border:1px solid #dfa75d;border-radius:8px;font-weight:900;color:#805014}.boundaryEvasion b{padding:10px 13px;background:#9a4b34;color:#fff;border-radius:8px}
+.assessmentChoiceTitle{text-align:center;font-size:11px;font-weight:900;letter-spacing:.8px;color:#073f5d;margin:18px 0 8px}.assessmentActions.threeChoices{display:grid!important;grid-template-columns:repeat(3,1fr);gap:10px!important}.assessmentActions.threeChoices button{min-height:46px;font-size:11px!important}.disabledChoice{opacity:.45!important;cursor:not-allowed!important}
+@media(max-width:760px){.promptVsGate{grid-template-columns:1fr}.promptVsGate>b{text-align:center}.lossGrid,.regainCommand,.assessmentActions.threeChoices{grid-template-columns:1fr!important}}
+
+/* v2.4.2 assessment runtime root fix */
+.moduleQuestion.needsAnswer{outline:3px solid #c95d54!important;background:#fff1ef!important;transition:.2s}
+#moduleResult:not(:empty){margin-top:18px;padding-top:8px;border-top:2px solid #cfe0e3}
+
+/* v2.4.4 — clean assessment review */
+.answerReview{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:12px!important;
+  margin-top:18px!important;
+}
+.reviewItem{
+  width:100%!important;
+  box-sizing:border-box!important;
+  display:block!important;
+  padding:15px 17px!important;
+  border-radius:10px!important;
+  background:#fff!important;
+  line-height:1.5!important;
+  overflow:visible!important;
+}
+.reviewItem.correct{border:1px solid #9ccfba!important;border-left:5px solid #27845f!important}
+.reviewItem.incorrect{border:1px solid #e1b3ae!important;border-left:5px solid #b64f47!important}
+.reviewStatus{margin-bottom:8px!important;font-size:12px!important;letter-spacing:.2px}
+.reviewItem.correct .reviewStatus{color:#17684d!important}
+.reviewItem.incorrect .reviewStatus{color:#943c35!important}
+.reviewItem p{
+  width:auto!important;
+  max-width:none!important;
+  margin:6px 0!important;
+  font-size:12px!important;
+  line-height:1.55!important;
+  white-space:normal!important;
+  word-break:normal!important;
+}
+.reviewItem .yourAnswer{color:#344e5c!important}
+.reviewItem .reviewExplanation{color:#173d50!important}
+.assessmentChoiceTitle{margin-top:22px!important;font-size:12px!important}
+
+/* v2.4.5 — assessment action button hierarchy */
+.assessmentActions.threeChoices button{
+  min-height:50px!important;
+  border-radius:9px!important;
+  font-weight:900!important;
+  letter-spacing:.15px!important;
+  box-shadow:0 2px 6px rgba(7,63,93,.10)!important;
+}
+.assessmentActions.threeChoices button:nth-child(1){
+  background:#e8f4f2!important;
+  border:1.5px solid #4b9b91!important;
+  color:#075d58!important;
+}
+.assessmentActions.threeChoices button:nth-child(1):hover{
+  background:#d9ece8!important;
+}
+.assessmentActions.threeChoices button:nth-child(2){
+  background:#e9f0f5!important;
+  border:1.5px solid #7897aa!important;
+  color:#173f56!important;
+}
+.assessmentActions.threeChoices button:nth-child(2):hover{
+  background:#dce8ef!important;
+}
+.assessmentActions.threeChoices button:nth-child(3):not(:disabled){
+  background:#0b78bd!important;
+  border:1.5px solid #0868a4!important;
+  color:#fff!important;
+}
+.assessmentActions.threeChoices button:nth-child(3):not(:disabled):hover{
+  background:#086ba9!important;
+}
+.assessmentActions.threeChoices button.disabledChoice,
+.assessmentActions.threeChoices button:nth-child(3):disabled{
+  background:#d8dde1!important;
+  border:1.5px solid #c3c9ce!important;
+  color:#7d878e!important;
+  box-shadow:none!important;
+  opacity:1!important;
+  cursor:not-allowed!important;
+}
+
+/* v2.5 — Module 10 Practical Command capstone */
+.capstoneHeader{background:linear-gradient(135deg,#edf7f5,#f7fbfc)!important;border-top:4px solid #087d73!important}
+.capstoneCycle{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:14px 0}.capstoneCycle span{padding:9px 10px;border:1px solid #bcd8d4;background:#edf7f5;border-radius:8px;font-size:9.5px;font-weight:900;color:#075d58}
+.capstoneScore{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:13px 0}.capstoneScore>div{padding:15px;text-align:center;border:1px solid #bfd6da;border-radius:9px;background:#f7fbfc}.capstoneScore b,.capstoneScore span{display:block}.capstoneScore b{font-size:18px;color:#073f5d}.capstoneScore span{font-size:10px;margin-top:4px}
+.envelopeCaseGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.envelopeCaseGrid>div{padding:12px;border:1px solid #d1e0e3;border-radius:9px;background:#f8fbfc}.envelopeCaseGrid b,.envelopeCaseGrid span{display:block}.envelopeCaseGrid b{font-size:10.5px;color:#087d73}.envelopeCaseGrid span{font-size:10.5px;line-height:1.45;margin-top:4px}
+.capstoneRx{display:grid;grid-template-columns:1fr;gap:7px;margin:12px 0}.capstoneRx>div{display:grid;grid-template-columns:45px 1fr;align-items:center;padding:10px 12px;border-left:4px solid #087d73;background:#f2f8f7;border-radius:7px}.capstoneRx b{font-size:14px;color:#075d58}.capstoneRx span{font-size:11px}
+.finalCommand{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:15px 0}.finalCommand span{padding:9px;background:#edf6f6;border:1px solid #bfd6da;border-radius:7px;font-size:9px;font-weight:900;color:#073f5d}.finalCommand b{color:#087d73}.finalCommand strong{padding:10px 13px;background:#073f5d;color:#fff;border-radius:8px;font-size:10px}
+.capstonePractice{border:2px solid #087d73!important}.capstoneReady{display:grid;gap:5px;padding:16px;margin:18px 0;background:#073f5d;color:#fff;border-radius:10px;text-align:center}.capstoneReady b{font-size:13px;color:#9edbd3}.capstoneReady span{font-size:11px;line-height:1.5}
+@media(max-width:760px){.capstoneScore,.envelopeCaseGrid{grid-template-columns:1fr}}
+
+/* v2.6 — authored 100-mission curriculum */
+#simulatorPracticeLab{border:2px solid #0b78bd!important;background:linear-gradient(135deg,#f1f8fc,#f8fbfc)!important}
+#simulatorPracticeLab .academyEyebrow{color:#0b78bd!important}
+.missionNumber{font-weight:900!important;color:#0b78bd!important}
+.missionScenario{font-size:13px!important;line-height:1.6!important}
+
+/* v2.7 simulator emphasis */
+.simulatorPracticeLab{margin:28px 0 36px!important;padding:24px!important;border:3px solid #0a6f91!important;border-radius:18px!important;background:linear-gradient(135deg,#dff3f7 0%,#edf8f6 52%,#e5f0f8 100%)!important;box-shadow:0 10px 28px rgba(7,63,93,.16)!important}
+.simulatorPracticeLab:before{background:#075574!important;color:#fff!important}
+.simulatorPracticeLab:after{background:#fff!important;border:1.5px solid #5d9db2!important;color:#075574!important}
+.missionModuleBands{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px 12px!important;margin:16px 0!important}
+.missionModuleBands>div{background:rgba(255,255,255,.78)!important;border:1px solid #acd0d9!important;border-radius:8px!important;padding:9px 11px!important}
+.missionModuleBands>div b{color:#087d73!important;font-size:12px!important}.missionModuleBands>div span{font-size:10.5px!important}
+.simulatorPracticeLab .missionCard{background:#fff!important;border:1.5px solid #86b9c8!important;box-shadow:0 6px 18px rgba(7,63,93,.10)!important}
+@media(max-width:760px){.missionModuleBands{grid-template-columns:1fr!important}}
+
+/* v2.8 — centered Academy learning path + simulator reposition */
+#academyPath{
+  max-width:1460px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.academyLearningLayout{
+  max-width:1320px!important;
+  margin:0 auto 26px!important;
+}
+.academyModulesPanel{
+  width:100%!important;
+  margin:0 auto!important;
+}
+.moduleCatalogHead{
+  padding-left:6px!important;
+  padding-right:6px!important;
+}
+#academyModules{
+  max-width:1280px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+#academyModules .academyModuleRow{
+  padding-left:18px!important;
+  padding-right:18px!important;
+}
+.simulatorPracticeLab{
+  max-width:1320px!important;
+  margin:34px auto 34px!important;
+  box-sizing:border-box!important;
+}
+.simulatorSectionLabel{
+  display:inline-block;
+  margin:-6px 0 14px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#075574;
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.8px;
+}
+.certGate{
+  max-width:1320px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(min-width:1500px){
+  .academyLearningLayout,#academyModules,.simulatorPracticeLab,.certGate{max-width:1280px!important}
+}
+
+/* v2.9 Certification Center */
+.certCenter{max-width:1320px;margin:0 auto 40px}.certHero{padding:24px 26px;border:1px solid #b8d3dc;border-top:5px solid #075574;border-radius:14px;background:linear-gradient(135deg,#eef7f9,#f8fbfc)}.certHero h2{font-size:27px;color:#073f5d}.certProgress{margin:18px 0;padding:16px;border:1px solid #c4d9df;border-radius:11px;background:#fff}.certProgressHead{display:flex;justify-content:space-between}.certProgressBar{height:10px;margin:10px 0;background:#e5ecef;border-radius:20px;overflow:hidden}.certProgressBar i{display:block;height:100%;background:#087d73}.certRequirements{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:18px 0 26px}.certReq{display:flex;gap:10px;padding:14px;border:1px solid #cbdce1;border-radius:10px;background:#fff}.certReq>b{display:grid;place-items:center;min-width:30px;height:30px;border-radius:50%;background:#dfe9ed}.certReq strong,.certReq span{display:block}.certReq strong{font-size:11px;color:#073f5d}.certReq span{font-size:9.5px;margin-top:4px}.certReq.complete{border-color:#78b9a4;background:#edf8f3}.certReq.complete>b{background:#27845f;color:#fff}.certReq.future{background:#f5f7f8}.examPanel{padding:22px;border:2px solid #0a6f91;border-radius:15px;background:#eef7fa}.examStandards{display:flex;gap:9px;flex-wrap:wrap;margin:13px 0}.examStandards span{padding:9px 12px;border:1px solid #9fc5d1;border-radius:8px;background:#fff}.examTop{display:flex;justify-content:space-between}.examNotice{padding:11px;margin:12px 0;background:#dff1f2;border-left:4px solid #087d73}.certQuestion{padding:15px;margin:10px 0;border:1px solid #bfd4dc;border-radius:10px;background:#fff}.certQuestion>b{display:block;font-size:11.5px}.qTopic{display:block;margin:4px 0 9px;font-size:9px;font-weight:800;color:#087d73}.certQuestion label{display:flex;gap:8px;padding:8px 10px;margin:5px 0;border:1px solid #d2e0e4;border-radius:7px}.certResult{margin-top:20px;padding:20px;background:#fff;border-radius:12px}.certResult.pass{border:2px solid #27845f}.certResult.fail{border:2px solid #b64f47}.certScore{font-size:25px;font-weight:900}.moduleBreakdown{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:14px 0}.moduleBreakdown span{display:flex;justify-content:space-between;padding:8px;background:#f1f6f7;border-radius:7px}.examIntegrityNote{margin-top:15px;padding:11px;background:#f4f7f8;border-radius:7px}@media(max-width:900px){.certRequirements,.moduleBreakdown{grid-template-columns:1fr 1fr}}
+
+/* v3.0 — Practical Dx/Rx + Commander Check Ride */
+.certStage{margin:24px 0;padding:22px;border:2px solid #a8cbd6;border-radius:15px;background:#f8fbfc;box-shadow:0 6px 18px rgba(7,63,93,.06)}
+.certStage h3{margin:6px 0 8px;font-size:21px;color:#073f5d}.stageLead{max-width:1050px;line-height:1.6}
+.practicalStage{border-color:#16867d;background:linear-gradient(135deg,#edf9f5,#f7fbfb)}
+.checkRideStage{border-color:#315f86;background:linear-gradient(135deg,#eef4fa,#f8fafc)}
+.caseFacts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.caseFacts div,.caseBrief{padding:12px;border:1px solid #b9d7d2;border-radius:9px;background:#fff}.caseFacts b,.caseFacts span{display:block}.caseFacts b{font-size:9px;color:#087d73;text-transform:uppercase}.caseFacts span{margin-top:4px;font-size:11px;font-weight:800;color:#073f5d}.caseBrief p{margin-bottom:0;line-height:1.55}
+.practicalGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;margin-top:18px}.practicalDiagnosis,.practicalRx{padding:16px;border:1px solid #b9d7d2;border-radius:10px;background:#fff}.practicalGrid h4,.practicalAssessment h4{color:#075574}.dimTable{display:grid;grid-template-columns:1fr 1fr;gap:5px}.dimTable div{display:flex;justify-content:space-between;padding:7px 9px;background:#f2f7f7;border-radius:6px;font-size:9.5px}.formulaWork{margin-top:10px;padding:12px;background:#e6f4f0;border-left:4px solid #087d73;border-radius:7px}.formulaWork b,.formulaWork span{display:block}.formulaWork span{margin-top:5px;font-size:10px}.rxMini{padding:11px;margin:7px 0;background:#f2f7f8;border-radius:7px}.rxMini b,.rxMini span{display:block}.rxMini span{margin-top:4px;font-size:10px;line-height:1.45}.practicalAssessment{margin-top:16px}
+.rideProgress{height:9px;background:#dce8ed;border-radius:20px;overflow:hidden;margin:18px 0 12px}.rideProgress i{display:block;height:100%;background:#087d73}.rideCard{padding:20px;border:1px solid #a9c5d4;border-radius:11px;background:#fff}.rideCard h4{font-size:18px;color:#073f5d}.rideCard p{line-height:1.6}.rideChoices{display:grid;gap:7px;margin:14px 0}.rideChoices button{text-align:left}.rideCorrect{background:#dff4e8!important;border-color:#27845f!important;color:#155e43!important}.rideWrong{background:#f8e4e2!important;border-color:#b64f47!important;color:#8a332d!important}.rideFeedback{padding:14px;margin-top:12px;border-radius:8px}.rideFeedback b,.rideFeedback span{display:block}.rideFeedback span{margin:6px 0 10px}.rideFeedback.ok{background:#e8f6ee}.rideFeedback.no{background:#f9e9e7}
+.certAward{margin:28px 0;padding:30px;text-align:center;border:3px double #087d73;border-radius:16px;background:linear-gradient(135deg,#edf8f4,#fff,#eef6fa)}.certAward>span{display:inline-block;padding:8px 14px;border-radius:999px;background:#075574;color:#fff;font-weight:900;letter-spacing:1px}.certAward h2{margin:14px 0 4px;color:#073f5d}.certAward h3{color:#087d73}.awardActions{display:flex;justify-content:center;gap:10px;margin-top:18px}
+@media(max-width:900px){.caseFacts{grid-template-columns:1fr 1fr}.practicalGrid{grid-template-columns:1fr}}@media(max-width:600px){.caseFacts{grid-template-columns:1fr}}
+
+/* v3.0.1 — Final Exam listed directly under the 10 Command Modules */
+.academyFinalExamCard{
+  max-width:1280px;
+  margin:18px auto 30px;
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+  border:2px solid #0a6f91;
+  border-radius:13px;
+  background:linear-gradient(135deg,#e6f3f8 0%,#f7fbfc 58%,#e9f6f2 100%);
+  box-shadow:0 7px 20px rgba(7,63,93,.10);
+}
+.finalExamNumber{
+  width:58px;height:58px;border-radius:12px;
+  display:grid;place-items:center;
+  background:#075574;color:#fff;
+  font-size:11px;font-weight:900;letter-spacing:.7px;
+}
+.finalExamCopy h3{margin:3px 0 5px;color:#073f5d;font-size:19px}
+.finalExamCopy p{margin:0;max-width:850px;font-size:11px;line-height:1.5}
+.finalExamMeta{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.finalExamMeta span{padding:6px 8px;border:1px solid #9fc5d1;border-radius:6px;background:#fff;color:#075574;font-size:8.5px;font-weight:900;letter-spacing:.3px}
+.finalExamAction{min-width:165px;text-align:right}
+@media(max-width:850px){
+ .academyFinalExamCard{grid-template-columns:60px 1fr}
+ .finalExamAction{grid-column:1/-1;text-align:left}
+}
+
+/* v3.0.2 — Final Exam answer-row formatting fix */
+#certExamWorkspace .certQuestion label,
+#practicalWorkspace .certQuestion label{
+  display:grid!important;
+  grid-template-columns:22px minmax(0,1fr)!important;
+  align-items:center!important;
+  justify-content:start!important;
+  gap:10px!important;
+  min-height:42px!important;
+  padding:9px 12px!important;
+  text-align:left!important;
+  cursor:pointer!important;
+}
+#certExamWorkspace .certQuestion label input[type="radio"],
+#practicalWorkspace .certQuestion label input[type="radio"]{
+  width:16px!important;
+  height:16px!important;
+  margin:0!important;
+  justify-self:center!important;
+  flex:none!important;
+}
+#certExamWorkspace .certQuestion label span,
+#practicalWorkspace .certQuestion label span{
+  display:block!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:left!important;
+  line-height:1.35!important;
+  font-size:11px!important;
+  white-space:normal!important;
+}
+#certExamWorkspace .certQuestion,
+#practicalWorkspace .certQuestion{
+  padding:14px 16px!important;
+}
+#certExamWorkspace .certQuestion>b,
+#practicalWorkspace .certQuestion>b{
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+#certExamWorkspace .qTopic,
+#practicalWorkspace .qTopic{
+  font-size:9.5px!important;
+  margin:4px 0 10px!important;
+}
+
+/* v3.0.3 — Make AIM-CP Final Exam visually distinct */
+.academyFinalExamCard{
+  border-color:#075574!important;
+  background:linear-gradient(135deg,#075574 0%,#0b6f78 58%,#087d73 100%)!important;
+  box-shadow:0 10px 24px rgba(7,63,93,.18)!important;
+}
+.academyFinalExamCard .academyEyebrow,
+.academyFinalExamCard .finalExamCopy h3,
+.academyFinalExamCard .finalExamCopy p{
+  color:#fff!important;
+}
+.academyFinalExamCard .finalExamNumber{
+  background:#fff!important;
+  color:#075574!important;
+  border:2px solid rgba(255,255,255,.7)!important;
+}
+.academyFinalExamCard .finalExamMeta span{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(255,255,255,.8)!important;
+  color:#075574!important;
+}
+.academyFinalExamCard .finalExamAction .primary{
+  background:#fff!important;
+  color:#075574!important;
+  border-color:#fff!important;
+}
+.academyFinalExamCard .finalExamAction .primary:hover{
+  background:#eaf4f5!important;
+}
+
+/* v3.1 — AIM-CP Credential & Verification Center */
+.credentialCenter{margin:28px 0 42px;padding:22px;border:2px solid #075574;border-radius:16px;background:linear-gradient(135deg,#eef7f8,#f9fbfc);box-shadow:0 8px 22px rgba(7,63,93,.08)}
+.credentialHeader h3{margin:5px 0;color:#073f5d;font-size:21px}.credentialHeader p{max-width:980px;line-height:1.55}
+.credentialGrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px;margin-top:18px}.candidateProfile,.credentialPreview{padding:18px;border:1px solid #b7d0d8;border-radius:11px;background:#fff}.candidateProfile h4{margin-top:0;color:#075574}.candidateProfile label{display:block;margin:10px 0;font-size:10px;font-weight:800;color:#315668}.candidateProfile label span{font-weight:400}.candidateProfile input,.verifyControls input{width:100%;box-sizing:border-box;margin-top:5px;padding:10px 11px;border:1px solid #b9ccd3;border-radius:7px;font:inherit}.profileStatus{margin-top:8px;color:#27845f;font-size:10px;font-weight:800}
+.credentialLocked,.credentialReady{text-align:center;padding:18px}.lockSeal{width:90px;height:90px;margin:4px auto 15px;border-radius:50%;display:grid;place-items:center;background:#dce7eb;color:#55717e;font-weight:900}.lockSeal.ready{background:#27845f;color:#fff;font-size:30px}.credentialReady h4,.credentialLocked h4{font-size:18px;color:#073f5d}
+.issuedCredential{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center}.digitalBadge{width:150px;height:150px;margin:auto;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#075574,#087d73);color:#fff;border:8px double #fff;outline:3px solid #075574;box-shadow:0 8px 18px rgba(7,63,93,.2)}.digitalBadge span{font-size:13px}.digitalBadge b{font-size:25px;margin:5px 0}.digitalBadge small{font-size:8px;letter-spacing:.6px}.credentialSummary h4{font-size:24px;margin:5px 0;color:#073f5d}.credentialSummary p{font-weight:800;color:#087d73}.credentialSummary dl{display:grid;grid-template-columns:120px 1fr;gap:6px;font-size:10px}.credentialSummary dt{font-weight:900}.credentialSummary dd{margin:0}.credentialActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.verificationPanel{margin-top:18px;padding:18px;border-top:1px solid #b7d0d8}.verificationPanel h4{margin:4px 0;color:#073f5d}.verificationPanel p{font-size:10.5px;max-width:900px}.verifyControls{display:grid;grid-template-columns:1fr auto;gap:8px;max-width:720px}.verifyControls input{margin:0}.verifyMessage{margin-top:12px;padding:12px;border-radius:8px;display:grid;gap:4px;font-size:10px}.verifyMessage.yes{background:#e6f5ed;border:1px solid #6eb394;color:#155e43}.verifyMessage.no{background:#f5eeee;border:1px solid #d6aaaa;color:#7e3b36}
+@media(max-width:850px){.credentialGrid,.issuedCredential{grid-template-columns:1fr}.verifyControls{grid-template-columns:1fr}}
+
+/* v3.1.1 — Practical retake + in-page certificate viewer */
+.practicalStageActions{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.certificateOverlay{position:fixed;inset:0;z-index:99999;background:rgba(4,27,40,.88);overflow:auto;padding:24px;box-sizing:border-box}
+.certificateViewerToolbar{max-width:1100px;margin:0 auto 12px;display:flex;justify-content:flex-end;gap:8px}
+.certificateSheet{width:min(1100px,96vw);min-height:720px;margin:0 auto;background:#fff;border:12px double #087d73;box-sizing:border-box;padding:58px;text-align:center;color:#073f5d;font-family:Georgia,serif;box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.certificateBrand{font-family:Arial,sans-serif;font-size:15px;font-weight:900;letter-spacing:2px}.certificateTitle{font-size:38px;margin:30px 0 7px}.certificateSubtitle{font-family:Arial,sans-serif;font-size:16px;font-weight:800;color:#087d73;letter-spacing:1px}.certificateBody{font-size:16px;line-height:1.65}.certificateName{font-size:32px;margin:34px auto 10px;padding-bottom:12px;border-bottom:1px solid #9ebcc4;max-width:700px}.certificateOrg{font-family:Arial,sans-serif;font-size:14px;margin-bottom:15px}.certificateStatement{max-width:850px;margin:0 auto}.certificateSeal{width:115px;height:115px;margin:28px auto 20px;border-radius:50%;display:grid;place-items:center;background:#075574;color:#fff;font:900 22px Arial,sans-serif;border:7px double #fff;outline:3px solid #075574}.certificateMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;font:12px Arial,sans-serif}.certificateTagline{margin-top:28px;font:italic 13px Arial,sans-serif}
+@media(max-width:700px){.certificateSheet{padding:28px 18px;min-height:auto}.certificateMeta{grid-template-columns:1fr}.certificateTitle{font-size:29px}}
+@media print{
+ body.printingAIMCertificate>*:not(#aimCertificateOverlay){display:none!important}
+ body.printingAIMCertificate #aimCertificateOverlay{position:static!important;background:#fff!important;padding:0!important;overflow:visible!important}
+ body.printingAIMCertificate .certificateViewerToolbar{display:none!important}
+ body.printingAIMCertificate .certificateSheet{width:100%!important;min-height:7in!important;margin:0!important;box-shadow:none!important}
+}
+
+/* v3.2 — Administration */
+.adminCenter{max-width:1320px;margin:0 auto 45px}.adminHero{padding:24px 26px;border:1px solid #b8d3dc;border-top:5px solid #075574;border-radius:14px;background:linear-gradient(135deg,#eef7f9,#f9fbfc)}.adminHero h2{margin:5px 0;color:#073f5d;font-size:27px}.adminMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.adminMetrics div{padding:17px;border:1px solid #bfd4dc;border-radius:10px;background:#fff}.adminMetrics b,.adminMetrics span{display:block}.adminMetrics b{font-size:25px;color:#075574}.adminMetrics span{font-size:9.5px;font-weight:800;color:#55717e;text-transform:uppercase}.adminTabs{display:flex;gap:5px;border-bottom:2px solid #d6e2e6;margin:20px 0}.adminTabs button{border:0;background:transparent;padding:11px 15px;font-weight:900;color:#607985;cursor:pointer}.adminTabs button.active{color:#075574;border-bottom:4px solid #087d73}.adminPane{display:none}.adminPane.active{display:block}.adminSectionHead{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:15px 0}.adminSectionHead h3{margin:0;color:#073f5d}.adminSectionHead p{margin:4px 0;font-size:10.5px}.studentForm{padding:17px;margin:12px 0;border:1px solid #afd0d4;border-radius:10px;background:#eef8f7}.formGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.formGrid label{font-size:9px;font-weight:900;color:#315668}.formGrid input,.formGrid select{width:100%;box-sizing:border-box;margin-top:5px;padding:9px;border:1px solid #b9ccd3;border-radius:6px;background:#fff}.formActions{display:flex;gap:7px;margin-top:12px}.adminTableWrap{overflow:auto;border:1px solid #c8d9de;border-radius:10px}.adminTable{width:100%;border-collapse:collapse;background:#fff}.adminTable th{text-align:left;padding:10px;background:#edf4f6;color:#315668;font-size:9px}.adminTable td{padding:11px 10px;border-top:1px solid #e1eaed;font-size:10px}.adminTable td small{display:block;margin-top:3px;color:#71848c}.tableBtn{padding:6px 9px;border:1px solid #9fbfc8;border-radius:5px;background:#fff;color:#075574;font-size:8px;font-weight:900;cursor:pointer}.statusPill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900}.statusPill.active{background:#e2f3ea;color:#176246}.statusPill.suspended{background:#fff2cf;color:#7c5b0b}.statusPill.revoked{background:#f7e3e1;color:#8a332d}.statusPill.expired{background:#eceff1;color:#59676d}.miniProgress,.overallProgress{height:7px;background:#e5ecef;border-radius:20px;overflow:hidden}.miniProgress{width:90px;display:inline-block;margin-right:5px}.miniProgress i,.overallProgress i{display:block;height:100%;background:#087d73}.emptyAdmin{text-align:center!important;padding:30px!important;color:#71848c}.progressCard{padding:15px;margin:9px 0;border:1px solid #c4d8de;border-radius:10px;background:#fff}.progressIdentity{display:flex;justify-content:space-between}.progressIdentity b{color:#073f5d}.progressIdentity span{font-size:9px;color:#607985}.progressSteps{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:11px 0}.progressSteps span{padding:8px;background:#f1f6f7;border-radius:6px;font-size:9px}.progressSteps b{display:block;margin-top:3px;color:#075574}.overallProgress{height:9px}.recordOverlay{position:fixed;inset:0;z-index:99998;background:rgba(4,27,40,.82);display:grid;place-items:center;padding:20px}.studentRecord{width:min(850px,95vw);max-height:90vh;overflow:auto;position:relative;padding:25px;background:#fff;border-radius:14px}.recordClose{position:absolute;right:15px;top:12px;border:0;background:transparent;font-size:25px;cursor:pointer}.studentRecord h3{font-size:25px;color:#073f5d;margin:5px 0}.recordMeta{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:16px 0}.recordMeta span,.recordSteps div{padding:10px;background:#f1f6f7;border-radius:7px;font-size:9px}.recordMeta b,.recordSteps b{display:block;margin-top:4px;color:#075574}.recordSteps{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.recordCredential{margin-top:15px;padding:13px;background:#e6f5ed;border-left:4px solid #27845f}.recordCredential b,.recordCredential span{display:block}.recordCredential span{margin-top:4px;font-size:9px}@media(max-width:900px){.adminMetrics,.formGrid{grid-template-columns:1fr 1fr}.progressSteps,.recordSteps{grid-template-columns:1fr 1fr}.recordMeta{grid-template-columns:1fr 1fr}}@media(max-width:550px){.adminMetrics,.formGrid,.progressSteps,.recordSteps,.recordMeta{grid-template-columns:1fr}}
+
+/* v4.0 — Production Foundation */
+.productionFoundation{max-width:1320px;margin:0 auto 22px;padding:22px;border:2px solid #075574;border-radius:15px;background:linear-gradient(135deg,#eaf5f7,#f9fbfc);box-shadow:0 8px 24px rgba(7,63,93,.09)}.productionTitle h3{font-size:22px;color:#073f5d;margin:5px 0}.productionTitle p{max-width:1050px;line-height:1.5}.productionStatus{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:15px 0}.productionStatus div{background:#fff;border:1px solid #bdd3da;border-radius:9px;padding:13px}.productionStatus b,.productionStatus span{display:block}.productionStatus b{font-size:16px;color:#075574}.productionStatus span{font-size:8.5px;font-weight:900;color:#607985;text-transform:uppercase;margin-top:3px}.roleCards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.roleCards div{padding:14px;border-radius:9px;background:#075574;color:#fff}.roleCards strong{font-size:11px;letter-spacing:.7px}.roleCards p{font-size:9.5px;line-height:1.45;margin:6px 0 0;color:#e7f3f5}.productionFlow{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:16px 0;padding:12px;background:#fff;border:1px solid #c8d9de;border-radius:9px}.productionFlow span{font-size:8px;font-weight:900;padding:7px 8px;background:#edf5f6;border-radius:5px;color:#075574}.productionFlow i{font-style:normal;color:#087d73;font-weight:900}.productionActions{display:flex;gap:8px;flex-wrap:wrap}.productionPanel{position:relative;margin-top:16px;padding:19px;border:1px solid #a9c9d1;border-radius:10px;background:#fff}.panelClose{position:absolute;right:12px;top:8px;border:0;background:transparent;font-size:24px;cursor:pointer}.productionPanel h4{font-size:19px;color:#073f5d;margin:5px 0 12px}.architectureStack{display:grid;gap:7px;max-width:900px}.architectureStack div{padding:10px 13px;border-left:5px solid #087d73;background:#edf5f6}.architectureStack b,.architectureStack span{display:block}.architectureStack b{font-size:9px;color:#075574}.architectureStack span{font-size:9.5px;margin-top:3px}.securityNotes{margin:15px 0;padding:13px;background:#fff5d9;border:1px solid #e3c96f;border-radius:8px}.securityNotes h5,.productionPanel h5{margin:0 0 6px;color:#073f5d}.securityNotes p{font-size:10px;line-height:1.5;margin:0}.schemaGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.schemaGrid div{padding:9px;background:#f3f7f8;border-radius:6px}.schemaGrid b,.schemaGrid span{display:block}.schemaGrid b{font-size:9px;color:#075574}.schemaGrid span{font-size:8px;margin-top:3px;word-break:break-word}.prototypeWarning{padding:10px;background:#fff5d9;border-radius:7px;font-size:10px}.accountPrototype{display:grid;grid-template-columns:1fr 1fr 180px auto;gap:8px;align-items:end}.accountPrototype label{font-size:8.5px;font-weight:900;color:#315668}.accountPrototype input,.accountPrototype select{width:100%;box-sizing:border-box;margin-top:5px;padding:9px;border:1px solid #b9ccd3;border-radius:6px;background:#fff}.permissionPreview{margin-top:14px}.permissionChips{display:flex;gap:6px;flex-wrap:wrap}.permissionChips span{padding:7px 9px;border-radius:999px;background:#e4f3ef;color:#176246;font-size:8px;font-weight:900;text-transform:uppercase}@media(max-width:850px){.productionStatus,.roleCards,.schemaGrid{grid-template-columns:1fr 1fr}.accountPrototype{grid-template-columns:1fr 1fr}}@media(max-width:520px){.productionStatus,.roleCards,.schemaGrid,.accountPrototype{grid-template-columns:1fr}}
+
+/* v4.1 — Login & role dashboards */
+.loginExperience{background:linear-gradient(145deg,#f7fbfc,#eaf5f7)}.loginBrand{text-align:center;padding:8px 0 14px}.loginBrand h4{font-size:24px;margin:5px 0!important}.loginBrand p{font-size:10px;color:#607985}.loginCard{max-width:520px;margin:0 auto;padding:20px;border:1px solid #b9d1d8;border-radius:12px;background:#fff;box-shadow:0 8px 22px rgba(7,63,93,.08)}.loginCard h5{font-size:18px;color:#073f5d;margin:0 0 12px}.loginCard label{display:block;margin:10px 0;font-size:9px;font-weight:900;color:#315668}.loginCard input{width:100%;box-sizing:border-box;margin-top:5px;padding:11px;border:1px solid #b9ccd3;border-radius:7px}.loginNotice{padding:10px;margin:12px 0;background:#fff5d9;border:1px solid #e2ca76;border-radius:7px;font-size:9px;line-height:1.45}.rolePreviewButtons{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.rolePreviewButtons button{padding:10px;border:0;border-radius:6px;background:#075574;color:#fff;font-size:8.5px;font-weight:900;cursor:pointer}.roleDashboard{margin-top:18px;padding:20px;border-radius:12px;background:#fff;border:1px solid #bcd3da}.roleDashHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.roleDashHead h4{font-size:21px!important;margin:3px 0!important}.roleDashHead p{font-size:10px;margin:3px 0}.roleLabel{font-size:8px;font-weight:900;letter-spacing:1px;color:#087d73}.roleMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.roleMetrics div{padding:13px;background:#eef5f6;border-radius:8px}.roleMetrics b,.roleMetrics span{display:block}.roleMetrics b{font-size:17px;color:#075574}.roleMetrics span{font-size:8px;font-weight:900;color:#607985;margin-top:3px;text-transform:uppercase}.studentNext{padding:13px;background:#f8fafb;border-radius:8px}.studentPath{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.studentPath span{padding:7px 9px;border-radius:999px;background:#e6ecef;color:#647780;font-size:8px;font-weight:900}.studentPath span.done{background:#e1f3ea;color:#176246}.instructorQueue{margin-top:10px}.instructorQueue h5{color:#073f5d}.instructorQueue>div{display:flex;justify-content:space-between;gap:10px;padding:10px;border-top:1px solid #e0e9ec;font-size:9px}.instructorQueue span{color:#607985}.adminQuickActions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.adminQuickActions button{padding:10px;border:1px solid #a9c5ce;border-radius:7px;background:#f3f8f9;color:#075574;font-size:8px;font-weight:900;cursor:pointer}.studentDash{border-top:5px solid #087d73}.instructorDash{border-top:5px solid #32759a}.adminDash{border-top:5px solid #075574}@media(max-width:720px){.rolePreviewButtons,.roleMetrics,.adminQuickActions{grid-template-columns:1fr 1fr}.roleDashHead{align-items:flex-start;flex-direction:column}}@media(max-width:480px){.rolePreviewButtons,.roleMetrics,.adminQuickActions{grid-template-columns:1fr}}
+
+/* v4.2 — Backend integration specification */
+.backendPrinciple{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px;margin:12px 0;background:#e3f3ef;border-left:5px solid #27845f;border-radius:7px}.backendPrinciple b{color:#176246}.backendPrinciple span{font-size:10px;line-height:1.5}.backendColumns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.backendColumns>div{padding:13px;background:#f4f8f9;border-radius:8px}.backendColumns ul{margin:8px 0 0;padding-left:18px;font-size:9.5px;line-height:1.65}.apiTable{border:1px solid #c6d8de;border-radius:8px;overflow:hidden;margin-bottom:15px}.apiTable>div{display:grid;grid-template-columns:65px 280px 1fr;gap:8px;align-items:center;padding:8px 10px;border-top:1px solid #e1e9ec;font-size:9px}.apiTable>div:first-child{border-top:0}.apiTable code{color:#073f5d;font-weight:800}.method{display:inline-block;text-align:center;padding:4px;border-radius:4px;font-size:7px;color:#fff}.method.get{background:#32759a}.method.post{background:#27845f}.method.patch{background:#9a762e}.transactionFlow{display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;padding:12px;background:#f3f7f8;border-radius:8px}.transactionFlow span{padding:7px 8px;background:#fff;border:1px solid #bfd3d9;border-radius:5px;font-size:8px;font-weight:900;color:#075574}.transactionFlow i{font-style:normal;color:#087d73;font-weight:900}.deploymentGate{margin-top:15px;padding:13px;background:#fff3d5;border:1px solid #dec66f;border-radius:8px}.deploymentGate b{color:#765a13}.deploymentGate p{font-size:9.5px;line-height:1.5;margin:5px 0 0}@media(max-width:750px){.backendColumns{grid-template-columns:1fr}.apiTable>div{grid-template-columns:55px 1fr}.apiTable span{grid-column:1/-1}.backendPrinciple{grid-template-columns:1fr}}
+
+/* v4.3 — Deployment package */
+.stackCards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.stackCards div{padding:13px;border:1px solid #bfd3da;border-radius:8px;background:#f4f8f9}.stackCards b,.stackCards strong,.stackCards span{display:block}.stackCards b{font-size:7.5px;color:#607985}.stackCards strong{font-size:13px;color:#075574;margin:4px 0}.stackCards span{font-size:8.5px;line-height:1.45}.deploymentStages{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:15px 0}.deploymentStages div{padding:11px;background:#075574;color:#fff;border-radius:8px}.deploymentStages em{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#075574;font-style:normal;font-weight:900;font-size:9px}.deploymentStages b,.deploymentStages span{display:block}.deploymentStages b{font-size:10px;margin:7px 0 3px}.deploymentStages span{font-size:8px;line-height:1.4;color:#e7f3f5}.envGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.envGrid code{padding:9px;background:#eef4f6;border:1px solid #c7d8de;border-radius:6px;color:#073f5d;font-size:8px}.secretRule{display:grid;grid-template-columns:120px 1fr;gap:10px;margin:12px 0;padding:11px;background:#fff3d5;border-left:5px solid #b38a2f;border-radius:7px}.secretRule b{color:#765a13}.secretRule span{font-size:9px;line-height:1.5}.launchChecklist{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.launchChecklist label{display:flex;gap:7px;align-items:center;padding:8px;background:#f4f8f9;border-radius:6px;font-size:8.5px}.deploymentNotice{margin-top:14px;padding:12px;background:#e8f2f5;border:1px solid #b7d0d8;border-radius:7px;font-size:9.5px;line-height:1.5}@media(max-width:900px){.stackCards,.deploymentStages{grid-template-columns:1fr 1fr}.envGrid,.launchChecklist{grid-template-columns:1fr 1fr}}@media(max-width:520px){.stackCards,.deploymentStages,.envGrid,.launchChecklist{grid-template-columns:1fr}.secretRule{grid-template-columns:1fr}}
+
+.certificateOnlyPage{max-width:980px;margin:0 auto;padding:34px 24px}.certificateOnlyHead{text-align:center;margin-bottom:20px}.certificateOnlyHead h2{font-size:30px;color:#073f5d;margin:5px 0}.certificateOnlyHead p{color:#607985}.certificateOnlyCard{position:relative;max-width:700px;margin:0 auto;padding:34px;text-align:center;background:#fff;border:2px solid #b9d1d8;border-radius:16px;box-shadow:0 12px 34px rgba(7,63,93,.10)}.certificateSeal{width:94px;height:94px;margin:0 auto 13px;border-radius:50%;display:grid;place-items:center;background:#075574;color:#fff;font-size:16px;font-weight:900;border:6px double #d7ece8}.certificateOnlyCard h3{font-size:25px;color:#073f5d;margin:8px 0}.certificateCandidate{font-size:22px;font-weight:900;color:#173f50;margin-top:16px}.certificateOrg{font-size:11px;color:#607985;margin-top:4px}.certificateMeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:520px;margin:20px auto}.certificateMeta div{padding:12px;background:#f1f6f7;border-radius:8px}.certificateMeta b,.certificateMeta span{display:block}.certificateMeta b{font-size:8px;text-transform:uppercase;color:#607985}.certificateMeta span{font-size:11px;font-weight:900;color:#075574;margin-top:4px}.credentialStatus{display:inline-block;padding:5px 10px;border-radius:999px;background:#e2f3ea;color:#176246;font-size:8px;font-weight:900}.credentialStatus.revoked,.credentialStatus.suspended,.credentialStatus.expired{background:#f7e5e0;color:#8a3527}.certificatePageButtons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.certificateVerifyNote{font-size:8.5px;color:#71858e;margin-top:16px}.certificateOnlyActions{text-align:center;margin-top:16px}.certificateReadyOnly p,.certificateLockedOnly p{max-width:550px;margin:10px auto 18px;line-height:1.55}@media(max-width:560px){.certificateMeta{grid-template-columns:1fr}.certificateOnlyCard{padding:24px 15px}}
+.caPathStatus{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:12px 0;padding:13px 16px;border-radius:8px}.caPathStatus.locked{background:#f7eee8;border-left:5px solid #a36b4e;color:#744531}.caPathStatus.unlocked{background:#e2f3ea;border-left:5px solid #27845f;color:#176246}.aimCaPath{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin:15px 0;padding:11px;background:#073f5d;border-radius:8px}.aimCaPath span{font-size:7.5px;font-weight:900;color:#fff}.aimCaPath i{color:#9fd6ce}.caPathTitle{margin:18px 0 10px}.aimCaModules{display:grid;gap:7px}.aimCaModule{display:grid;grid-template-columns:42px 1fr 110px;gap:10px;align-items:center;padding:11px 13px;background:#fff;border:1px solid #c5d7dd;border-radius:8px}.aimCaModule.locked{opacity:.72}.aimCaNum{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#075574;color:#fff;font-size:9px;font-weight:900}.aimCaModule b{font-size:10px;color:#073f5d}.aimCaModule p{font-size:8.5px;color:#607985;margin:3px 0}.aimCaModule button{padding:8px;border:0;border-radius:6px;background:#087d73;color:#fff;font-size:7.5px;font-weight:900}.aimCaModule button:disabled{background:#c8d2d6;color:#66777e}.aimCaGate{margin-top:12px;padding:12px;background:#eef4f6;border-left:5px solid #075574;border-radius:7px}.aimCaLesson{padding:18px;background:#fff;border-radius:10px}.aimCaLesson h4{color:#075574;margin:18px 0 6px}.aimCaLesson p,.aimCaLesson li{font-size:10px;line-height:1.65}.caPrinciple{text-align:center;padding:14px;background:#073f5d;color:#fff;border-radius:8px}.keyInsight{padding:13px;margin:15px 0;background:#e2f3ea;border-left:5px solid #27845f}
+/* ACA-101 gold-standard course */
+.caLessonBand{padding:10px 12px;background:#073f5d;color:#fff;border-radius:7px;font-size:8px;font-weight:900;text-align:center;letter-spacing:.04em}.caCase,.caPractice{padding:14px 16px;margin:10px 0;background:#f3f8f9;border:1px solid #c8dce1;border-radius:8px}.caCase p{margin:5px 0}.caCommandCheck{padding:13px 16px;margin:14px 0;background:#fff4d8;border-left:5px solid #c89a31;border-radius:7px}.caAssessmentLaunch{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:22px;padding:18px;background:#e7f3f3;border:2px solid #2d8b83;border-radius:10px}.caAssessmentLaunch h4{margin:4px 0}.acaAssessment{max-width:1000px;margin:0 auto;padding:8px}.acaQ{padding:16px;margin:10px 0;background:#fff;border:1px solid #cbdce1;border-radius:9px}.acaQ>b{display:block;color:#073f5d;font-size:10px;line-height:1.45;margin-bottom:9px}.acaQ label{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;padding:8px 10px;margin:5px 0;background:#f5f8f9;border:1px solid #d9e4e7;border-radius:7px;cursor:pointer}.acaQ label:hover{background:#edf5f5}.acaQ input{margin-top:2px}.acaQ span{font-size:9px;line-height:1.4}.acaResult{margin-top:16px;padding:18px;border-radius:10px}.acaResult.pass{background:#e1f3ea;border:2px solid #27845f}.acaResult.fail{background:#f8ece8;border:2px solid #a85b43}.acaResult h3{margin:0 0 6px;color:#073f5d}.acaResultActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.acaBadge{max-width:360px;margin:18px auto 0;padding:20px;text-align:center;border:5px double #075574;border-radius:50%/18%;background:#fff;color:#073f5d}.acaBadge b,.acaBadge span,.acaBadge strong{display:block}.acaBadge b{font-size:18px}.acaBadge span{font-size:8px;margin:4px}.acaBadge strong{font-size:9px;color:#087d73}.acaTestPanel{max-width:1180px;margin:20px auto;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#fff4d8;border:2px solid #c89a31;border-radius:10px}.acaTestPanel h3{margin:4px 0;color:#073f5d}.acaTestPanel p{max-width:720px;font-size:9px;line-height:1.5}.acaTestPanel .danger{background:#8b4337;color:#fff;border:0;border-radius:7px;padding:10px 14px;font-weight:900}@media(max-width:700px){.caAssessmentLaunch,.acaTestPanel{align-items:stretch;flex-direction:column}}
+
+/* Development course access: ACA-101 available now; unbuilt modules remain locked */
+.aimCaModule button:not(:disabled){background:#087d73!important;color:#fff!important;box-shadow:0 2px 7px rgba(8,125,115,.22)}
+
+/* AIM-CA unified Academy typography — match AIM-CP visual system */
+.aimCaLesson{max-width:1180px;margin:0 auto;padding:24px 28px;background:#fff;border:1px solid #d4e1e5;border-radius:12px}
+.aimCaLesson h4{font-size:18px!important;line-height:1.25;color:#075574;margin:25px 0 10px!important}
+.aimCaLesson p,.aimCaLesson li{font-size:14px!important;line-height:1.68!important;color:#294c5b}
+.aimCaLesson ul,.aimCaLesson ol{padding-left:25px}
+.caLessonBand{font-size:11px!important;padding:13px 16px!important;letter-spacing:.045em}
+.caCase,.caPractice{padding:18px 20px!important;margin:14px 0!important}
+.caCommandCheck,.keyInsight{padding:17px 20px!important;margin:18px 0!important}
+.caCommandCheck b,.keyInsight b{font-size:12px}
+.caAssessmentLaunch{padding:22px!important;margin-top:26px!important}
+.caAssessmentLaunch p{font-size:13px!important}
+.acaAssessment{max-width:1000px;margin:0 auto;padding:12px}
+.acaQ{padding:20px!important;margin:13px 0!important}
+.acaQ>b{font-size:14px!important;line-height:1.5!important;margin-bottom:12px!important}
+.acaQ label{grid-template-columns:24px 1fr!important;padding:11px 13px!important;margin:7px 0!important}
+.acaQ span{font-size:13px!important;line-height:1.5!important}
+.caPathTitle h2{font-size:25px}.caPathTitle p{font-size:13px!important}
+.aimCaModule b{font-size:12px!important}.aimCaModule p{font-size:10.5px!important;line-height:1.45}
+.aimCaModule button{font-size:9px!important}
+
+.caPrinciple b{font-size:18px;letter-spacing:.02em}
+
+.caFinalExamCard{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #0b6f75;border-radius:16px;background:linear-gradient(135deg,#eefafa,#f7fcfc);display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.caFinalExamCard h3{margin:5px 0 8px;font-size:22px}.caFinalExamCard p{margin:6px 0;font-size:14px;line-height:1.6}.caFinalExamCard .primary{min-width:190px}
+@media(max-width:760px){.caFinalExamCard{display:block}.caFinalExamCard .primary{margin-top:16px;width:100%}}
+
+.caAdvancedSimCard{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #166b8f;border-radius:16px;background:#f1f9fc;display:flex;align-items:center;justify-content:space-between;gap:24px}.caAdvancedSimCard h3{font-size:22px;margin:5px 0}.caSimShell{max-width:1100px;margin:22px auto;padding:26px;border-radius:18px;background:#f8fbfc;border:1px solid #cbdce3}.caSimProgress{height:10px;background:#dfe9ed;border-radius:20px;overflow:hidden}.caSimProgress span{display:block;height:100%;background:#176f8d}.caSimStats{display:flex;justify-content:space-between;margin:14px 0 22px}.caSimScenario{padding:24px;background:white;border-radius:14px;border-left:5px solid #176f8d}.caSimScenario h3{font-size:20px;line-height:1.5}.caSimChoices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.caSimChoices button{display:flex;gap:12px;text-align:left;padding:16px;border:1px solid #bdd0d8;border-radius:12px;background:white;font-size:14px;line-height:1.5;cursor:pointer}.caSimChoices button b{min-width:28px}@media(max-width:760px){.caAdvancedSimCard{display:block}.caSimChoices{grid-template-columns:1fr}}
+
+.caDesignPracticalCard{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #376d58;border-radius:16px;background:#f4faf7;display:flex;align-items:center;justify-content:space-between;gap:24px}.caDesignPracticalCard h3{font-size:22px;margin:5px 0}.aimCaPractical{max-width:1100px;margin:22px auto}.caPracticalSection{margin:18px 0;padding:22px 24px;background:#fff;border:1px solid #ccd9d3;border-radius:14px}.caPracticalSection h3{font-size:19px;margin:7px 0}.caPracticalSection p{font-size:14px;line-height:1.6}.caPracticalSection textarea{width:100%;box-sizing:border-box;margin-top:10px;padding:14px;border:1px solid #b9c9c1;border-radius:10px;font:inherit;font-size:14px;line-height:1.55;resize:vertical}.caPracticalActions{display:flex;justify-content:flex-end;gap:12px;margin:22px 0}@media(max-width:760px){.caDesignPracticalCard{display:block}.caDesignPracticalCard .primary{margin-top:16px;width:100%}}
+
+.caDefenseCard{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #694f86;border-radius:16px;background:#faf7fc;display:flex;align-items:center;justify-content:space-between;gap:24px}.caDefenseCard h3{font-size:22px;margin:5px 0}.caDefenseShell{max-width:1100px;margin:22px auto;padding:26px;border:1px solid #d8cce3;border-radius:18px;background:#fcfafd}.caDefenseShell .acaQ{margin:18px 0;padding:22px 24px;background:white;border:1px solid #d9d0e2;border-radius:14px}.caDefenseShell .acaQ>b{display:block;font-size:16px;line-height:1.5;margin:7px 0 12px}@media(max-width:760px){.caDefenseCard{display:block}.caDefenseCard .primary{margin-top:16px;width:100%}}
+
+.caCredentialGate{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #234f52;border-radius:16px;background:#f3f8f7;display:flex;align-items:center;justify-content:space-between;gap:24px}.caCredentialGate h3{font-size:22px;margin:5px 0}.caCredentialWrap{max-width:1100px;margin:22px auto}.caCredentialCard{padding:32px;text-align:center;background:#f7fbfa;border:2px solid #234f52;border-radius:18px}.caCredentialSeal{width:92px;height:92px;border:4px solid #234f52;border-radius:50%;margin:18px auto;display:flex;flex-direction:column;justify-content:center;font-size:18px}.caCredentialCard h2{font-size:30px;margin:8px}.caCredentialCard h3{font-size:22px;margin:5px}.caCredentialName{font-family:Georgia,serif;font-size:26px}.caCredentialMeta,.caCertGrid{display:flex;justify-content:center;gap:38px;margin:24px 0}.caCredentialMeta span,.caCertGrid span{display:flex;flex-direction:column;gap:5px}.caCredentialScope{max-width:800px;margin:20px auto;line-height:1.65}.caCertificate{margin-top:28px;background:white;padding:20px}.caCertBorder{border:7px double #234f52;padding:45px;text-align:center}.caCertTop{letter-spacing:3px;font-weight:700;color:#234f52}.caCertSeal{width:100px;height:100px;border:4px solid #234f52;border-radius:50%;margin:20px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800}.caCertSeal span{font-size:24px}.caCertBorder h1{font-family:Georgia,serif;font-size:38px}.caCertBorder h2{font-family:Georgia,serif;font-size:30px}.caCertBorder h3{font-size:23px;color:#234f52}.caCertStatement{max-width:720px;margin:20px auto;line-height:1.6}.caCertFooter{border-top:1px solid #bbb;margin-top:38px;padding-top:18px;display:flex;flex-direction:column;gap:7px;font-size:12px}@media(max-width:760px){.caCredentialGate{display:block}.caCredentialGate .primary{margin-top:16px;width:100%}.caCredentialMeta,.caCertGrid{display:block}.caCredentialMeta span,.caCertGrid span{margin:12px}}
+
+.aimElEntry,.aimElModuleCard{max-width:1180px;margin:22px auto;padding:24px 28px;border:2px solid #6a5a2e;border-radius:16px;background:#fcfaf3;display:flex;align-items:center;justify-content:space-between;gap:24px}.aimElEntry h3,.aimElModuleCard h3{font-size:22px;margin:5px 0}.aimElComing{max-width:1180px;margin:15px auto;padding:18px 24px;border:1px dashed #9a8b61;border-radius:12px;background:#fffdf7}.aimElModuleCard p,.aimElEntry p{font-size:14px;line-height:1.6}@media(max-width:760px){.aimElEntry,.aimElModuleCard{display:block}.aimElEntry .primary,.aimElModuleCard .primary{margin-top:16px;width:100%}}
+
+/* v4.3.1 deep-QA navigation hardening */
+.brandHome{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:inherit;padding:0;text-align:left;cursor:pointer;font:inherit}
+.brandHome:hover,.brandHome:focus-visible{background:rgba(255,255,255,.06);outline:2px solid rgba(255,255,255,.35);outline-offset:6px;border-radius:8px}

@@ -1,0 +1,7 @@
+PASS — AIM-CP template restored after switching from AIM-CA.
+PASS — AIM-CP progress is not erased by CA back-navigation.
+PASS — AIM-CA path isolated from AIM-CP DOM.
+PASS — 10 CP lessons + assessments + retakes retained.
+PASS — 10 CA modules retained.
+PASS — certification/simulator/practical/certificate retained.
+PASS — JS syntax.

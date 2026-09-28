@@ -1,0 +1,19 @@
+AIM Command Center v4.1 — Login & Role UX
+
+PASS — Login experience
+PASS — Student dashboard
+PASS — Instructor dashboard
+PASS — Administrator dashboard
+PASS — Security boundary clear
+PASS — Role-specific student path
+PASS — Instructor review queue
+PASS — Admin quick actions
+PASS — Production v4.0 retained
+PASS — Admin v3.2 retained
+PASS — Certificate retained
+PASS — Practical retake retained
+PASS — Final exam retained
+PASS — Check Ride retained
+PASS — 100 missions retained
+PASS — 10 modules retained
+PASS — JS syntax

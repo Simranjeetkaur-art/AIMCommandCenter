@@ -1,0 +1,8 @@
+AIM Command Center v3.0.2 — Final Exam Formatting Fix
+
+PASS — JS syntax
+PASS — answer text aligned immediately beside radio button
+PASS — radio buttons fixed to left column
+PASS — answer rows remain fully clickable
+PASS — practical assessment receives same formatting protection
+PASS — v3.0.1 functionality preserved

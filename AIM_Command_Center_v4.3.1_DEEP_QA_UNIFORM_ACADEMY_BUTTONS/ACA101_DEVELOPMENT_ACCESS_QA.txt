@@ -1,0 +1,17 @@
+AIM Command Center v4.3.1 — ACA-101 Development Access Fix
+
+PASS — Development access defaults ON
+PASS — Production credential rule retained
+PASS — ACA101 start wired
+PASS — ACA101 gold lesson
+PASS — ACA101 assessment
+PASS — 10 ACA101 questions
+PASS — 80 percent pass
+PASS — Badge
+PASS — CA modules retained
+PASS — CP lessons retained
+PASS — Final exam retained
+PASS — Simulator retained
+PASS — Practical retained
+PASS — Certificate retained
+PASS — JS syntax

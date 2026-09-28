@@ -1,0 +1,1497 @@
+// AIM Command Center - system of record.
+//
+// Two things in this file are load-bearing beyond ordinary modelling:
+//   1. Uniqueness constraints that the application must not be trusted to
+//      enforce alone (one enrollment per learner per cohort, one instructor
+//      assignment per pair, one serial per credential).
+//   2. AuditEvent, which is append-only. Prisma can describe the table but not
+//      the guarantee; see prisma/sql/010_audit_append_only.sql, which installs
+//      the triggers and privileges that make UPDATE and DELETE impossible.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  MANAGER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum ProgrammeStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum VersionStatus {
+  DRAFT
+  PUBLISHED
+  RETIRED
+}
+
+enum AssessmentKind {
+  QUIZ
+  SIMULATION
+  PRACTICAL
+  CAPSTONE
+  DEFENCE
+}
+
+/**
+ * Which kind of paper a question may appear on. A bank is split in two so a
+ * candidate never meets a simulator mission again in a quiz or exam, or the
+ * other way round: the same stem in both would let one rehearse the other.
+ */
+enum QuestionPool {
+  QUIZ
+  SIMULATOR
+}
+
+enum QuestionType {
+  SINGLE_CHOICE
+  MULTI_CHOICE
+  SHORT_ANSWER
+  WRITTEN
+}
+
+enum SubmissionStatus {
+  DRAFT
+  SUBMITTED
+  IN_REVIEW
+  RETURNED
+  APPROVED
+  REJECTED
+}
+
+enum ReviewDecision {
+  APPROVED
+  RETURNED
+  GRADED
+}
+
+enum LessonProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum EnrollmentStatus {
+  ACTIVE
+  WITHDRAWN
+  COMPLETED
+}
+
+enum CredentialStatus {
+  ISSUED
+  SUSPENDED
+  REVOKED
+}
+
+enum PerformanceStatus {
+  /**
+   * Written, visible to the reviewer and the chain above, not to the subject.
+   */
+  DRAFT
+  /**
+   * Handed to the person it is about.
+   */
+  RELEASED
+}
+
+enum AuditOutcome {
+  SUCCESS
+  DENIED
+  FAILURE
+}
+
+// ---------------------------------------------------------------------------
+// People and sessions
+// ---------------------------------------------------------------------------
+
+model User {
+  id                 String     @id @default(uuid())
+  email              String     @unique
+  // argon2id. There is no column that could hold a retrievable password.
+  passwordHash       String
+  name               String
+  role               Role
+  status             UserStatus @default(ACTIVE)
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  /**
+   * Stamped on every successful sign-in. Null means they never have.
+   */
+  lastLoginAt        DateTime?
+  /**
+   * When this address was proven to reach the person who claimed it.
+   * Null means unproven, and for a self-enrolled account that is a lock: the
+   * sign-in path refuses it. An account an administrator created is verified
+   * on creation, because a person who was vouched for does not have to prove
+   * anything to a machine.
+   */
+  emailVerifiedAt    DateTime?
+  /**
+   * When the password behind this account was last set.
+   * Recorded rather than derived, because "changed three days ago" is the
+   * question asked after an incident and `updatedAt` answers a different one.
+   */
+  passwordChangedAt  DateTime?
+  /**
+   * Held at the password screen until a new password is set.
+   * Set by an administrator who has reset the account, and by the reset flow
+   * when a temporary password is issued. While it is true the API refuses
+   * every route except the handful that screen needs, so this is a lock and
+   * not a suggestion the interface is free to skip.
+   */
+  mustChangePassword Boolean    @default(false)
+  /**
+   * Consecutive failed sign-ins. Cleared by a success, by a reset, and by an
+   * administrator lifting the lock.
+   */
+  failedLoginCount   Int        @default(0)
+  /**
+   * When this account starts answering again.
+   * A lock, not a suspension: it lifts by itself and nobody has to remember
+   * it. Kept apart from `suspendedUntil` so an automatic lockout is never
+   * confused with a decision somebody made about a person.
+   */
+  lockedUntil        DateTime?
+  suspendedAt        DateTime?
+  /**
+   * When a suspension lifts by itself. Null means indefinite.
+   * Checked on every request rather than by a job: a lapsed suspension should
+   * stop applying the moment it lapses, not whenever a scheduler next runs.
+   */
+  suspendedUntil     DateTime?
+  suspendedReason    String?
+  /**
+   * Archived, never deleted.
+   * Deleting a person would orphan every audit event they caused, which is the
+   * one thing this system exists to prevent. An archived account cannot sign
+   * in, is hidden by default, and keeps its whole history.
+   */
+  archivedAt         DateTime?
+  archivedReason     String?
+  /**
+   * The profile a person completes on first sign-in, before the courses open.
+   * Students, instructors and managers are held at /account/profile until
+   * `profileCompletedAt` is set; administrators are not. Nullable so existing
+   * rows need no default: an empty profile is simply an incomplete one.
+   */
+  organisation       String?
+  jobTitle           String?
+  country            String?
+  phone              String?
+  address            String?
+  profileCompletedAt DateTime?
+  createdById        String?
+  createdBy          User?      @relation("UserCreatedBy", fields: [createdById], references: [id])
+  createdUsers       User[]     @relation("UserCreatedBy")
+
+  sessions               Session[]
+  emailVerifications     EmailVerificationToken[] @relation("EmailVerificationSubject")
+  passwordResets         PasswordResetToken[]     @relation("PasswordResetSubject")
+  passwordResetsIssued   PasswordResetToken[]     @relation("PasswordResetIssuer")
+  sessionsRevoked        Session[]                @relation("SessionRevokedBy")
+  enrollments            Enrollment[]
+  lessonProgress         LessonProgress[]
+  conversationsLow       Conversation[]           @relation("ConversationLow")
+  conversationsHigh      Conversation[]           @relation("ConversationHigh")
+  messagesSent           Message[]                @relation("MessageSender")
+  notifications          Notification[]           @relation("NotificationRecipient")
+  attempts               Attempt[]
+  submissions            Submission[]
+  reviewsGiven           Review[]                 @relation("ReviewReviewer")
+  claimedSubmissions     Submission[]             @relation("SubmissionClaimedBy")
+  notesAbout             LearnerNote[]            @relation("NoteLearner")
+  notesWritten           LearnerNote[]            @relation("NoteAuthor")
+  assignmentsAsLearner   InstructorAssignment[]   @relation("AssignmentLearner")
+  assignmentsAsExaminer  InstructorAssignment[]   @relation("AssignmentInstructor")
+  assignmentsMade        InstructorAssignment[]   @relation("AssignmentAssignedBy")
+  credentials            Credential[]             @relation("CredentialHolder")
+  credentialsIssued      Credential[]             @relation("CredentialIssuer")
+  credentialEvents       CredentialEvent[]
+  badgeAwards            BadgeAward[]
+  publishedVersions      ProgrammeVersion[]       @relation("VersionPublisher")
+  questionBanks          QuestionBank[]
+  settingsUpdated        Setting[]
+  mailConfigUpdated      MailConfig[]             @relation("MailConfigUpdatedBy")
+  flagsUpdated           FeatureFlag[]
+  agentsOwned            Agent[]                  @relation("AgentOwner")
+  agentsCreated          Agent[]                  @relation("AgentCreatedBy")
+  diagnostics            Diagnostic[]             @relation("DiagnosticAuthor")
+  badgesAuthored         Badge[]                  @relation("BadgeAuthor")
+  badgesAwarded          BadgeAward[]             @relation("BadgeAwarder")
+  unlockRulesAuthored    UnlockRule[]             @relation("UnlockRuleAuthor")
+  trackGrants            TrackGrant[]             @relation("TrackGrantHolder")
+  trackGrantsGiven       TrackGrant[]             @relation("TrackGrantAuthor")
+  certificateTemplates   CertificateTemplate[]    @relation("CertificateTemplateAuthor")
+  prescriptions          Prescription[]           @relation("PrescriptionAuthor")
+  performanceAbout       PerformanceReview[]      @relation("PerformanceSubject")
+  performanceWritten     PerformanceReview[]      @relation("PerformanceReviewer")
+  attemptRequests        AttemptRequest[]         @relation("AttemptRequester")
+  attemptRequestsDecided AttemptRequest[]         @relation("AttemptRequestDecider")
+
+  @@index([role, status])
+  @@map("users")
+}
+
+/**
+ * One person's assessment of the person a rung below them.
+ * Distinct from `Review`, which judges a piece of submitted work. This judges
+ * how well somebody does the job the system gives them, and it runs up the
+ * same chain: an examiner assesses their candidates, a manager assesses the
+ * examiners, the institution assesses the managers.
+ * Two columns carry weight beyond ordinary modelling:
+ * - `status`. A review is a DRAFT until its author releases it. The chain
+ * above can see a draft; the subject cannot. Without this, a half-written
+ * judgement is read as a verdict.
+ * - `subjectRole` / `reviewerRole`. Snapshots, not lookups. If somebody is
+ * later promoted, the review still records what they were when it was
+ * written — otherwise a manager's file would silently re-read as a
+ * manager assessing a manager.
+ */
+model PerformanceReview {
+  id           String @id @default(uuid())
+  subjectId    String
+  subject      User   @relation("PerformanceSubject", fields: [subjectId], references: [id], onDelete: Cascade)
+  subjectRole  Role
+  reviewerId   String
+  reviewer     User   @relation("PerformanceReviewer", fields: [reviewerId], references: [id])
+  reviewerRole Role
+
+  /**
+   * The period this covers, e.g. "2026-Q3". Free text, set by the reviewer.
+   */
+  cycle String
+
+  /**
+   * One score per dimension, 1-5, in that role's dimension order.
+   */
+  scores Int[]
+  /**
+   * Computed server-side from the scores. Never accepted from a caller.
+   */
+  index  Float
+  band   String
+
+  /**
+   * A score with no reason is not a review. Both are required on release.
+   */
+  strengths String @default("")
+  concerns  String @default("")
+  /**
+   * What the subject should do next.
+   */
+  actions   String @default("")
+
+  status         PerformanceStatus @default(DRAFT)
+  releasedAt     DateTime?
+  /**
+   * Set when the subject says they have read it.
+   */
+  acknowledgedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // One review per person per cycle per reviewer: a second one is an edit of
+  // the first, not a new opinion filed alongside it.
+  @@unique([subjectId, reviewerId, cycle])
+  @@index([subjectId, status])
+  @@index([reviewerId])
+  @@map("performance_reviews")
+}
+
+model Session {
+  id            String    @id @default(uuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // sha256(token + SESSION_SECRET). The raw token exists only in the caller's
+  // cookie; a database leak cannot be replayed as a login.
+  tokenHash     String    @unique
+  createdAt     DateTime  @default(now())
+  expiresAt     DateTime
+  revokedAt     DateTime?
+  /**
+   * Why it ended. See `SESSION_END_REASONS` in contracts.
+   * "Your session ended, sign in again" is a much worse thing to read than
+   * "you changed your password on another device", and the difference between
+   * them is this column.
+   */
+  revokedReason String?
+  /**
+   * Who ended it, when it was not the person sitting in it.
+   */
+  revokedById   String?
+  revokedBy     User?     @relation("SessionRevokedBy", fields: [revokedById], references: [id])
+  lastSeenAt    DateTime  @default(now())
+  ip            String?
+  userAgent     String?
+
+  /**
+   * Set while this session is looking at another role's screens.
+   * It narrows what the actor may read and refuses everything they might
+   * write. It does not change who they are: the actor on every request, and
+   * the actor on every audit record, stays the person who signed in.
+   */
+  previewRole      Role?
+  previewStartedAt DateTime?
+
+  @@index([userId, revokedAt])
+  @@map("sessions")
+}
+
+/**
+ * One chance to set a new password without knowing the old one.
+ * Like a session token, only the hash is stored -- under a different domain
+ * separator, so a stolen session token cannot be presented as a reset token or
+ * the other way round. Three properties make it a credential rather than a
+ * link:
+ * - it expires in minutes, not days (`PASSWORD_RESET_TTL_MINUTES`);
+ * - it is single-use, stamped with `usedAt` the moment it is spent;
+ * - issuing one invalidates every earlier unspent token for that account, so
+ * a forwarded mail from last week is not still a way in.
+ * `issuedById` separates the two ways one comes into existence: null when the
+ * person asked for it themselves at the sign-in screen, and an administrator
+ * when they reset the account on that person's behalf. The row is kept after
+ * use -- it is part of how an account's password came to be what it is.
+ */
+/**
+ * Proof that an address reaches the person who typed it.
+ * Shaped like PasswordResetToken deliberately, and for the same reasons: the
+ * token is stored only as a hash under its own domain separator, it is single
+ * use, it expires, and a newer one voids every older one. The two are separate
+ * tables rather than one with a "kind" column because spending one must never
+ * be able to spend the other.
+ */
+model EmailVerificationToken {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation("EmailVerificationSubject", fields: [userId], references: [id], onDelete: Cascade)
+  // sha256(token + SESSION_SECRET + domain). Never the token itself.
+  tokenHash String    @unique
+  createdAt DateTime  @default(now())
+  expiresAt DateTime
+  usedAt    DateTime?
+  /**
+   * Withdrawn without being used: superseded by a newer one.
+   */
+  voidedAt  DateTime?
+  ip        String?
+  userAgent String?
+
+  @@index([userId, usedAt])
+  @@index([expiresAt])
+  @@map("email_verification_tokens")
+}
+
+model PasswordResetToken {
+  id         String    @id @default(uuid())
+  userId     String
+  user       User      @relation("PasswordResetSubject", fields: [userId], references: [id], onDelete: Cascade)
+  // sha256(token + SESSION_SECRET + domain). Never the token itself.
+  tokenHash  String    @unique
+  createdAt  DateTime  @default(now())
+  expiresAt  DateTime
+  usedAt     DateTime?
+  /**
+   * Withdrawn without being used: superseded by a newer one, or the password changed.
+   */
+  voidedAt   DateTime?
+  /**
+   * Null when the person asked for it themselves.
+   */
+  issuedById String?
+  issuedBy   User?     @relation("PasswordResetIssuer", fields: [issuedById], references: [id])
+  ip         String?
+  userAgent  String?
+
+  @@index([userId, usedAt])
+  @@index([expiresAt])
+  @@map("password_reset_tokens")
+}
+
+// ---------------------------------------------------------------------------
+// The academy: programmes, versions, modules, lessons
+// ---------------------------------------------------------------------------
+
+model Programme {
+  id                  String               @id @default(uuid())
+  code                String               @unique
+  title               String
+  summary             String
+  status              ProgrammeStatus      @default(DRAFT)
+  /**
+   * Position in the ladder: 1 foundation, 2 advanced, 3 executive.
+   */
+  level               Int                  @default(1)
+  /**
+   * Code of the programme whose credential must be held first.
+   */
+  prerequisiteCode    String?
+  /**
+   * Chips shown on the track card, e.g. ["10 Modules", "80% Passing"].
+   */
+  cardStats           Json                 @default("[]")
+  /**
+   * The certification gate, in order, as shown to a candidate.
+   */
+  gateSteps           Json                 @default("[]")
+  /**
+   * Whether a candidate may put themselves on this course.
+   * Off by default: a course somebody can join unasked is a decision, not a
+   * default. With it off, an administrator or manager places them.
+   */
+  selfEnrol           Boolean              @default(false)
+  /**
+   * How the unlock rules combine.
+   */
+  unlockPolicy        UnlockPolicy         @default(ALL)
+  unlockRules         UnlockRule[]
+  trackGrants         TrackGrant[]
+  certificateTemplate CertificateTemplate?
+
+  /**
+   * "LEVEL 2" — the chip on the track card.
+   */
+  levelLabel    String?
+  /**
+   * One line under the title on the track card.
+   */
+  tagline       String   @default("")
+  /**
+   * Feature flag that opens training without the prerequisite credential.
+   */
+  devAccessFlag String?
+  /**
+   * Hidden from candidates without removing it.
+   */
+  visible       Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  versions      ProgrammeVersion[]
+  questionBanks QuestionBank[]
+
+  @@map("programmes")
+}
+
+model ProgrammeVersion {
+  id            String        @id @default(uuid())
+  programmeId   String
+  programme     Programme     @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+  version       Int
+  status        VersionStatus @default(DRAFT)
+  // The gates a candidate must clear before a credential may be issued, e.g.
+  // { "lessonsCompleted": true, "passMark": 80, "capstoneApproved": true }.
+  requirements  Json          @default("{}")
+  publishedAt   DateTime?
+  publishedById String?
+  publishedBy   User?         @relation("VersionPublisher", fields: [publishedById], references: [id])
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  modules     Module[]
+  assessments Assessment[]
+  cohorts     Cohort[]
+  credentials Credential[]
+
+  @@unique([programmeId, version])
+  @@index([status])
+  @@map("programme_versions")
+}
+
+model Module {
+  id                 String           @id @default(uuid())
+  programmeVersionId String
+  programmeVersion   ProgrammeVersion @relation(fields: [programmeVersionId], references: [id], onDelete: Cascade)
+  code               String?
+  title              String
+  summary            String           @default("")
+  /**
+   * Module-level overview, distinct from any one lesson.
+   */
+  overview           String           @default("")
+  /**
+   * ["Distinguish capability from authority", ...]
+   */
+  outcomes           Json             @default("[]")
+  /**
+   * Hidden from candidates without being removed from the syllabus.
+   */
+  visible            Boolean          @default(true)
+  position           Int
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  lessons       Lesson[]
+  assessments   Assessment[]
+  questionBanks QuestionBank[]
+
+  @@unique([programmeVersionId, position])
+  @@map("modules")
+}
+
+model Lesson {
+  id               String   @id @default(uuid())
+  moduleId         String
+  module           Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title            String
+  bodyMd           String
+  /**
+   * Imported lesson markup. Kept as the original, superseded by `content`.
+   */
+  bodyHtml         String?
+  /**
+   * The lesson as structure: overview, objectives, numbered sections and
+   * callouts. This is what the authoring screens edit and what the interface
+   * renders, so changing a sentence is a database write rather than a deploy.
+   */
+  content          Json?
+  visible          Boolean  @default(true)
+  position         Int
+  estimatedMinutes Int      @default(15)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  progress LessonProgress[]
+
+  @@unique([moduleId, position])
+  @@map("lessons")
+}
+
+// ---------------------------------------------------------------------------
+// Questions and assessments
+// ---------------------------------------------------------------------------
+
+model QuestionBank {
+  id          String @id @default(uuid())
+  title       String
+  description String @default("")
+
+  /**
+   * Where this bank belongs.
+   * A bank was a free-floating list, which made "the questions for module 3 of
+   * AIM-CP" something you found by reading titles. Both are optional because a
+   * shared bank that spans tracks is a legitimate thing to want.
+   */
+  programmeId String?
+  programme   Programme? @relation(fields: [programmeId], references: [id], onDelete: SetNull)
+  moduleId    String?
+  module      Module?    @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+
+  /**
+   * ["authority", "delegation"] — free tags, for finding a bank later.
+   */
+  tags      Json     @default("[]")
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  questions Question[]
+
+  @@index([programmeId, moduleId])
+  @@map("question_banks")
+}
+
+model Question {
+  id          String       @id @default(uuid())
+  bankId      String
+  bank        QuestionBank @relation(fields: [bankId], references: [id], onDelete: Cascade)
+  stem        String
+  type        QuestionType
+  // [{ "id": "a", "text": "..." }, ...]
+  options     Json         @default("[]")
+  // The correct response. Selected out of every candidate-facing query by
+  // QuestionsService; reaching it needs assessment.answerkey.read.
+  answerKey   Json         @default("{}")
+  /**
+   * Why the correct answer is correct. Served only after a passing attempt --
+   * a candidate who failed is not shown the key by another name.
+   */
+  explanation String?
+  /**
+   * Prototype provenance: source bank, topic, domain, original id.
+   */
+  meta        Json         @default("{}")
+  /**
+   * ["authority", "escalation"] — what this question is about.
+   */
+  tags        Json         @default("[]")
+  points      Int          @default(1)
+  /**
+   * QUIZ papers (module quizzes, exams) or SIMULATION runs. Never both.
+   */
+  pool        QuestionPool @default(QUIZ)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  assessments AssessmentQuestion[]
+
+  @@index([bankId])
+  @@map("questions")
+}
+
+model Assessment {
+  id                 String           @id @default(uuid())
+  programmeVersionId String
+  programmeVersion   ProgrammeVersion @relation(fields: [programmeVersionId], references: [id], onDelete: Cascade)
+  code               String           @unique
+  title              String
+  kind               AssessmentKind
+  passMark           Int              @default(80)
+  // A written item goes to an examiner; a quiz is machine-marked.
+  requiresReview     Boolean          @default(false)
+  maxAttempts        Int              @default(3)
+  visible            Boolean          @default(true)
+  /**
+   * The module this assessment closes, when it closes one. A final exam spans
+   * the whole track and leaves this null.
+   */
+  moduleId           String?
+  module             Module?          @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+  /**
+   * Ordering within a track, independent of code.
+   */
+  position           Int              @default(0)
+  /**
+   * How many questions each attempt draws at random from the paper. Null
+   * serves every question on the paper, as before.
+   */
+  drawCount          Int?
+  /**
+   * The track's final examination. Opens only once every lesson is complete
+   * and every module quiz is passed; passing it issues the credential.
+   */
+  finalExam          Boolean          @default(false)
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  questions       AssessmentQuestion[]
+  attempts        Attempt[]
+  submissions     Submission[]
+  attemptRequests AttemptRequest[]
+
+  @@index([programmeVersionId])
+  @@map("assessments")
+}
+
+model AssessmentQuestion {
+  assessmentId String
+  assessment   Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  questionId   String
+  question     Question   @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  position     Int
+
+  @@id([assessmentId, questionId])
+  @@unique([assessmentId, position])
+  @@map("assessment_questions")
+}
+
+// ---------------------------------------------------------------------------
+// Cohorts, enrollment and the instructor-to-learner assignment
+// ---------------------------------------------------------------------------
+
+model Cohort {
+  id                 String           @id @default(uuid())
+  code               String           @unique
+  title              String
+  programmeVersionId String
+  programmeVersion   ProgrammeVersion @relation(fields: [programmeVersionId], references: [id])
+  startsAt           DateTime
+  endsAt             DateTime?
+  archivedAt         DateTime?
+  archivedReason     String?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  enrollments Enrollment[]
+  assignments InstructorAssignment[]
+
+  @@map("cohorts")
+}
+
+model Enrollment {
+  id          String           @id @default(uuid())
+  cohortId    String
+  cohort      Cohort           @relation(fields: [cohortId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status      EnrollmentStatus @default(ACTIVE)
+  enrolledAt  DateTime         @default(now())
+  withdrawnAt DateTime?
+
+  // A learner is enrolled in a cohort once. The database decides this, not a
+  // read-then-write in application code.
+  @@unique([cohortId, userId])
+  @@index([userId, status])
+  @@map("enrollments")
+}
+
+// The whole of an instructor's visibility. No row here, no access there.
+model InstructorAssignment {
+  id           String   @id @default(uuid())
+  instructorId String
+  instructor   User     @relation("AssignmentInstructor", fields: [instructorId], references: [id], onDelete: Cascade)
+  learnerId    String
+  learner      User     @relation("AssignmentLearner", fields: [learnerId], references: [id], onDelete: Cascade)
+  cohortId     String?
+  cohort       Cohort?  @relation(fields: [cohortId], references: [id])
+  assignedById String
+  assignedBy   User     @relation("AssignmentAssignedBy", fields: [assignedById], references: [id])
+  createdAt    DateTime @default(now())
+
+  @@unique([instructorId, learnerId])
+  @@index([learnerId])
+  @@map("instructor_assignments")
+}
+
+// ---------------------------------------------------------------------------
+// Candidate work: progress, attempts, submissions, review
+// ---------------------------------------------------------------------------
+
+model LessonProgress {
+  id          String               @id @default(uuid())
+  userId      String
+  user        User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId    String
+  lesson      Lesson               @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  status      LessonProgressStatus @default(NOT_STARTED)
+  startedAt   DateTime?
+  completedAt DateTime?
+  updatedAt   DateTime             @updatedAt
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+model Attempt {
+  id           String     @id @default(uuid())
+  assessmentId String
+  assessment   Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attemptNo    Int
+  // { "<questionId>": <response> }. Never returned alongside an answer key.
+  responses    Json       @default("{}")
+  score        Int?
+  passed       Boolean?
+  /**
+   * The questions this attempt drew, in the order served. Null on attempts
+   * from before papers were drawn, which were served the whole paper.
+   */
+  questionIds  Json?
+  startedAt    DateTime   @default(now())
+  submittedAt  DateTime?
+
+  submission Submission?
+
+  @@unique([assessmentId, userId, attemptNo])
+  @@index([userId])
+  @@map("attempts")
+}
+
+model Submission {
+  id           String           @id @default(uuid())
+  assessmentId String
+  assessment   Assessment       @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attemptId    String?          @unique
+  attempt      Attempt?         @relation(fields: [attemptId], references: [id])
+  contentMd    String
+  status       SubmissionStatus @default(DRAFT)
+  // Bumped on every resubmission, so a returned item keeps its history.
+  version      Int              @default(1)
+  score        Int?
+  submittedAt  DateTime?
+  // Set when submitted: submittedAt + REVIEW_SLA_HOURS. Drives the overdue
+  // report a manager reads, and the reassignment they may make.
+  slaDueAt     DateTime?
+  claimedById  String?
+  claimedBy    User?            @relation("SubmissionClaimedBy", fields: [claimedById], references: [id])
+  claimedAt    DateTime?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  reviews Review[]
+
+  @@index([status, slaDueAt])
+  @@index([userId, status])
+  @@map("submissions")
+}
+
+model Review {
+  id                String         @id @default(uuid())
+  submissionId      String
+  submission        Submission     @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  reviewerId        String
+  reviewer          User           @relation("ReviewReviewer", fields: [reviewerId], references: [id])
+  decision          ReviewDecision
+  // Never empty. An approval without a substantive rationale is refused by the
+  // service, and a returned item cannot be returned without saying why.
+  comment           String
+  score             Int?
+  submissionVersion Int            @default(1)
+  createdAt         DateTime       @default(now())
+
+  @@index([submissionId])
+  @@index([reviewerId, createdAt])
+  @@map("reviews")
+}
+
+model LearnerNote {
+  id        String   @id @default(uuid())
+  learnerId String
+  learner   User     @relation("NoteLearner", fields: [learnerId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation("NoteAuthor", fields: [authorId], references: [id])
+  body      String
+  createdAt DateTime @default(now())
+
+  @@index([learnerId, createdAt])
+  @@map("learner_notes")
+}
+
+// ---------------------------------------------------------------------------
+// Badges and credentials
+// ---------------------------------------------------------------------------
+
+enum BadgeAwardMode {
+  AUTOMATIC
+  MANUAL
+}
+
+/**
+ * A badge, and the condition that earns it.
+ * Defining the condition is academy building, so it needs badge.write, which
+ * the manager and administrator hold. Deciding that a particular candidate has
+ * met a MANUAL condition is judgement, so it needs badge.award, which the
+ * examiner holds and the manager does not -- the same line that keeps
+ * review.approve away from a manager.
+ */
+model Badge {
+  id            String         @id @default(uuid())
+  code          String         @unique
+  title         String
+  description   String         @default("")
+  /**
+   * The badge artwork, as inline SVG.
+   * Stored rather than linked so a badge is self-contained: a credential that
+   * depends on an external image is a credential that can lose its face. It is
+   * sanitised on the way in, because it is rendered inline.
+   */
+  iconSvg       String?
+  /**
+   * Fallback mark when no artwork is uploaded.
+   */
+  iconText      String?
+  /**
+   * Ribbon colour, as a token name the interface maps to a palette entry.
+   */
+  tone          String         @default("brass")
+  /**
+   * Which rung of the ladder this badge belongs to. Null means any.
+   */
+  level         Int?
+  /**
+   * Display order within a track.
+   */
+  position      Int            @default(0)
+  /**
+   * { type, assessmentCode?, programmeCode?, threshold? }
+   */
+  criteria      Json           @default("{}")
+  awardMode     BadgeAwardMode @default(AUTOMATIC)
+  /**
+   * Scopes the badge to one track, for display and evaluation.
+   */
+  programmeCode String?
+  active        Boolean        @default(true)
+  createdById   String
+  createdBy     User           @relation("BadgeAuthor", fields: [createdById], references: [id])
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  awards BadgeAward[]
+
+  @@index([programmeCode, active])
+  @@map("badges")
+}
+
+model BadgeAward {
+  id            String    @id @default(uuid())
+  badgeId       String
+  badge         Badge     @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  awardedAt     DateTime  @default(now())
+  // SYSTEM when earned by clearing a condition; never a candidate.
+  source        String    @default("SYSTEM")
+  /**
+   * Set when a person decided rather than the evaluator.
+   */
+  awardedById   String?
+  awardedBy     User?     @relation("BadgeAwarder", fields: [awardedById], references: [id])
+  /**
+   * Mandatory on a manual award: a badge given without a reason says nothing.
+   */
+  reason        String?
+  revokedAt     DateTime?
+  revokedReason String?
+
+  @@unique([badgeId, userId])
+  @@index([userId, awardedAt])
+  @@map("badge_awards")
+}
+
+model Credential {
+  id                 String           @id @default(uuid())
+  serial             String           @unique
+  userId             String
+  user               User             @relation("CredentialHolder", fields: [userId], references: [id])
+  programmeVersionId String
+  programmeVersion   ProgrammeVersion @relation(fields: [programmeVersionId], references: [id])
+  status             CredentialStatus @default(ISSUED)
+  /**
+   * Null when issued automatically on passing the final examination.
+   */
+  issuedById         String?
+  issuedBy           User?            @relation("CredentialIssuer", fields: [issuedById], references: [id])
+  autoIssued         Boolean          @default(false)
+  /**
+   * The final-examination attempt that earned it, when issued automatically.
+   */
+  examAttemptId      String?
+  examScore          Int?
+  issuedAt           DateTime         @default(now())
+  // Mandatory on every issue, including a manual one. Printed on the record.
+  reason             String
+  // Any requirement an administrator waived, stamped onto the credential:
+  // [{ "gate": "capstoneApproved", "waivedBy": "<userId>", "reason": "..." }]
+  // A gate cannot be bypassed without appearing here.
+  gateOverrides      Json             @default("[]")
+  suspendedAt        DateTime?
+  revokedAt          DateTime?
+  reinstatedAt       DateTime?
+
+  events CredentialEvent[]
+
+  @@unique([userId, programmeVersionId])
+  @@index([status])
+  @@map("credentials")
+}
+
+model CredentialEvent {
+  id           String     @id @default(uuid())
+  credentialId String
+  credential   Credential @relation(fields: [credentialId], references: [id], onDelete: Cascade)
+  action       String
+  /**
+   * Null for the system's own automatic issue.
+   */
+  actorId      String?
+  actor        User?      @relation(fields: [actorId], references: [id])
+  reason       String
+  createdAt    DateTime   @default(now())
+
+  @@index([credentialId, createdAt])
+  @@map("credential_events")
+}
+
+// ---------------------------------------------------------------------------
+// Institution settings
+// ---------------------------------------------------------------------------
+
+model Setting {
+  key         String   @id
+  value       Json
+  description String   @default("")
+  updatedById String
+  updatedBy   User     @relation(fields: [updatedById], references: [id])
+  updatedAt   DateTime @updatedAt
+
+  @@map("settings")
+}
+
+/**
+ * How this institution sends mail. One row, id "default".
+ * The secret is stored encrypted and is never returned by any endpoint --
+ * `GET /mail/config` answers `hasSecret: true` and nothing else about it. It
+ * lives here rather than in `Setting` because settings are readable by a
+ * manager, and an SMTP key readable by anyone who can read settings is not a
+ * secret.
+ */
+model MailConfig {
+  id           String  @id @default("default")
+  provider     String
+  fromName     String
+  fromEmail    String
+  host         String
+  port         Int
+  secure       Boolean @default(false)
+  username     String
+  /**
+   * AES-256-GCM, keyed from SESSION_SECRET under its own domain separator.
+   */
+  secretCipher String?
+  /**
+   * Off until a test has actually delivered. Nothing sends while false.
+   */
+  enabled      Boolean @default(false)
+
+  lastTestedAt  DateTime?
+  lastTestOk    Boolean?
+  lastTestError String?
+
+  updatedById String
+  updatedBy   User     @relation("MailConfigUpdatedBy", fields: [updatedById], references: [id])
+  updatedAt   DateTime @updatedAt
+
+  @@map("mail_config")
+}
+
+model FeatureFlag {
+  key         String   @id
+  enabled     Boolean  @default(false)
+  description String   @default("")
+  updatedById String
+  updatedBy   User     @relation(fields: [updatedById], references: [id])
+  updatedAt   DateTime @updatedAt
+
+  @@map("feature_flags")
+}
+
+// ---------------------------------------------------------------------------
+// The audit log
+// ---------------------------------------------------------------------------
+//
+// Append-only, and not by convention. prisma/sql/010_audit_append_only.sql
+// installs BEFORE UPDATE and BEFORE DELETE triggers that raise, and revokes
+// the privileges besides, so an administrator holding the application
+// credentials still cannot edit history.
+//
+// actorId is NOT NULL on purpose: there is no way to act without being
+// recorded as the actor. `hash` chains each row to the one before it, so a
+// row removed by someone with raw database access breaks the chain visibly.
+
+model AuditEvent {
+  id           String       @id @default(uuid())
+  occurredAt   DateTime     @default(now())
+  actorId      String
+  actorRole    Role
+  actorEmail   String
+  action       String
+  resourceType String
+  resourceId   String?
+  outcome      AuditOutcome
+  ip           String?
+  userAgent    String?
+  requestId    String
+  // Request-shaped detail: the permission demanded, the reason given, the
+  // fields changed. Queried with JSONB containment from the admin console.
+  metadata     Json         @default("{}")
+  // Tamper evidence. sha256(prevHash + canonical(event)).
+  prevHash     String?
+  hash         String       @unique
+  // Monotonic within the table; gaps are themselves evidence.
+  seq          BigInt       @default(autoincrement())
+
+  @@index([actorId, occurredAt])
+  @@index([action, occurredAt])
+  @@index([resourceType, resourceId])
+  @@index([outcome, occurredAt])
+  @@map("audit_events")
+}
+
+// ---------------------------------------------------------------------------
+// Governance: the AI agent registry, Dx and Rx
+// ---------------------------------------------------------------------------
+//
+// The academy teaches this; the registry is where an institution actually does
+// it. An agent's recorded AAI changes only when a diagnostic is bound to it,
+// which needs diagnostic.bind.agent -- so a candidate practising Dx on the same
+// agent shape cannot move the real number.
+
+enum AgentStatus {
+  GOVERNED
+  ATTENTION
+  CRITICAL
+  RETIRED
+}
+
+enum LastCommandStatus {
+  VERIFIED
+  PENDING
+  MISSING
+}
+
+model Agent {
+  id          String            @id @default(uuid())
+  code        String            @unique
+  name        String
+  /**
+   * The accountable human. Every consequential agent has one, by policy.
+   */
+  ownerRole   String
+  ownerUserId String?
+  ownerUser   User?             @relation("AgentOwner", fields: [ownerUserId], references: [id])
+  purpose     String
+  /**
+   * Mirrors the bound diagnostic. Null until one is bound.
+   */
+  aai         Float?
+  band        String?
+  lastCommand LastCommandStatus @default(PENDING)
+  status      AgentStatus       @default(ATTENTION)
+  createdById String
+  createdBy   User              @relation("AgentCreatedBy", fields: [createdById], references: [id])
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  retiredAt   DateTime?
+
+  diagnostics Diagnostic[]
+
+  @@index([status])
+  @@map("agents")
+}
+
+model Diagnostic {
+  id      String  @id @default(uuid())
+  /**
+   * Null for a practice run. A bound diagnostic names the governed agent.
+   */
+  agentId String?
+  agent   Agent?  @relation(fields: [agentId], references: [id], onDelete: SetNull)
+
+  // Denormalised so a practice diagnostic can describe a hypothetical agent
+  // without creating a registry entry for it.
+  agentName    String
+  agentOwner   String
+  agentPurpose String
+
+  /**
+   * Eleven scores, 1-5, in AIM_DIMENSIONS order. Validated on the way in.
+   */
+  scores Int[]
+  /**
+   * Computed server-side from scores. Never accepted from the caller.
+   */
+  aai    Float
+  band   String
+
+  /**
+   * Practice diagnostics belong to the candidate and move nothing.
+   */
+  isPractice  Boolean  @default(true)
+  createdById String
+  createdBy   User     @relation("DiagnosticAuthor", fields: [createdById], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  prescription Prescription?
+
+  @@index([createdById, createdAt])
+  @@index([agentId])
+  @@map("diagnostics")
+}
+
+model Prescription {
+  id           String     @id @default(uuid())
+  diagnosticId String     @unique
+  diagnostic   Diagnostic @relation(fields: [diagnosticId], references: [id], onDelete: Cascade)
+
+  /**
+   * { "P": "...", "D": "...", ... } — the eight envelope boundaries.
+   */
+  envelope      Json   @default("{}")
+  /**
+   * { "A": [...], "G": [...], "H": [...], "X": [...] }
+   */
+  actionClasses Json   @default("{}")
+  /**
+   * The ranked control changes, derived from the highest-scoring dimensions.
+   */
+  controls      Json   @default("[]")
+  narrative     String
+
+  createdById String
+  createdBy   User     @relation("PrescriptionAuthor", fields: [createdById], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  @@map("prescriptions")
+}
+
+// ---------------------------------------------------------------------------
+// Access restriction
+// ---------------------------------------------------------------------------
+//
+// A track used to unlock on one hardwired condition: "holds the credential
+// below it on the ladder". That is one policy among many, and it was a
+// decision the software made rather than the institution.
+//
+// A track now carries zero or more rules and a policy for combining them. No
+// rules means open. The prerequisite ladder is expressible as a single
+// CREDENTIAL_HELD rule, so nothing is lost and everything else becomes
+// sayable: open from a date, open to one cohort, open on a badge, or opened
+// by hand for one named candidate.
+
+enum UnlockPolicy {
+  /**
+   * Every rule must pass. The safe default.
+   */
+  ALL
+  /**
+   * Any one rule opens the track.
+   */
+  ANY
+}
+
+enum UnlockRuleType {
+  CREDENTIAL_HELD
+  BADGE_HELD
+  COHORT_MEMBER
+  DATE_WINDOW
+  MANUAL_GRANT
+  MODULES_COMPLETED
+}
+
+model UnlockRule {
+  id          String         @id @default(uuid())
+  programmeId String
+  programme   Programme      @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+  type        UnlockRuleType
+
+  /**
+   * CREDENTIAL_HELD, MODULES_COMPLETED: the track being required.
+   */
+  requiredProgrammeCode String?
+  /**
+   * BADGE_HELD: the badge being required.
+   */
+  requiredBadgeCode     String?
+  /**
+   * COHORT_MEMBER: the cohort whose members are admitted.
+   */
+  requiredCohortId      String?
+  /**
+   * MODULES_COMPLETED: how many.
+   */
+  threshold             Int?
+  /**
+   * DATE_WINDOW: either bound may be null for an open end.
+   */
+  opensAt               DateTime?
+  closesAt              DateTime?
+
+  /**
+   * Shown to a candidate when the rule is what is holding them back.
+   */
+  label       String   @default("")
+  active      Boolean  @default(true)
+  position    Int      @default(0)
+  createdById String
+  createdBy   User     @relation("UnlockRuleAuthor", fields: [createdById], references: [id])
+  createdAt   DateTime @default(now())
+
+  @@index([programmeId, active])
+  @@map("unlock_rules")
+}
+
+/**
+ * One named candidate let through, by a named person, for a stated reason.
+ * The development-access flag opens a track for everybody at once, which is
+ * useful for building a course and wrong for making an exception. This is the
+ * exception: it names who, who allowed it, why, and when it lapses.
+ */
+model TrackGrant {
+  id          String    @id @default(uuid())
+  programmeId String
+  programme   Programme @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User      @relation("TrackGrantHolder", fields: [userId], references: [id], onDelete: Cascade)
+  reason      String
+  expiresAt   DateTime?
+  revokedAt   DateTime?
+  grantedById String
+  grantedBy   User      @relation("TrackGrantAuthor", fields: [grantedById], references: [id])
+  createdAt   DateTime  @default(now())
+
+  @@unique([programmeId, userId])
+  @@index([userId])
+  @@map("track_grants")
+}
+
+// ---------------------------------------------------------------------------
+// Certificates
+// ---------------------------------------------------------------------------
+
+/**
+ * What a certificate says and how it is signed.
+ * The layout was fixed in the interface, which meant the institution's own
+ * name, signatory and seal were decisions made by the software. A template per
+ * track, falling back to a default, puts them back where they belong.
+ */
+model CertificateTemplate {
+  id          String     @id @default(uuid())
+  /**
+   * Null is the fallback used by any track without its own.
+   */
+  programmeId String?    @unique
+  programme   Programme? @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+
+  institutionName String @default("AIM Academy")
+  title           String @default("Certificate of Achievement")
+  subtitle        String @default("")
+  /**
+   * "has successfully completed the requirements for"
+   */
+  statement       String @default("has successfully completed the requirements for")
+  /**
+   * Printed under the programme title.
+   */
+  scopeNote       String @default("")
+
+  signatoryName  String  @default("")
+  signatoryTitle String  @default("")
+  /**
+   * Inline SVG, sanitised on the way in exactly as badge artwork is.
+   */
+  signatureSvg   String?
+  sealSvg        String?
+  logoSvg        String?
+
+  footnote    String @default("")
+  accentColor String @default("#B4752A")
+  orientation String @default("LANDSCAPE")
+
+  updatedById String
+  updatedBy   User     @relation("CertificateTemplateAuthor", fields: [updatedById], references: [id])
+  updatedAt   DateTime @updatedAt
+
+  @@map("certificate_templates")
+}
+
+// -----------------------------------------------------------------------------
+// Messages and notices
+// -----------------------------------------------------------------------------
+
+/**
+ * A conversation between exactly two people.
+ * The pair is stored in a fixed order -- `lowUserId` is whichever id sorts
+ * first -- so a pair has one row however it is opened, and the unique index
+ * is what enforces that rather than a read-then-write that could race.
+ */
+model Conversation {
+  id            String   @id @default(uuid())
+  lowUserId     String
+  lowUser       User     @relation("ConversationLow", fields: [lowUserId], references: [id], onDelete: Cascade)
+  highUserId    String
+  highUser      User     @relation("ConversationHigh", fields: [highUserId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  /**
+   * When the last message arrived, so a list can be ordered without a join.
+   */
+  lastMessageAt DateTime @default(now())
+
+  messages Message[]
+
+  @@unique([lowUserId, highUserId])
+  @@index([lowUserId, lastMessageAt])
+  @@index([highUserId, lastMessageAt])
+  @@map("conversations")
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  body           String
+  /**
+   * Set when the other person has read it. Null while unread.
+   */
+  readAt         DateTime?
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId, createdAt])
+  @@index([senderId])
+  @@map("messages")
+}
+
+/**
+ * Something the system needs a particular person to know.
+ * Distinct from a message, which is one person speaking to another: nobody
+ * replies to a notice, and it carries a link to the thing it is about. A new
+ * candidate arriving produces one of these for every administrator, manager
+ * and examiner rather than an email nobody can act on from their inbox.
+ */
+model Notification {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation("NotificationRecipient", fields: [userId], references: [id], onDelete: Cascade)
+  kind      String
+  title     String
+  body      String    @default("")
+  /**
+   * Where to go to act on it, relative to the portal root.
+   */
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, readAt, createdAt])
+  @@map("notifications")
+}
+
+enum AttemptRequestStatus {
+  PENDING
+  GRANTED
+  DECLINED
+}
+
+/**
+ * A learner who has used every attempt on a paper without passing, asking for
+ * more.
+ * Decided by an examiner assigned to them, or by a manager or administrator.
+ * A grant adds `extraAttempts` to that learner's allowance on that paper and
+ * nothing else: the paper's own `maxAttempts` is untouched for everybody else,
+ * and a declined or pending request adds nothing. One pending request per
+ * learner and paper at a time.
+ */
+model AttemptRequest {
+  id            String               @id @default(uuid())
+  userId        String
+  user          User                 @relation("AttemptRequester", fields: [userId], references: [id], onDelete: Cascade)
+  assessmentId  String
+  assessment    Assessment           @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  reason        String
+  status        AttemptRequestStatus @default(PENDING)
+  /**
+   * Granted attempts; 0 unless GRANTED.
+   */
+  extraAttempts Int                  @default(0)
+  decidedById   String?
+  decidedBy     User?                @relation("AttemptRequestDecider", fields: [decidedById], references: [id], onDelete: SetNull)
+  decisionNote  String?
+  decidedAt     DateTime?
+  createdAt     DateTime             @default(now())
+
+  @@index([status, createdAt])
+  @@index([userId, assessmentId])
+  @@map("attempt_requests")
+}

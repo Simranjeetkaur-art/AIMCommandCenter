@@ -1,0 +1,24 @@
+PASS — AEL101 exists
+PASS — AIM-CA prerequisite
+PASS — Development access
+PASS — Executive authority lesson
+PASS — Accountability lesson
+PASS — Human reserved powers
+PASS — Authority concentration
+PASS — Last Command
+PASS — Executive case
+PASS — Leadership decision
+PASS — 10 questions
+PASS — 80 percent
+PASS — No failed answer key
+PASS — Badge persistence
+PASS — Next AEL102
+PASS — CA credential retained
+PASS — CA defense retained
+PASS — CA practical retained
+PASS — CA simulator retained
+PASS — CA exam retained
+PASS — CA modules retained
+PASS — CP retained
+PASS — Dedicated certificate retained
+PASS — JS syntax

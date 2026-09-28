@@ -1,0 +1,8 @@
+AIM Command Center v4.3.1 — AIM-EL Entry Fix
+
+PASS — Level 3 VIEW PATH routes to showAimElPath()
+PASS — obsolete future-certification alert removed
+PASS — AEL-101 through AEL-110 functions retained
+PASS — AIM-EL credential function retained
+PASS — AIM-CP and AIM-CA path functions retained
+PASS — JavaScript syntax validation

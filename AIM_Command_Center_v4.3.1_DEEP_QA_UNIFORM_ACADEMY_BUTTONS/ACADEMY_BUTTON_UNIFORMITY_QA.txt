@@ -1,0 +1,4 @@
+PASS — CP, CA, EL certification cards use the same primary START TRAINING button style.
+PASS — CA prerequisite routing retained.
+PASS — EL prerequisite routing retained.
+PASS — JavaScript syntax validation.

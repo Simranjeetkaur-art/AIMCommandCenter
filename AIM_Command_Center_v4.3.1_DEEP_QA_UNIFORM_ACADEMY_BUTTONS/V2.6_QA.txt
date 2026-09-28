@@ -1,0 +1,14 @@
+AIM Command Center v2.6 — 100-Mission Curriculum
+
+PASS — 100 explicit missions
+PASS — 10 module bands
+PASS — missionFor bank
+PASS — mission-specific choices
+PASS — old generated domains removed from missionFor
+PASS — 100 completion retained
+PASS — feedback retained
+PASS — next mission retained
+PASS — reset retained
+PASS — Modules 1-10 retained
+PASS — assessment fix retained
+PASS — JS syntax

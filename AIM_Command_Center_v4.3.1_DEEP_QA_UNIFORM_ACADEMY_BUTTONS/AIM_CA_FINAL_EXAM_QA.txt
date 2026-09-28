@@ -1,0 +1,20 @@
+PASS — ACA101-110 retained
+PASS — 50-question architect bank
+PASS — 5 per ACA module
+PASS — 50-question exam
+PASS — 80% pass
+PASS — Module badge eligibility
+PASS — Development unlock retained
+PASS — Production prerequisite retained
+PASS — Question randomization
+PASS — No answer disclosure on failure
+PASS — Pass persistence
+PASS — Attempt persistence
+PASS — Exam card integrated
+PASS — Advanced Simulator retained
+PASS — Design Practical retained
+PASS — Architecture Defense retained
+PASS — CP final exam retained
+PASS — 100 mission simulator retained
+PASS — Dedicated certificate retained
+PASS — JS syntax

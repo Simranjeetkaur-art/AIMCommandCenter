@@ -1,0 +1,44 @@
+AIM™ Dx CONTROLLED BASELINE v1.6 — DEEP QA REPORT
+
+NEW USER WORKFLOW:
+Agent identity → 11 AIM™ authority dimensions → ONE Calculate AIM™ Dx button → AAI results.
+
+Step 1 has been removed. The former Step 2 is now the sole assessment and is labeled ASSESS, not Step 2.
+Evidence-floor, variance-review, and evidence-comparison UI were removed so there is no hidden two-stage workflow.
+
+QA RESULTS:
+PASS — JavaScript syntax
+PASS — Step 1 UI removed
+PASS — Objective Calibration removed
+PASS — No Step 1 label
+PASS — No Step 2 label
+PASS — 11-dimension assessment retained
+PASS — Exactly one Calculate button — 1
+PASS — Single button wired direct
+PASS — Evidence-floor rule removed
+PASS — Override box removed
+PASS — Evidence score comparison removed
+PASS — Reset retained
+PASS — Agent Registry absent
+PASS — Dimension: Decision Autonomy
+PASS — Dimension: Action Authority
+PASS — Dimension: Financial Authority
+PASS — Dimension: Data Authority
+PASS — Dimension: Tool & Infrastructure Access
+PASS — Dimension: Delegation Depth
+PASS — Dimension: Execution Velocity
+PASS — Dimension: Operational Scale
+PASS — Dimension: Consequence Severity
+PASS — Dimension: Reversibility
+PASS — Dimension: Human-Control Deficit
+PASS — AAI minimum
+PASS — AAI maximum
+PASS — 50,000 randomized calculations
+PASS — Direct calculator skips evidence derivation
+PASS — Direct calculator skips floor enforcement
+
+Methodology tradeoff:
+The simpler workflow is much easier to demonstrate. However, removing Step 1 removes the evidence-floor mechanism that was intended to resist deliberate under-scoring. The 11 dimension ratings now directly determine AAI. For a future enterprise edition, independent evidence validation or second-person approval can restore anti-gaming controls without bringing back a confusing Step 1 screen.
+
+Formula note:
+With 11 dimensions scored 1–5, AAI = 100 × ΣSᵢ / 55 has a reachable range of 20–100. Scores 0–19 are not reachable under the current formula.

@@ -1,0 +1,19 @@
+PASS — 10 challenges
+PASS — 4 choices
+PASS — all answered
+PASS — 80 pass
+PASS — pass state
+PASS — capstone prerequisite
+PASS — no fail answers
+PASS — CEO
+PASS — CFO
+PASS — GC
+PASS — Board Chair
+PASS — final credential
+PASS — capstone retained
+PASS — crisis retained
+PASS — exam retained
+PASS — AEL110 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

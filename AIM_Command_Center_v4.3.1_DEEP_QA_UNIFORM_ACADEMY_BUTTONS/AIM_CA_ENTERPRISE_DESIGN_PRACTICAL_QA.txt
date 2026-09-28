@@ -1,0 +1,20 @@
+PASS — 10 deliverables
+PASS — Simulator prerequisite
+PASS — Development unlock
+PASS — Enterprise case
+PASS — Authority envelope
+PASS — AGHX
+PASS — Control plane
+PASS — Evidence drift
+PASS — Last Command
+PASS — Authorization
+PASS — Draft save
+PASS — Substantive minimum
+PASS — Submission persisted
+PASS — Practical completion
+PASS — Architecture Defense next
+PASS — ACA modules retained
+PASS — CA exam retained
+PASS — CA simulator retained
+PASS — Dedicated certificate
+PASS — JS syntax

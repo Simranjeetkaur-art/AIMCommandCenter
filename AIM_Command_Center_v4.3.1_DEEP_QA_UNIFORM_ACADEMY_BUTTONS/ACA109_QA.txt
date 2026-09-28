@@ -1,0 +1,27 @@
+AIM Command Center v4.3.1 — ACA-109 High-Consequence & Physical Autonomy Architecture
+
+PASS — ACA101-108 retained
+PASS — ACA109 lesson
+PASS — ACA109 10 questions
+PASS — ACA109 80 percent
+PASS — ACA109 badge
+PASS — ACA109 path
+PASS — Physical autonomy formula
+PASS — Safety invariants
+PASS — Consequence ceilings
+PASS — Human reserved
+PASS — Velocity
+PASS — Fail safe
+PASS — Safety evidence
+PASS — Physical Last Command
+PASS — Reauthorization
+PASS — Hospital case
+PASS — Manufacturing practice
+PASS — No fail answers
+PASS — CA 10 modules
+PASS — CP 10 lessons
+PASS — Final exam
+PASS — Simulator
+PASS — Practical
+PASS — Certificate
+PASS — JS syntax

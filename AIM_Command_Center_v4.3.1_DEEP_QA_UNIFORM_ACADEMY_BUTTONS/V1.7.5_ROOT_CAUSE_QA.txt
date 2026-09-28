@@ -1,0 +1,23 @@
+AIM Command Center v1.7.5 — Runtime Repair
+
+ACTUAL ROOT CAUSE CONFIRMED:
+The prior fixes focused on layout, but the 11 questions were empty because JavaScript execution stopped BEFORE renderQ(). Legacy top-level code still attempted to write to three DOM elements from the older portal: #envelope, #aghx, and #lastCommand. Those elements no longer exist after the Rx rebuild. Accessing the first missing element caused a runtime exception, preventing renderQ() from ever populating #questions.
+
+FIX:
+- Guarded all three legacy DOM initializers so missing optional elements cannot stop application startup.
+- Confirmed renderQ() executes before optional Academy/Dashboard initialization.
+- Kept the v1.7.4 contiguous Dx layout.
+- Preserved the single Calculate button.
+- Preserved Rx dynamic heat map and prescription workflow.
+
+QA:
+PASS — JavaScript syntax
+PASS — questions mount exists
+PASS — renderQ explicitly targets questions
+PASS — renderQ runs before optional module initialization
+PASS — removed envelope cannot crash boot
+PASS — removed aghx cannot crash boot
+PASS — removed Last Command cannot crash boot
+PASS — exactly one Dx Calculate button
+PASS — 11 dimensions retained
+PASS — Rx heatmap retained

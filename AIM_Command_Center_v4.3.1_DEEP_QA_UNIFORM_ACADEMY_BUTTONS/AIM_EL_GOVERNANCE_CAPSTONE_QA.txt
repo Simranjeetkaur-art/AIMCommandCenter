@@ -1,0 +1,19 @@
+PASS — 15 deliverables
+PASS — 120 min
+PASS — draft
+PASS — pending review
+PASS — not auto quality
+PASS — human review
+PASS — crisis prereq
+PASS — Dx Rx
+PASS — AGHX
+PASS — envelope
+PASS — ORION
+PASS — 81%
+PASS — next defense
+PASS — crisis retained
+PASS — exam retained
+PASS — AEL110 retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

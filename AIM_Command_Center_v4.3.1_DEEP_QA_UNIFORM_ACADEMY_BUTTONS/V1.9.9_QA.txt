@@ -1,0 +1,14 @@
+AIM Command Center v1.9.9 — Module 4 + Simulator Practice Lab
+
+PASS — Module 4 lesson
+PASS — Module 4 assessment
+PASS — Module 4 routing
+PASS — Module navigation retained
+PASS — Simulator visually separated
+PASS — Simulator logic retained
+PASS — Modules 1-3 retained
+PASS — AGHX colors
+PASS — Help retained
+PASS — Rx retained
+PASS — Colored AAI bands retained
+PASS — Badge scoring retained

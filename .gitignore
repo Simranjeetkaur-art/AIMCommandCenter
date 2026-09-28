@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Tests
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files.
+#
+# `.env*` is deliberately broad rather than `.env` plus `.env.*`: this tree
+# also holds `.env-backup/`, which a pattern anchored on a dot would miss and
+# which contains the real API and web secrets. The example files are the one
+# thing here that belongs in the repo, so they are added back by name.
+.env*
+!.env.example
+!.env.*.example
+
+# Database credentials and dumps. Neither is configuration; both are secrets.
+.db_pass
+.db-backups/
+
+# Claude Code local state: session history, transcripts, personal settings.
+#
+# The directory's contents are ignored wholesale, so anything the tool writes
+# there is out by default rather than each time somebody notices a new file.
+# Config a team shares is added back by name. Note `.claude/*` and not
+# `.claude/`: excluding the directory itself would stop git descending into
+# it, and the exceptions below would never be reached.
+.claude/*
+!.claude/settings.json
+!.claude/agents/
+!.claude/commands/
+!.claude/skills/
+.claude-session*
+*.claude-trace
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/

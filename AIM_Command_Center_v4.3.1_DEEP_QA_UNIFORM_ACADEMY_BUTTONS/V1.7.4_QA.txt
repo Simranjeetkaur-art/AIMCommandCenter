@@ -1,0 +1,23 @@
+AIM Command Center v1.7.4 — Dx Layout Repair
+
+ROOT CAUSE:
+The 11 Dx controls were present in HTML/JavaScript, but old CSS from the former two-step workflow still applied 250px/292px top offsets and old grid-row assignments. After Step 1 was removed, that legacy layout pushed the assessment bar and all 11 questions far down the page. This exactly matches the screenshot.
+
+FIX:
+- Explicit single-stage Dx grid: Header -> Agent Info -> Assessment Bar -> 11 Questions -> Reset.
+- Removed the legacy vertical offsets through final CSS overrides.
+- Right analytics remains in column 2.
+- renderQ now explicitly resolves #questions.
+- Rx heat map and Rx navigation are preserved.
+
+QA:
+PASS — Dx question mount exists
+PASS — 11-dimension assessment header retained
+PASS — exactly one Calculate button
+PASS — direct Calculate handler retained
+PASS — renderQ explicitly resolves question mount
+PASS — legacy 250/292px offsets overridden
+PASS — single-stage grid rows explicitly assigned
+PASS — Rx heat map retained
+PASS — Rx render hook retained
+PASS — Step 1 remains removed

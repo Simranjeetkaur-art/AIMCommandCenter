@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIM™ Command Center</title><link rel="stylesheet" href="styles.css"></head>
+<body><div class="app">
+<aside><button class="brand brandHome" type="button" onclick="go('dashboard')" aria-label="Return to AIM Command Center dashboard"><div class="logo">AIM</div><div><b>AIM™ Command Center</b><small>Govern AI Authority</small></div></button>
+<nav>
+<button class="active" data-page="dashboard">Command Dashboard</button>
+
+<button data-page="dx">AIM™ Dx</button>
+<button data-page="rx">AIM™ Rx</button>
+<button data-page="academy">AIM™ Academy</button>
+<button data-page="cert">Certification</button>
+<button data-page="admin">Administration</button>
+</nav><div class="foot">Govern AI Authority.<br><b>Preserve Human Command.</b></div></aside>
+<main><header><div><span class="eyebrow">AIM™ COMMAND CENTER</span><h1 id="title">Command Dashboard</h1></div><div class="identity">AIM-CP Candidate</div></header>
+
+<section class="page active" id="dashboard">
+  <div class="v18dash">
+    <div class="approvedTopHero" aria-label="AIM Command Center approved dashboard hero">
+<img src="aim_human_robot_hero_locked.png" alt="AIM Command Center: robotic and human hands, The Last Command, and human command principle">
+</div><div class="v18cards">
+      <button class="v18card dxCard" onclick="go('dx')">
+        <span class="circleIcon">⌕</span><div><small>ASSESS</small><h3>AIM™ Dx</h3>
+        <p>Evaluate autonomy across 11 dimensions and calculate the AIM™ Autonomy Index.</p><b>Start Assessment →</b></div>
+      </button>
+      <button class="v18card rxCard" onclick="go('rx')">
+        <span class="circleIcon">◇</span><div><small>PRESCRIBE</small><h3>AIM™ Rx</h3>
+        <p>Translate risk into Authority Envelope, A/G/H/X boundaries, and Last Command controls.</p><b>Build Controls →</b></div>
+      </button>
+      <button class="v18card academyCard" onclick="go('academy')">
+        <span class="circleIcon">◆</span><div><small>QUALIFY</small><h3>AIM™ Academy</h3>
+        <p>Train through command missions, scenarios, and assessments.</p><b>Enter Academy →</b></div>
+      </button>
+      <button class="v18card certCard" onclick="go('cert')">
+        <span class="circleIcon">◎</span><div><small>CERTIFY</small><h3>Certification</h3>
+        <p>Demonstrate competency and earn your AIM™ credential.</p><b>View Certification →</b></div>
+      </button>
+    </div>
+
+    <div class="commandStrip"><b>Command Principle</b><span>AI provides the intelligence. AIM™ governs the authority. Humans retain the command.</span><em>THE LAST COMMAND</em></div>
+  </div>
+</section>
+<section class="page" id="registry"><div class="sectionHead"><div><span class="eyebrow">ENTERPRISE GOVERNANCE</span><h2>AI Agent Registry</h2><p>Every consequential agent should have an accountable owner, defined purpose, measured authority, and verified revocation path.</p></div><button class="primary" onclick="newAgent()">+ Register Agent</button></div>
+<div class="card"><table><thead><tr><th>Agent</th><th>Owner</th><th>Purpose</th><th>AAI</th><th>Last Command</th><th>Status</th></tr></thead><tbody id="agentRows"></tbody></table></div></section>
+
+<section class="page dxStable approvedDx" id="dx"><div class="sectionHead"><div><span class="eyebrow">AIM™ Dx</span><h2>Authority Diagnostic</h2><p>Score the AI across the 11 AIM™ authority dimensions, then calculate the AIM™ Autonomy Index. AAI is a comparison index, not deployment permission.</p><button id="howToUseBtn" class="howToUseBtn" onclick="openHowToUse()">? &nbsp; How to Use</button></div></div>
+<div class="trafficLegend">
+ <div class="trafficItem"><span class="trafficLight green"></span><div><b>0–24</b><span>Lower Autonomy Exposure</span></div></div>
+ <div class="trafficItem"><span class="trafficLight yellow"></span><div><b>25–49</b><span>Moderate Exposure</span></div></div>
+ <div class="trafficItem"><span class="trafficLight orange"></span><div><b>50–74</b><span>Elevated Exposure</span></div></div>
+ <div class="trafficItem"><span class="trafficLight red"></span><div><b>75–100</b><span>Critical Control Attention</span></div></div>
+</div>
+<div class="card meta"><label>Agent name<input id="agentName" value="Accounts Payable Agent"></label><label>Human owner<input id="agentOwner" value="CFO"></label><label>Authorized purpose<input id="agentPurpose" value="Process approved vendor invoices"></label></div>
+<div class="elevenStep">
+       <span>ASSESS</span><b>AIM™ Authority Assessment — 11 Dimensions</b>
+       <small>Score each dimension based on the AI's actual authority, then calculate once.</small>
+       <div class="step2Actions"><button id="calculateAIMDx" class="finalCalcTop" onclick="calculateAIMDxDirect()">Calculate AIM™ Dx</button></div>
+    </div><div id="questions"></div>
+
+<div class="buttons"><button onclick="resetDx()">Reset</button></div><div class="rightAnalytics"><div id="dxResult"></div>
+      <div id="dxResultLegacy" style="display:none"></div></div></section>
+
+<section class="page" id="rx">
+<div class="rxV18">
+  <div class="rx18Head">
+    <div><span class="rx18Eyebrow">AIM™ Rx</span><h1>Evaluation & Remedy</h1>
+    <p>Dx identifies the agent's authority exposure. Rx explains what is driving that exposure and prescribes specific changes to reduce it.</p></div>
+    <button class="rx18HelpBtn" onclick="openRxHelp()">? How to Use AIM™ Rx</button>
+  </div>
+
+  <div id="rxNoDx" class="rx18NoDx">
+    <div><b>Complete AIM™ Dx first.</b><span>Rx needs the calculated AAI and 11 authority scores before it can generate an evaluation and remedy.</span></div>
+    <button onclick="go('dx')">Open AIM™ Dx</button>
+  </div>
+
+  <div id="rxContent" class="rx18Content">
+    <div class="rx18Summary">
+      <div class="rx18Score"><small>DX RESULT</small><b id="rxAAI">—</b><span>/100</span><em id="rxBand">—</em></div>
+      <div><h3 id="rxAgentTitle">AI Agent Evaluation</h3><p id="rxExecutiveSummary">—</p></div>
+    </div>
+
+    <div class="rx18Card rx18Analysis">
+      <div class="rx18CardHead"><small>1 · EVALUATION</small><h2>Situation Analysis</h2><p>What AIM™ Dx is telling us about this agent.</p></div>
+      <div id="rxSituation" class="rx18Narrative"></div>
+    </div>
+
+    <div class="rx18Card">
+      <div class="rx18CardHead"><small>2 · WHY</small><h2>What Is Driving the Exposure?</h2><p>Rx identifies the authority concentrations that matter most and explains why.</p></div>
+      <div id="rxDrivers" class="rx18Drivers"></div>
+    </div>
+
+    <div class="rx18Card rx18RemedyCard">
+      <div class="rx18CardHead"><small>3 · PRESCRIPTION</small><h2>Recommended Remedy</h2><p>Specific governance and architecture changes AIM™ recommends for this agent.</p></div>
+      <div id="rxRemedyNarrative" class="rx18Narrative remedy"></div>
+      <div id="rxActionPlan" class="rx18ActionPlan"></div>
+    </div>
+
+    <div class="rx18Card">
+      <div class="rx18CardHead"><small>4 · MODIFY</small><h2>Agent Modification Specification</h2><p>Translate the prescription into changes the product, engineering, security, and business teams can implement.</p></div>
+      <div id="rxModification" class="rx18Modification"></div>
+    </div>
+
+    <div class="rx18Card rx18BoundaryCard">
+      <div class="rx18CardHead"><small>5 · BOUND AUTHORITY</small><h2>Recommended A/G/H/X Boundaries</h2><p>Rx recommends how consequential actions should be classified after remediation.</p></div>
+      <div id="rxAGHX" class="rx18AGHX"></div>
+    </div>
+
+    <div class="rx18Card rx18Reassess">
+      <div><small>6 · VERIFY THE FIX</small><h2>Reassess After Changes</h2>
+      <p>Implement the prescribed changes, then return to AIM™ Dx and score the agent based on its <b>new actual authority</b>. Rx does not subtract points from the current AAI. A lower AAI must come from a real reduction in authority, reach, velocity, consequence, or human-control deficit.</p></div>
+      <button onclick="go('dx')">Reassess in AIM™ Dx</button>
+    </div>
+  </div>
+</div>
+
+<div id="rxHelp" class="rxHelp">
+ <div class="rxHelpBox"><button class="rxClose" onclick="closeRxHelp()">×</button>
+ <h2>How to Use AIM™ Rx</h2>
+ <p>There are no additional assessment questions in Rx. Complete Dx, then Rx automatically generates the evaluation and prescription.</p>
+ <div class="rxAAIHelp">
+  <h3>How is the AAI calculated?</h3>
+  <p><b>AAI = 100 × Σ(scores) / 55</b></p>
+  <p>In plain English, AIM™ Dx scores the agent across <b>11 authority dimensions</b>. Each dimension receives a score from <b>1 to 5</b>. We add those 11 scores together. The highest possible total is <b>55</b> because 11 × 5 = 55.</p>
+  <p>We then divide the agent's total by 55 and multiply by 100. That simply converts the result into an easy-to-read <b>0–100 comparison scale</b>.</p>
+  <div class="rxAAIExample"><b>Simple example</b><br>If the 11 scores add up to 33: <b>100 × 33 ÷ 55 = 60</b>. The agent's AAI is therefore <b>60</b>, which falls in the <b>Elevated Autonomy Exposure</b> band.</div>
+  <p><b>Important:</b> AAI is not a safety grade and it does not mean “60% dangerous.” It is a structured measure of how much autonomy and authority are concentrated in the agent. AIM™ Rx then explains what is driving that exposure and what should be changed.</p>
+ </div>
+ <ol>
+  <li><b>Read the Situation Analysis</b> to understand the agent's overall authority profile.</li>
+  <li><b>Review the Exposure Drivers</b> to see which authority dimensions are creating the greatest concern.</li>
+  <li><b>Follow the Recommended Remedy</b> in priority order.</li>
+  <li><b>Give the Agent Modification Specification</b> to the responsible business, engineering, security, or governance teams.</li>
+  <li><b>Apply the A/G/H/X boundaries</b> so the agent knows what it may do autonomously, what is gated, what remains human-reserved, and what is prohibited.</li>
+  <li><b>Reassess in Dx</b> after the architecture actually changes. The new score should reflect the modified agent—not a paper adjustment to the old score.</li>
+ </ol>
+ </div>
+</div>
+</section>
+<section class="screen" id="academy">
+<div class="academyHero"><div><span class="academyEyebrow">AIM™ ACADEMY</span><h1>Learn to command autonomous AI.</h1><p>AIM-CP™ teaches practitioners to assess AI authority, interpret AAI, prescribe controls, classify A/G/H/X boundaries, and preserve the human Last Command.</p></div><div class="academyPrinciple"><b>What you will learn</b><br>By completion, you should be able to diagnose an agent, explain its authority exposure, redesign unsafe authority, and demonstrate that humans can intervene and revoke control.</div></div>
+<div class="academyLevelGrid"><article class="academyLevel activeLevel"><div class="levelNo">LEVEL 1</div><h2>AIM-CP™</h2><h3>AIM™ Certified Practitioner</h3><p>Foundation certification for professionals who assess and govern AI authority using AIM™.</p><div class="levelMeta"><span>10 Modules</span><span>10 Questions / Module</span><span>80% Passing</span></div><button class="primary" onclick="startAcademyFresh()">START TRAINING</button></article><article class="academyLevel lockedLevel"><div class="levelNo">LEVEL 2</div><h2>AIM-CA™</h2><h3>AIM™ Certified Architect</h3><p>Advanced certification for designing bounded authority and enforceable AI control planes.</p><div class="levelMeta"><span>Advanced</span><span>Requires AIM-CP™</span></div><button class="primary" onclick="academyOpen('ca')">START TRAINING</button></article><article class="academyLevel lockedLevel"><div class="levelNo">LEVEL 3</div><h2>AIM-EL™</h2><h3>AIM™ Enterprise Leader</h3><p>Executive certification for governing enterprise AI workforces and human-reserved powers.</p><div class="levelMeta"><span>Executive</span><span>Enterprise</span></div><button class="primary" onclick="academyOpen('el')">START TRAINING</button></article></div>
+<div id="academyPath" class="academyPath" style="display:none"><div class="pathHeader"><div><span class="academyEyebrow">LEVEL 1 · AIM-CP™</span><h2>Practitioner Command Path</h2><p><b>Standard:</b> 10 modules · 10 scored questions each · <b>80% (8/10) required to earn each badge</b>. Failed modules may be retaken.</p></div><button class="secondary" onclick="academyHelp()">HOW CERTIFICATION WORKS</button></div><div class="academyProgress"><div><b id="academyModulesDone">0/10</b><span>Badges Earned</span></div><div><b id="academyMissionsDone">0/100</b><span>Missions</span></div><div><b id="academyMissionScore">—</b><span>Simulator Score</span></div><div><b id="academyReadiness">IN TRAINING</b><span>Readiness</span></div></div>
+<div class="academyLearningLayout">
+ <div class="academyPanel academyModulesPanel">
+  <div id="moduleWorkspace" class="moduleWorkspace" style="display:none">
+   <div class="moduleWorkspaceNav"><div class="moduleCrumb"><span>AIM-CP™ ACADEMY</span><b id="moduleCrumbTitle">MODULE</b></div><div class="moduleNavActions"><button class="secondary" onclick="openGlobalHelp('quick')">? HELP</button><button class="secondary moduleBackBtn" onclick="backToModules()">← ALL MODULES</button></div></div>
+   <div id="moduleStepNav" class="moduleStepNav"></div><div id="moduleStage"></div>
+  </div>
+  <div id="moduleCatalog">
+   <div class="moduleCatalogHead"><div><span class="academyEyebrow">LEARN · PRACTICE · PASS</span><h3>10 Command Modules</h3><p>Choose a module below. Every completed module follows the same path: <b>Learn → Command Practice → Assessment → Earn Badge.</b></p></div><div class="catalogHint">Select <b>START / REVIEW</b> to open the lesson. The assessment is available from inside the lesson.</div></div>
+   <div id="academyModules"></div>
+  </div>
+ </div>
+</div>
+<div class="academyFinalExamCard" id="academyFinalExamCard">
+  <div class="finalExamNumber">FINAL</div>
+  <div class="finalExamCopy">
+    <span class="academyEyebrow">CERTIFICATION EXAMINATION</span>
+    <h3>AIM-CP™ Final Exam</h3>
+    <p>After completing the 10 Command Modules, take the 50-question AIM-CP™ certification examination. Each attempt draws 5 questions from every module from the 150-question certification bank.</p>
+    <div class="finalExamMeta"><span>50 QUESTIONS</span><span>80% PASSING</span><span>150-QUESTION BANK</span><span>SCRAMBLED EACH ATTEMPT</span></div>
+  </div>
+  <div class="finalExamAction">
+    <button class="primary" onclick="openFinalExamFromAcademy()">TAKE FINAL EXAM →</button>
+  </div>
+</div>
+<div class="simulatorFull simulatorPracticeLab"><div class="simulatorSectionLabel">PRACTICE LAB · AFTER THE COMMAND MODULES</div>
+ <div class="simulatorIntro">
+  <div><span class="academyEyebrow">PRACTICE · AIM-CP™</span><h2>100-Mission Command Simulator</h2>
+  <p>After completing the Command Modules, apply the AIM™ principles across 100 progressively harder command scenarios. Use the simulator to practice judgment under pressure before the certification gate.</p></div>
+  <div class="simulatorRule"><b>Simulator Standard</b><span>100 missions</span><span>10 curriculum bands</span><span>Computer-scored</span></div>
+ </div>
+ <div class="missionBands missionModuleBands">
+<div><b>01–10</b><span>Module 1 · Command Fundamentals</span></div><div><b>11–20</b><span>Module 2 · AAI & Authority Dimensions</span></div>
+<div><b>21–30</b><span>Module 3 · Authority Envelope</span></div><div><b>31–40</b><span>Module 4 · A/G/H/X Classification</span></div>
+<div><b>41–50</b><span>Module 5 · AIM™ Dx</span></div><div><b>51–60</b><span>Module 6 · AIM™ Rx</span></div>
+<div><b>61–70</b><span>Module 7 · Evidence, Monitoring & Drift</span></div><div><b>71–80</b><span>Module 8 · Last Command</span></div>
+<div><b>81–90</b><span>Module 9 · Loss of Command</span></div><div><b>91–100</b><span>Module 10 · Practical Command</span></div>
+</div><div class="simulatorControls"><button class="primary" onclick="launchMission()">RUN NEXT MISSION</button><button class="secondary" onclick="resetSimulator()">RESET SIMULATOR</button><span id="missionCounterNote">Mission sequence begins at 01.</span></div>
+ <div id="missionStage"></div>
+</div>
+<div class="certGate"><div><span class="academyEyebrow">CERTIFICATION GATE</span><h3>AIM-CP™ Commander Check Ride</h3><p>Earn all 10 module badges, complete 100 missions, pass the certification exam at 80%+, complete a practical AIM™ Dx/Rx assessment, and pass the Commander Check Ride.</p></div><div class="gateReqs"><span id="gateModules">○ 10 module badges</span><span id="gateMissions">○ 100 missions</span><span>○ Certification exam ≥ 80%</span><span>○ Practical AIM™ assessment</span><span>○ Commander Check Ride</span></div><button class="primary" onclick="go('cert')">GO TO CERTIFICATION</button></div></div></section>
+<section class="page" id="cert"><div class="certCenter">
+<div class="certHero">
+  <span class="academyEyebrow">AIM-CP™ CERTIFICATION CENTER</span>
+  <h2>AIM™ Certified Practitioner</h2>
+  <p>Demonstrate that you can govern AI authority in practice. AIM-CP™ combines formal learning, command practice, a randomized final examination, a practical AIM™ Dx/Rx case, and a Commander Check Ride.</p>
+</div>
+
+<div id="certProgress" class="certProgress"></div>
+
+<div class="certRequirements">
+  <div class="certReq" id="reqModules"><b>1</b><div><strong>10 Command Modules</strong><span>Pass all module assessments at ≥80%.</span></div></div>
+  <div class="certReq" id="reqSimulator"><b>2</b><div><strong>100-Mission Simulator</strong><span>Complete the Command Practice Lab.</span></div></div>
+  <div class="certReq" id="reqExam"><b>3</b><div><strong>AIM-CP™ Final Exam</strong><span>50 randomized questions · Pass ≥80%.</span></div></div>
+  <div class="certReq" id="reqPractical"><b>4</b><div><strong>Practical Dx/Rx Assessment</strong><span>Diagnose and prescribe controls for a complete AI-agent case.</span></div></div>
+  <div class="certReq" id="reqCheckRide"><b>5</b><div><strong>Commander Check Ride</strong><span>Demonstrate command under pressure and preserve human sovereignty.</span></div></div>
+</div>
+
+<div class="certStage" id="finalExamStage">
+  <div id="examIntro">
+    <span class="academyEyebrow">REQUIREMENT 3</span>
+    <h3>AIM-CP™ Final Certification Examination</h3>
+    <div class="examStandards"><span><b>50</b> questions</span><span><b>150</b> question bank</span><span><b>80%</b> passing</span><span><b>5</b> questions/module</span></div>
+    <p>Each attempt draws five questions from each Command Module and scrambles the answer order. Failed attempts do not reveal correct answers.</p>
+    <button class="primary" onclick="startCertificationExam()">START 50-QUESTION FINAL EXAM →</button>
+  </div>
+  <div id="certExamWorkspace"></div>
+</div>
+
+<div class="certStage practicalStage" id="practicalStage">
+  <span class="academyEyebrow">REQUIREMENT 4 · PRACTICAL APPLICATION</span>
+  <h3>Practical AIM™ Dx/Rx Assessment</h3>
+  <p class="stageLead">You are the AIM™ practitioner for <b>AP-AI-01</b>, an accounts-payable agent operating across ERP, AP workflow, and bank-connected payment services. Diagnose the authority that exists, then prescribe the governance architecture.</p>
+  <div class="caseFacts">
+    <div><b>Human Owner</b><span>CFO</span></div><div><b>Annual Spend</b><span>$120M</span></div><div><b>Volume</b><span>≈4,000 invoices/month</span></div><div><b>Connected Systems</b><span>ERP · AP · Bank</span></div>
+  </div>
+  <div class="caseBrief">
+    <b>Current effective authority</b>
+    <p>The agent can validate invoices, recommend approvals, initiate approved payment workflows, access vendor and payment data, and execute through connected production tools. It cannot independently change vendor banking data. High-value exceptions require human approval. Execution is fast and operates at enterprise scale.</p>
+  </div>
+  <div class="practicalStageActions">
+  <button class="primary" id="startPracticalBtn" onclick="startPracticalAssessment()">START PRACTICAL ASSESSMENT →</button>
+  <button class="secondary" onclick="retakePracticalAssessment()">↻ RETAKE PRACTICAL ASSESSMENT</button>
+</div>
+  <div id="practicalWorkspace"></div>
+</div>
+
+<div class="certStage checkRideStage" id="checkRideStage">
+  <span class="academyEyebrow">REQUIREMENT 5 · FINAL COMMAND TEST</span>
+  <h3>Commander Check Ride</h3>
+  <p class="stageLead">A five-stage executive crisis tests whether you preserve human command when urgency, delegation, drift, and apparent business value all push toward greater machine authority.</p>
+  <button class="primary" id="startCheckRideBtn" onclick="startCheckRide()">BEGIN COMMANDER CHECK RIDE →</button>
+  <div id="checkRideWorkspace"></div>
+</div>
+
+<div id="certificationAward"></div>
+<div class="credentialCenter" id="credentialCenter">
+  <div class="credentialHeader">
+    <span class="academyEyebrow">AIM-CP™ CREDENTIAL CENTER</span>
+    <h3>Candidate Profile · Certificate · Digital Badge · Verification</h3>
+    <p>Complete the candidate profile now. The AIM-CP™ credential becomes issuable only after all five certification requirements are complete.</p>
+  </div>
+
+  <div class="credentialGrid">
+    <div class="candidateProfile">
+      <h4>Candidate Profile</h4>
+      <label>Full Name<input id="credentialName" type="text" placeholder="Name as it should appear on certificate"></label>
+      <label>Email<input id="credentialEmail" type="email" placeholder="candidate@example.com"></label>
+      <label>Organization <span>(optional)</span><input id="credentialOrg" type="text" placeholder="Organization"></label>
+      <button class="primary" onclick="saveCredentialProfile()">SAVE CANDIDATE PROFILE</button>
+      <div id="profileStatus" class="profileStatus"></div>
+    </div>
+
+    <div class="credentialPreview" id="credentialPreview">
+      <div class="credentialLocked">
+        <div class="lockSeal">AIM-CP™</div>
+        <h4>Credential Preview</h4>
+        <p>Complete all five AIM-CP™ requirements to issue the certificate and digital badge.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="verificationPanel">
+    <div>
+      <span class="academyEyebrow">CREDENTIAL VERIFICATION</span>
+      <h4>Verify an AIM-CP™ Credential</h4>
+      <p>Enter a Certification ID issued by this training build. Production verification will move to the AIM™ Command Center server/database when deployed online.</p>
+    </div>
+    <div class="verifyControls">
+      <input id="verifyCredentialId" type="text" placeholder="AIM-CP-2026-XXXXX">
+      <button class="secondary" onclick="verifyCredential()">VERIFY CREDENTIAL</button>
+    </div>
+    <div id="verifyResult"></div>
+  </div>
+</div>
+</div></section>
+
+<section class="page" id="certificate"><div class="certificateOnlyPage">
+<div class="certificateOnlyHead"><span class="academyEyebrow">AIM™ COMMAND CENTER · CREDENTIAL</span><h2>AIM-CP™ Certificate</h2><p>Your earned credential, certificate, and verification information.</p></div>
+<div id="certificateOnlyContent"></div>
+<div class="certificateOnlyActions"><button class="secondary" onclick="go('academy')">← AIM™ ACADEMY</button></div>
+</div></section>
+<section class="page" id="admin"><div class="adminCenter">
+<div class="productionFoundation">
+  <div class="productionTitle"><span class="academyEyebrow">v4.0 · PRODUCTION FOUNDATION</span><h3>Identity, Roles & Production Readiness</h3><p>This build introduces the account and data architecture for the hosted AIM™ Command Center. Local mode remains available for prototype operation; production authentication and persistence are explicitly marked until a backend is connected.</p></div>
+  <div class="productionStatus">
+    <div><b>LOCAL</b><span>Current Data Mode</span></div><div><b>3</b><span>Defined Roles</span></div><div><b>READY</b><span>Database Schema</span></div><div><b>PENDING</b><span>Hosted Backend</span></div>
+  </div>
+  <div class="roleCards">
+    <div><strong>ADMIN</strong><p>Users, enrollment, credentials, reporting, status controls.</p></div>
+    <div><strong>INSTRUCTOR</strong><p>Learner progress, assessments, practical review, Check Ride oversight.</p></div>
+    <div><strong>STUDENT</strong><p>Assigned training, assessments, progress, earned credentials.</p></div>
+  </div>
+  <div class="productionFlow"><span>User Login</span><i>→</i><span>Role Dashboard</span><i>→</i><span>Academy / Dx / Rx</span><i>→</i><span>Server Progress</span><i>→</i><span>Certification Engine</span><i>→</i><span>Credential Registry</span><i>→</i><span>Public Verification</span></div>
+  <div class="productionActions"><button class="primary" onclick="openLoginExperience()">OPEN LOGIN & ROLE DASHBOARDS</button><button class="secondary" onclick="openProductionBlueprint()">VIEW PRODUCTION BLUEPRINT</button><button class="secondary" onclick="openBackendIntegration()">BACKEND & DATABASE SPEC</button><button class="secondary" onclick="openDeploymentPackage()">DEPLOYMENT PACKAGE</button><button class="secondary" onclick="openAccountPrototype()">ACCOUNT & ROLE PROTOTYPE</button></div>
+  <div id="productionWorkspace"></div>
+</div><div class="adminHero"><span class="academyEyebrow">AIM™ COMMAND CENTER · ADMINISTRATION</span><h2>Student & Certification Administration</h2><p>Manage enrollment, training progress, assessment records, and AIM-CP™ credentials from one administrative workspace.</p></div>
+<div class="adminMetrics" id="adminMetrics"></div>
+<div class="adminTabs">
+<button class="active" onclick="adminTab('students',this)">STUDENTS</button>
+<button onclick="adminTab('progress',this)">TRAINING PROGRESS</button>
+<button onclick="adminTab('credentials',this)">CREDENTIAL REGISTRY</button><button onclick="adminTab('elreview',this)">AIM-EL REVIEW</button>
+</div>
+<div id="adminStudents" class="adminPane active">
+<div class="adminSectionHead"><div><h3>Student Management</h3><p>Register and enroll candidates in AIM-CP™.</p></div><button class="primary" onclick="showStudentForm()">+ REGISTER STUDENT</button></div>
+<div id="studentForm" class="studentForm" style="display:none">
+<div class="formGrid"><label>Full Name<input id="studentName"></label><label>Email<input id="studentEmail" type="email"></label><label>Organization<input id="studentOrg"></label><label>Track<select id="studentTrack"><option>AIM-CP™ Certified Practitioner</option></select></label></div>
+<div class="formActions"><button class="primary" onclick="saveStudent()">SAVE & ENROLL</button><button class="secondary" onclick="hideStudentForm()">CANCEL</button></div></div>
+<div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Student</th><th>Organization</th><th>Enrollment</th><th>Status</th><th>Progress</th><th></th></tr></thead><tbody id="studentRows"></tbody></table></div>
+</div>
+<div id="adminProgress" class="adminPane">
+<div class="adminSectionHead"><div><h3>Training Progress</h3><p>Module, simulator, exam, practical, and Check Ride status.</p></div></div>
+<div id="progressCards"></div></div>
+<div id="adminCredentials" class="adminPane">
+<div class="adminSectionHead"><div><h3>Credential Registry</h3><p>Review issued AIM-CP™ credentials and manage their administrative status.</p></div></div>
+<div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Certification ID</th><th>Candidate</th><th>Issued</th><th>Status</th><th>Action</th></tr></thead><tbody id="credentialRows"></tbody></table></div></div>
+<div id="adminElreview" class="adminPane"><div id="aimElReviewWorkspace"></div></div>
+<div id="studentRecordOverlay"></div>
+</div></section>
+
+</main></div><script src="app.js"></script>
+<div id="howToModal" class="aimModal" aria-hidden="true">
+  <div class="aimModalCard">
+    <button class="modalClose" onclick="closeHowToUse()" aria-label="Close">×</button>
+    <div class="modalEyebrow">AIM™ Dx WORKFLOW</div>
+    <h2>How to Use the Authority Diagnostic</h2>
+    <div class="howSteps">
+      <div><b>1</b><span><strong>Describe the agent</strong><small>Name the agent, accountable human owner, and authorized purpose.</small></span></div>
+      <div><b>2</b><span><strong>Complete Objective Calibration</strong><small>Answer observable capability questions. Do not estimate a risk score.</small></span></div>
+      <div><b>3</b><span><strong>AIM™ derives the 11 evidence scores</strong><small>The evidence becomes the minimum defensible authority score for each dimension.</small></span></div>
+      <div><b>4</b><span><strong>Review the 11 dimensions</strong><small>You may raise a score when additional authority or consequence exists. Evidence floors prevent downward scoring.</small></span></div>
+      <div><b>5</b><span><strong>Calculate Final AAI</strong><small>AIM™ records Evidence-Based AAI, Final AAI, and any upward variance.</small></span></div>
+      <div><b>6</b><span><strong>Continue to AIM™ Rx</strong><small>Apply governance controls to reduce residual exposure without rewriting the underlying authority.</small></span></div>
+    </div>
+    <div class="modalPrinciple"><b>Core principle:</b> Controls may reduce residual exposure. They do not erase the authority the agent actually possesses.</div>
+  </div>
+</div>
+
+<button id="globalHelpBtn" class="globalHelpBtn" onclick="openGlobalHelp()">? <span>HELP</span></button>
+<div id="globalHelpModal" class="globalHelpModal"><div class="globalHelpCard"><div class="globalHelpHead"><div><b>AIM™ COMMAND CENTER</b><h2>Help & Formula Guide</h2><p>Plain-English explanations available from anywhere in the portal.</p></div><button onclick="closeGlobalHelp()">×</button></div><div class="helpTabs"><button onclick="helpTab('quick')">QUICK GUIDE</button><button onclick="helpTab('formula')">FORMULAS</button><button onclick="helpTab('rx')">RX / P1–P9</button><button onclick="helpTab('aghx')">A/G/H/X</button><button onclick="helpTab('terms')">TERMS</button></div><div id="helpBody" class="helpBody"></div></div></div></body></html>

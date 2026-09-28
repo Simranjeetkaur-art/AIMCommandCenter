@@ -1,0 +1,17 @@
+AIM Command Center v1.7.3 — Dx Render Repair
+
+ROOT CAUSE:
+The #questions HTML mount used by renderQ() was missing after Step 1 removal. The header displayed, but the 11 Dx controls had nowhere to render.
+
+FIX:
+Restored #questions directly below the 11-dimension assessment header and added a defensive render guard. Rx from v1.7.2 is preserved.
+
+QA:
+PASS — questions mount restored
+PASS — 11-dimension header retained
+PASS — one calculate button
+PASS — direct calculate wired
+PASS — dynamic selector template
+PASS — 11 dimensions array
+PASS — Rx heatmap retained
+PASS — Rx render hook retained

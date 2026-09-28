@@ -1,0 +1,14 @@
+AIM Command Center v2.4.1 — Assessment Results Runtime Fix
+
+PASS — single retake function
+PASS — score shown
+PASS — retake option
+PASS — lesson option
+PASS — next option
+PASS — failed next locked
+PASS — no destructive rerender after grade
+PASS — Module 9 preserved
+PASS — 80 percent pass
+PASS — JS syntax
+
+Root cause fixed: gradeModule() no longer calls renderAcademy() after inserting moduleResult.

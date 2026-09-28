@@ -1,0 +1,46 @@
+AIM™ Dx DEEP QA REPORT — v1.5 baseline with v2.9 main portal
+Scope: AIM Dx only. v1.5 visual structure retained; calculation workflow consolidated to one button.
+
+PASS — JavaScript syntax
+PASS — Exactly one visible Calculate button in AIM Dx — found 1
+PASS — Single Calculate uses orchestrator — <button id="calculateAIMDx" class="finalCalcTop" onclick="calculateAIMDxOnce()">Calculate AIM™ Dx</button>
+PASS — Preserve v1.5 structure: AIM™ Evidence-Based Assessment
+PASS — Preserve v1.5 structure: Review / Complete the 11 AIM™ Dimensions
+PASS — Preserve v1.5 structure: Evidence Floor Active:
+PASS — Preserve v1.5 structure: Score Comparison
+PASS — Preserve v1.5 structure: Authority Diagnostic
+PASS — No duplicate HTML IDs — []
+PASS — 11 AIM dimensions present
+PASS — Five scoring levels present
+PASS — AAI all-min boundary — 20.0
+PASS — AAI all-max boundary — 100.0
+PASS — Risk boundary 24.9 — Lower
+PASS — Risk boundary 25 — Moderate
+PASS — Risk boundary 49.9 — Moderate
+PASS — Risk boundary 50 — Elevated
+PASS — Risk boundary 74.9 — Elevated
+PASS — Risk boundary 75 — Critical
+PASS — Risk boundary 100 — Critical
+PASS — 20,000 randomized evidence mappings — all 11 scores remained 1–5 and AAI remained 20–100
+PASS — 10,000 evidence-floor/override cases — no final score below floor; valid upward overrides preserved
+PASS — Result renderer token #21bf67
+PASS — Result renderer token #ffc928
+PASS — Result renderer token #ff8124
+PASS — Result renderer token #ff334f
+PASS — Result renderer token state.scores.map
+PASS — Result renderer token v*20
+PASS — State/result path save();renderResult();deriveEvidenceScores()
+PASS — State/result path localStorage
+PASS — State/result path state.aai=aai
+PASS — State/result path state.scores=s
+PASS — Reset clears AAI
+PASS — Reset reseeds evidence
+
+Functional change:
+• One visible Calculate AIM™ Dx button remains.
+• Clicking it derives evidence scores, enforces evidence floors, preserves legitimate upward Step 2 adjustments, validates required identity fields, calculates Final AAI, saves state, and renders results.
+• Step 1 Calculate, Reapply Evidence Scores, Calculate Final AAI, and duplicate bottom Calculate buttons were removed.
+• Reset remains available and now resets/reseeds the full Dx assessment.
+
+Important methodology note:
+• With an eleven-dimension 1–5 scale, the mathematical minimum AAI is 20.0, not 0. The displayed exposure bands still use the manuscript-defined 0–24 / 25–49 / 50–74 / 75–100 ranges. This is internally consistent but means scores 0–19 are unreachable under the current formula.

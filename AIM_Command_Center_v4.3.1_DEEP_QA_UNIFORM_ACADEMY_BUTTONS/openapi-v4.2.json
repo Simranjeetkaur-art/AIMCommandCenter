@@ -1,0 +1,97 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AIM Command Center API",
+    "version": "4.2.0"
+  },
+  "servers": [
+    {
+      "url": "https://aimcommandcenter.com/api",
+      "description": "Production placeholder"
+    }
+  ],
+  "security": [
+    {
+      "sessionCookie": []
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "Authenticate user"
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "End session"
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "Current authenticated user"
+      }
+    },
+    "/students": {
+      "get": {
+        "summary": "List authorized learners"
+      },
+      "post": {
+        "summary": "Register learner and enrollment"
+      }
+    },
+    "/students/{id}/progress": {
+      "get": {
+        "summary": "Get authorized learner progress"
+      }
+    },
+    "/modules/{id}/attempts": {
+      "post": {
+        "summary": "Record server-validated module attempt"
+      }
+    },
+    "/simulator/progress": {
+      "post": {
+        "summary": "Record simulator progress"
+      }
+    },
+    "/exams/final/attempts": {
+      "post": {
+        "summary": "Submit and score final exam"
+      }
+    },
+    "/assessments/practical/attempts": {
+      "post": {
+        "summary": "Submit practical assessment"
+      }
+    },
+    "/checkride/attempts": {
+      "post": {
+        "summary": "Submit Commander Check Ride"
+      }
+    },
+    "/credentials/issue": {
+      "post": {
+        "summary": "Issue credential after server verifies all requirements"
+      }
+    },
+    "/credentials/{id}/status": {
+      "patch": {
+        "summary": "Admin credential status update"
+      }
+    },
+    "/audit": {
+      "get": {
+        "summary": "Query audit events"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "aim_session"
+      }
+    }
+  }
+}

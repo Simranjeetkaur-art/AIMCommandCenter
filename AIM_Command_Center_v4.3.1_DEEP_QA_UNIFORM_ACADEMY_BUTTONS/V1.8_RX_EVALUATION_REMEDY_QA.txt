@@ -1,0 +1,33 @@
+AIM Command Center v1.8 — Rx Evaluation & Remedy
+
+PRODUCT CHANGE:
+Rx is no longer a second assessment/control-tracking screen. It now automatically interprets the completed Dx and generates:
+1. Situation Analysis
+2. Top Exposure Drivers with explanations
+3. Recommended Remedy narrative
+4. Prioritized Action Plan
+5. Agent Modification Specification
+6. Recommended A/G/H/X boundaries
+7. Reassess After Changes instruction
+
+REMOVED FROM RX:
+- Planned / Implemented / Not Implemented dropdowns
+- Last Command checkboxes
+- Duplicate heat-map-first presentation
+
+METHODOLOGY:
+Rx does not lower or manipulate the current AAI. It recommends concrete changes to the agent's actual authority architecture. After implementation, the user reassesses the changed agent in Dx.
+
+QA:
+PASS — Dx HTML unchanged
+PASS — Rx has Situation Analysis
+PASS — Rx has Exposure Drivers
+PASS — Rx has Recommended Remedy
+PASS — Rx has prioritized Action Plan
+PASS — Rx has Agent Modification Specification
+PASS — Rx has A/G/H/X recommendation
+PASS — Rx has no planned/implemented dropdowns
+PASS — Rx has no Last Command checkboxes
+PASS — Rx dynamically uses all 11 scores
+PASS — Rx does not subtract from AAI
+PASS — Rx rerenders after Dx calculation

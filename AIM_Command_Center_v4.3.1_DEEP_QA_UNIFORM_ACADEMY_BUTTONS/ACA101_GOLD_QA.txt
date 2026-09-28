@@ -1,0 +1,21 @@
+AIM Command Center v4.3.1 — ACA-101 Gold Standard
+
+PASS — CP template restore retained
+PASS — CP 10 lessons retained
+PASS — CA 10 modules retained
+PASS — Admin test unlock
+PASS — Production prerequisite retained
+PASS — ACA101 objectives
+PASS — ACA101 architecture principle
+PASS — ACA101 worked case
+PASS — ACA101 design practice
+PASS — ACA101 10 questions
+PASS — ACA101 80% pass
+PASS — ACA101 retake
+PASS — ACA101 badge
+PASS — No answers on fail
+PASS — Final exam retained
+PASS — Simulator retained
+PASS — Practical retained
+PASS — Certificate-only retained
+PASS — JS syntax

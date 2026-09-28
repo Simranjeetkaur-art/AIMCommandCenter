@@ -1,0 +1,13 @@
+AIM Command Center v2.8 — Academy Layout + Simulator Placement
+
+PASS — Simulator follows module learning area
+PASS — Simulator before certification gate
+PASS — Simulator only once
+PASS — Centered learning layout
+PASS — Centered module list
+PASS — Simulator practice label
+PASS — 10 curriculum bands
+PASS — Academy navigation fix retained
+PASS — Mission shuffle retained
+PASS — Modules 1-10 retained
+PASS — JS syntax

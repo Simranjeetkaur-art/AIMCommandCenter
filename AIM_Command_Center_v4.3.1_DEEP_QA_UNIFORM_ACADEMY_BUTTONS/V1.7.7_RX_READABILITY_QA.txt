@@ -1,0 +1,15 @@
+AIM Command Center v1.7.7 — Rx Readability Update
+
+Scope: typography/readability ONLY. AIM Dx and all calculation/Rx logic are unchanged.
+
+QA:
+PASS — Dx HTML unchanged
+PASS — JavaScript unchanged
+PASS — Rx heading text enlarged
+PASS — Rx descriptions enlarged
+PASS — Heat-map labels and scores enlarged
+PASS — Control-priority text enlarged
+PASS — Prescription text and status controls enlarged
+PASS — A/G/H/X text enlarged
+PASS — Last Command text enlarged
+PASS — Help-box/example text enlarged

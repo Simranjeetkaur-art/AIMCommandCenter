@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIM Command Center v4.0 Production Data Model",
+  "description": "Database-ready logical schema. Prototype build remains local until backend connection.",
+  "entities": {
+    "users": [
+      "id",
+      "email",
+      "display_name",
+      "role",
+      "status",
+      "created_at",
+      "last_login_at"
+    ],
+    "enrollments": [
+      "id",
+      "user_id",
+      "program",
+      "enrolled_at",
+      "status"
+    ],
+    "module_attempts": [
+      "id",
+      "user_id",
+      "module_id",
+      "attempt",
+      "score",
+      "passed",
+      "completed_at"
+    ],
+    "simulator_progress": [
+      "id",
+      "user_id",
+      "missions_completed",
+      "last_mission",
+      "updated_at"
+    ],
+    "exam_attempts": [
+      "id",
+      "user_id",
+      "exam_type",
+      "attempt",
+      "score",
+      "passed",
+      "completed_at"
+    ],
+    "credentials": [
+      "id",
+      "user_id",
+      "credential_type",
+      "certification_id",
+      "issued_at",
+      "status",
+      "revoked_at",
+      "revocation_reason"
+    ],
+    "audit_events": [
+      "id",
+      "actor_user_id",
+      "event_type",
+      "object_type",
+      "object_id",
+      "created_at",
+      "metadata"
+    ]
+  },
+  "roles": {
+    "ADMIN": [
+      "manage_users",
+      "manage_enrollment",
+      "view_all_progress",
+      "manage_credentials",
+      "view_reports",
+      "manage_roles"
+    ],
+    "INSTRUCTOR": [
+      "view_assigned_learners",
+      "view_progress",
+      "review_practical",
+      "review_checkride"
+    ],
+    "STUDENT": [
+      "view_own_training",
+      "take_assessments",
+      "view_own_progress",
+      "view_own_credentials"
+    ]
+  }
+}

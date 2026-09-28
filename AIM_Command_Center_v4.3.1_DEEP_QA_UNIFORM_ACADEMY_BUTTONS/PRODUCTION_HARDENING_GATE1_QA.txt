@@ -1,0 +1,15 @@
+PASS — CA dev bypass removed
+PASS — CA UI strict
+PASS — EL strict active CA
+PASS — EL human approval gate
+PASS — admin review tab
+PASS — review pane
+PASS — reviewer required
+PASS — notes required
+PASS — dev cannot approve
+PASS — review schema
+PASS — status history schema
+PASS — EL credential retained
+PASS — CA retained
+PASS — CP retained
+PASS — syntax

@@ -1,0 +1,39 @@
+{
+  "version": "4.3",
+  "domain": "aimcommandcenter.com",
+  "recommended_stack": {
+    "frontend_host": "Vercel",
+    "database": "Supabase Postgres",
+    "authentication": "Supabase Auth",
+    "authorization": "RLS plus server-side RBAC",
+    "transactional_email": "Resend"
+  },
+  "environments": [
+    "development",
+    "preview",
+    "production"
+  ],
+  "server_only_secrets": [
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "DATABASE_URL",
+    "RESEND_API_KEY"
+  ],
+  "public_configuration": [
+    "PUBLIC_SUPABASE_URL",
+    "PUBLIC_SUPABASE_ANON_KEY",
+    "APP_BASE_URL"
+  ],
+  "launch_gates": [
+    "auth",
+    "rbac",
+    "rls",
+    "server_scoring",
+    "transactional_credential_issuance",
+    "audit",
+    "verification_privacy",
+    "backup_restore",
+    "email_domain",
+    "custom_domain_https",
+    "monitoring"
+  ]
+}

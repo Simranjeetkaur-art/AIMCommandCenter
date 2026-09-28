@@ -1,0 +1,11 @@
+AIM Command Center v4.1 — Login & User Experience
+
+Adds production UX prototypes for:
+- Secure-login entry screen (visual prototype; authentication intentionally not simulated as security)
+- Student dashboard
+- Instructor dashboard
+- Administrator dashboard
+- Role-specific metrics and next actions
+
+The role dashboards use existing local prototype records to demonstrate the finished experience.
+Production deployment must replace local identity/session state with hosted authentication and server-side authorization.

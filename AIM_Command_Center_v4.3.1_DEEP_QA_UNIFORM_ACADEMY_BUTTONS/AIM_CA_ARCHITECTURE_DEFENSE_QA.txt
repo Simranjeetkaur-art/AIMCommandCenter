@@ -1,0 +1,19 @@
+PASS — 10 board challenges
+PASS — Practical prerequisite
+PASS — 80 percent
+PASS — No answers on fail
+PASS — Defense persistence
+PASS — Credential eligibility
+PASS — All requirements verifier
+PASS — 10 module badges in verifier
+PASS — Final exam required
+PASS — Simulator required
+PASS — Practical required
+PASS — Defense required
+PASS — CA modules retained
+PASS — CA exam retained
+PASS — CA simulator retained
+PASS — CA practical retained
+PASS — CP retained
+PASS — Dedicated certificate
+PASS — JS syntax

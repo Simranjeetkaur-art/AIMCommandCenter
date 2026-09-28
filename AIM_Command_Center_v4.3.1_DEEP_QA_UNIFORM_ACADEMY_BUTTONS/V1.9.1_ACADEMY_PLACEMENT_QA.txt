@@ -1,0 +1,13 @@
+AIM Command Center v1.9.1 — Academy Placement / Formatting Fix
+
+PASS — JavaScript syntax
+PASS — One Academy screen
+PASS — Academy content contained only in Academy
+PASS — Academy hidden unless active
+PASS — Rx hidden unless active
+PASS — Module alignment corrected
+PASS — Mission buttons full width
+PASS — Dx preserved
+PASS — Dynamic Rx preserved
+
+Root cause: Academy markup from the prior build was structurally left in the Rx screen due to an incomplete section replacement. v1.9.1 isolates all Academy UI inside #academy and adds screen containment plus module/mission alignment corrections.

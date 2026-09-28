@@ -1,0 +1,11 @@
+AIM Command Center v3.0.3 — Final Exam Highlight
+
+PASS — Final exam card retained
+PASS — Dark final exam styling
+PASS — Final exam navigation retained
+PASS — Certification exam retained
+PASS — Practical retained
+PASS — Check Ride retained
+PASS — 10 modules retained
+PASS — 100 missions retained
+PASS — JS syntax

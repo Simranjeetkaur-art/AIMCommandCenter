@@ -1,0 +1,20 @@
+AIM Command Center v2.5 — Module 10 Practical Command Capstone
+
+PASS — Module 10 lesson
+PASS — Module 10 questions
+PASS — Module 10 route
+PASS — 10 modules retained
+PASS — Capstone full cycle
+PASS — AAI case
+PASS — Envelope
+PASS — AGHX
+PASS — Rx priorities
+PASS — Evidence/drift
+PASS — Last Command
+PASS — Assessment score workflow
+PASS — Clean review
+PASS — Button hierarchy
+PASS — Help retained
+PASS — Simulator retained
+PASS — Rx engine retained
+PASS — JS syntax

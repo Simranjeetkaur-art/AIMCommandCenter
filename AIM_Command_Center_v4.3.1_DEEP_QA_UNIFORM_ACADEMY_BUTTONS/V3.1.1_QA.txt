@@ -1,0 +1,16 @@
+AIM Command Center v3.1.1 — Practical Retake + Certificate Fix
+
+PASS — Permanent practical retake button
+PASS — Retake handler
+PASS — Practical answers cleared
+PASS — Certificate viewer replaces popup dependency
+PASS — Certificate print function
+PASS — Certificate close function
+PASS — Credential guard
+PASS — Credential ID displayed
+PASS — Final exam retained
+PASS — Practical retained
+PASS — Check Ride retained
+PASS — 100 missions retained
+PASS — 10 modules retained
+PASS — JS syntax

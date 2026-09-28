@@ -1,0 +1,20 @@
+AIM Command Center v2.4.3 — Actual Assessment Runtime Root Cause
+
+FOUND:
+gradeModule() called saveAcademy(s), but no saveAcademy() function existed anywhere
+in app.js. JavaScript therefore threw ReferenceError: saveAcademy is not defined
+immediately after calculating the score, before the result HTML was rendered.
+
+FIX:
+Added saveAcademy(s) with protected localStorage persistence. The score/result code
+can now continue and render the three learner choices.
+
+PASS — saveAcademy now defined
+PASS — grade calls defined saver
+PASS — DOM grading retained
+PASS — score output retained
+PASS — A retake retained
+PASS — B lesson retained
+PASS — C next retained
+PASS — Module 9 retained
+PASS — syntax

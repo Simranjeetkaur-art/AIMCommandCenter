@@ -1,0 +1,57 @@
+AIM™ COMMAND CENTER v1.8 — DEEP QA REPORT
+============================================================
+Tests run: 48
+Passed: 48
+Failed: 0
+
+PASS — JavaScript syntax
+PASS — Dx question mount
+PASS — Exactly one Dx Calculate button
+PASS — Step 1 remains removed
+PASS — 11 AIM dimensions
+PASS — AAI production formula :: Expected 100 × sum / 55
+PASS — Dx state stores scores
+PASS — Dx renders without refresh
+PASS — Optional portal updates isolated
+PASS — renderQ mount hardened
+PASS — renderResult mount hardened
+PASS — Approved four exposure bands
+PASS — Formula scenario all 1s :: 20.0, Lower Autonomy Exposure
+PASS — Formula scenario all 2s :: 40.0, Moderate Exposure
+PASS — Formula scenario all 3s :: 60.0, Elevated Exposure
+PASS — Formula scenario all 4s :: 80.0, Critical Control Attention
+PASS — Formula scenario all 5s :: 100.0, Critical Control Attention
+PASS — Formula scenario AP worked example :: 74.5, Elevated Exposure
+PASS — Exposure boundary 24.9 :: Lower Autonomy Exposure
+PASS — Exposure boundary 25 :: Moderate Exposure
+PASS — Exposure boundary 49.9 :: Moderate Exposure
+PASS — Exposure boundary 50 :: Elevated Exposure
+PASS — Exposure boundary 74.9 :: Elevated Exposure
+PASS — Exposure boundary 75 :: Critical Control Attention
+PASS — Rx output: Situation Analysis
+PASS — Rx output: Exposure Drivers
+PASS — Rx output: Remedy Narrative
+PASS — Rx output: Prioritized Action Plan
+PASS — Rx output: Modification Specification
+PASS — Rx output: A/G/H/X Boundaries
+PASS — Rx no implementation dropdowns
+PASS — Rx no Last Command checkboxes
+PASS — Rx consumes all 11 Dx scores
+PASS — Rx consumes Dx AAI
+PASS — Rx navigation refresh
+PASS — Rx dynamically ranks scores
+PASS — Rx creates remedies from elevated dimensions
+PASS — Rx uses agent name/owner/purpose
+PASS — Rx directs actual reassessment
+PASS — Rx states no score subtraction
+PASS — Rx help explains no second assessment
+PASS — A/G/H/X all generated
+PASS — Local HTML assets resolve
+PASS — Packaged asset aim_human_robot_hero_locked.png
+PASS — Packaged asset approved_dashboard_top.png
+PASS — Packaged asset dashboard_approved_reference.png
+PASS — Responsive Rx layout rule
+PASS — Readable Rx typography
+
+FINAL RESULT:
+PASS — No blocking defects found in this static, formula, state-flow, Rx-logic, and package-integrity regression suite.

@@ -1,0 +1,16 @@
+AIM Command Center v3.1 — Credential & Verification Center
+
+PASS — Credential Center installed
+PASS — Candidate profile installed
+PASS — Credential locked until complete
+PASS — Unique certification ID
+PASS — Digital badge
+PASS — Printable certificate
+PASS — Verification interface
+PASS — Server-side caution
+PASS — Final exam retained
+PASS — Practical retained
+PASS — Check Ride retained
+PASS — 100 missions retained
+PASS — 10 modules retained
+PASS — JS syntax

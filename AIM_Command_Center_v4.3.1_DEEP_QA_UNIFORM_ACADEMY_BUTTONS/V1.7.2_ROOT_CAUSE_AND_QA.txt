@@ -1,0 +1,13 @@
+ROOT CAUSE CONFIRMED
+The previous build still executed legacy Step-1 evidence functions after Step 1 had been removed. That could throw a JavaScript exception and freeze Dx. Rx also was not hooked into the portal's actual go() navigation function, so the dynamic heat map was not reliably rendered.
+
+FIXED
+- Dx Calculate no longer calls any Step-1 evidence function.
+- Startup no longer calls removed Step-1 UI.
+- Reset is independent of Step 1.
+- Exactly one Calculate AIM Dx button remains.
+- Rx is hooked directly into go('rx').
+- Rx reads the saved 11 Dx scores and AAI and renders the heat map every time Rx opens.
+- No Dx result: Rx clearly directs user back to Dx.
+- Dynamic heat map, top 3 concentrations, prescriptions, A/G/H/X, Last Command, status, and Help example are included.
+- JavaScript syntax and structural QA passed.

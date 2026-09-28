@@ -1,0 +1,15 @@
+AIM Command Center v1.9.5 — Academy Cosmetic / Simulator Relocation
+
+PASS — JS syntax
+PASS — Simulator above practitioner path
+PASS — Compact exam max width
+PASS — Correct answer green
+PASS — Wrong answer red
+PASS — Reveal correct on wrong
+PASS — Disable after answer
+PASS — Correct/incorrect labels
+PASS — Explanation retained
+PASS — Next mission retained
+PASS — Module 1 retained
+PASS — Badges retained
+PASS — Dynamic Rx retained

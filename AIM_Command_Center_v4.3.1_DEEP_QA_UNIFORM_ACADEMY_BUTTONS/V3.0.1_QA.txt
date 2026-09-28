@@ -1,0 +1,15 @@
+AIM Command Center v3.0.1 — Final Exam Academy Placement
+
+PASS — Final exam card exists
+PASS — Final exam below modules / before simulator
+PASS — Exam title visible
+PASS — 50 questions visible
+PASS — 80 percent visible
+PASS — 150 bank visible
+PASS — Academy exam navigation helper
+PASS — Certification exam retained
+PASS — Practical retained
+PASS — Check Ride retained
+PASS — 100 missions retained
+PASS — 10 modules retained
+PASS — JS syntax

@@ -1,0 +1,16 @@
+AIM Command Center v2.7
+
+Correct answer distribution after scrambling: {'A': 33, 'B': 15, 'C': 26, 'D': 26}
+Longest same-letter run: 2
+
+PASS — 100 missions
+PASS — scrambled across A-D
+PASS — no long answer block
+PASS — Academy click resets home
+PASS — module workspace hidden
+PASS — module catalog shown
+PASS — 10 simulator bands
+PASS — simulator stronger box
+PASS — modules 1-10 preserved
+PASS — assessment workflow preserved
+PASS — JS syntax

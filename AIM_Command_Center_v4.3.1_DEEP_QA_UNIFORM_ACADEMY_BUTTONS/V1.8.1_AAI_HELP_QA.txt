@@ -1,0 +1,14 @@
+AIM Command Center v1.8.1 — AAI Help Explanation
+
+Scope: Rx Help-box educational text only. No calculation or Rx logic changed.
+
+PASS — AAI formula shown in Rx Help
+PASS — 11 dimensions explained
+PASS — 1-to-5 scale explained
+PASS — 55 maximum explained
+PASS — worked example 33 -> 60
+PASS — not a safety grade
+PASS — not percent dangerous
+PASS — approved band wording
+PASS — Rx help still present
+PASS — JavaScript syntax

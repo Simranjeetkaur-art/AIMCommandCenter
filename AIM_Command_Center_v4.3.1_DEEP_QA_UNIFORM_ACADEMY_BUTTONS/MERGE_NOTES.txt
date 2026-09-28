@@ -1,0 +1,3 @@
+Original v1.5 is the baseline. Only the main dashboard/portal screen was transplanted from v2.9.
+The v1.5 AIM Dx markup, Step 1, Step 2, scoring logic, and app.js remain unchanged.
+No v2.9 Dx calculator logic was imported.

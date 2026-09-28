@@ -1,0 +1,3 @@
+AIM Command Center v1.9.4
+
+10 targeted simulator/regression checks: ALL PASS
